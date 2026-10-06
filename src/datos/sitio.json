@@ -1,0 +1,64 @@
+{
+  "nombre": "Aira",
+  "marca": "The Pilates House",
+  "eslogan": "One breath at a time",
+  "descripcion": "Aira, The Pilates House. Un refugio de calma donde la serenidad y el movimiento se encuentran. Reserva tu primera experiencia.",
+  "indexar": false,
+
+  "empresa": {
+    "_demo": true,
+    "razonSocial": "Aira Studio Pilates S.A.S.",
+    "nit": "000.000.000-0"
+  },
+
+  "contacto": {
+    "_demo": true,
+    "whatsapp": "573000000000",
+    "whatsappVisible": "+57 300 000 0000",
+    "correo": "hola@aira.example",
+    "mensajeReserva": "Hola Aira, me gustaría reservar mi primera experiencia.",
+    "direccion": {
+      "linea": "Calle 00 # 00-00, Local 000",
+      "ciudad": "Bogotá, Colombia",
+      "referencia": "Entrada por el lobby principal del edificio"
+    },
+    "horario": [
+      { "dias": "Lunes a viernes", "horas": "6:00 a. m. – 8:00 p. m." },
+      { "dias": "Sábados", "horas": "8:00 a. m. – 1:00 p. m." },
+      { "dias": "Domingos y festivos", "horas": "Cerrado" }
+    ],
+    "redes": [
+      { "nombre": "Instagram", "usuario": "@aira.thepilateshouse", "href": "https://www.instagram.com/" }
+    ]
+  },
+
+  "menu": [
+    { "id": "inicio", "texto": "Inicio", "href": "/" },
+    { "id": "la-casa", "texto": "La casa", "href": "/la-casa" },
+    { "id": "clases", "texto": "Clases", "href": "/clases" },
+    { "id": "membresia", "texto": "Membresía", "href": "/membresia" },
+    { "id": "contacto", "texto": "Contacto", "href": "/contacto" }
+  ],
+
+  "legales": [],
+
+  "ui": {
+    "irAlContenido": "Ir al contenido",
+    "abrirMenu": "Abrir menú",
+    "cerrarMenu": "Cerrar menú",
+    "menuPrincipal": "Menú principal",
+    "menuMovil": "Menú",
+    "irInicio": "ir al inicio",
+    "reservar": "Reservar",
+    "reservarWa": "Reservar por WhatsApp",
+    "escribirWa": "Escribir por WhatsApp",
+    "volverArriba": "Volver arriba",
+    "abreNuevaPestana": "se abre en una pestaña nueva"
+  },
+
+  "pie": {
+    "explorar": "Explorar",
+    "visitanos": "Visítanos",
+    "conecta": "Conecta"
+  }
+}

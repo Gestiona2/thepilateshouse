@@ -1,0 +1,80 @@
+{
+  "_demo": true,
+  "meta": {
+    "titulo": "Clases · Aira, The Pilates House",
+    "descripcion": "Clases de pilates reformer y mat de 50 minutos en Aira, para todos los niveles, con atención personalizada y grupos reducidos."
+  },
+
+  "encabezado": {
+    "etiqueta": "Clases",
+    "titulo": "Experiencia\ninmersiva",
+    "texto": "Cada clase es una pausa: respiración, control y movimiento con atención personalizada."
+  },
+
+  "lista": {
+    "items": [
+      {
+        "titulo": "Reformer Esencial",
+        "texto": "Los fundamentos del método sobre el reformer: respiración, alineación y centro. El mejor punto de partida.",
+        "duracion": "50 min",
+        "nivel": "Todos los niveles",
+        "imagen": "estudio-sala",
+        "alt": "Sala principal con reformers alineados bajo una línea de luz cálida",
+        "mensaje": "Hola Aira, quiero reservar una clase de Reformer Esencial."
+      },
+      {
+        "titulo": "Reformer Flow",
+        "texto": "Secuencias continuas y fluidas que enlazan movimiento y respiración. Calma activa, sin prisa.",
+        "duracion": "50 min",
+        "nivel": "Intermedio",
+        "imagen": "estudio-cortinas",
+        "alt": "Hilera de reformers frente a cortinas translúcidas",
+        "mensaje": "Hola Aira, quiero reservar una clase de Reformer Flow."
+      },
+      {
+        "titulo": "Reformer Sculpt",
+        "texto": "Mayor resistencia y control para trabajar el cuerpo con precisión, siempre desde el centro.",
+        "duracion": "50 min",
+        "nivel": "Intermedio · Avanzado",
+        "imagen": "estudio-pelotas",
+        "alt": "Esferas de pilates color crema apiladas junto a un reformer",
+        "mensaje": "Hola Aira, quiero reservar una clase de Reformer Sculpt."
+      },
+      {
+        "titulo": "Mat Serenidad",
+        "texto": "Trabajo de suelo con foco en la respiración, la movilidad y la conciencia del cuerpo.",
+        "duracion": "50 min",
+        "nivel": "Todos los niveles",
+        "imagen": "estudio-nichos",
+        "alt": "Nichos en arco iluminados junto a la recepción",
+        "mensaje": "Hola Aira, quiero reservar una clase de Mat Serenidad."
+      },
+      {
+        "titulo": "Sesión privada",
+        "texto": "Una hora para ti y tu instructora, con una práctica diseñada a tu medida.",
+        "duracion": "55 min",
+        "nivel": "A tu medida",
+        "imagen": "estudio-recepcion",
+        "alt": "Recepción de Aira con el logo en relieve",
+        "mensaje": "Hola Aira, quiero reservar una sesión privada."
+      }
+    ]
+  },
+
+  "pasos": {
+    "etiqueta": "Cómo reservar",
+    "titulo": "Tres respiros",
+    "items": [
+      { "numero": "01", "titulo": "Escríbenos", "texto": "Cuéntanos por WhatsApp qué clase te interesa." },
+      { "numero": "02", "titulo": "Elige tu horario", "texto": "Te proponemos los espacios disponibles y confirmas tu cupo." },
+      { "numero": "03", "titulo": "Llega y respira", "texto": "Ven diez minutos antes: nosotros nos encargamos del resto." }
+    ]
+  },
+
+  "cierre": {
+    "etiqueta": "Primera vez",
+    "titulo": "Empieza con una clase",
+    "texto": "Si es tu primera vez en Aira, te acompañamos desde el primer minuto.",
+    "boton": { "texto": "Reservar por WhatsApp", "tipo": "reserva", "variante": "solido" }
+  }
+}

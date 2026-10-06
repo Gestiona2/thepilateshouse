@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "titulo": "Contacto y reservas · Aira, The Pilates House",
+    "descripcion": "Reserva tu clase en Aira por WhatsApp. Encuentra la dirección, los horarios y las respuestas a las dudas más frecuentes antes de tu primera visita."
+  },
+
+  "encabezado": {
+    "etiqueta": "Contacto",
+    "titulo": "Reserva\ntu primera clase",
+    "texto": "La forma más simple de reservar es escribirnos por WhatsApp."
+  },
+
+  "reserva": {
+    "titulo": "Reserva por WhatsApp",
+    "texto": "Cuéntanos qué clase te interesa y te proponemos los horarios disponibles.",
+    "boton": { "texto": "Escribir por WhatsApp", "tipo": "reserva", "variante": "solido" }
+  },
+
+  "visita": {
+    "titulo": "Visítanos",
+    "etiquetas": { "direccion": "Dirección", "horario": "Horario", "correo": "Correo", "redes": "Redes" }
+  },
+
+  "mapa": {
+    "embedUrl": "",
+    "titulo": "Cómo llegar"
+  },
+
+  "faq": {
+    "_demo": true,
+    "etiqueta": "Antes de venir",
+    "titulo": "Preguntas frecuentes",
+    "items": [
+      { "pregunta": "¿Qué debo llevar a mi primera clase?", "respuesta": "Ropa cómoda y medias antideslizantes. Nosotros ponemos el resto: reformer, accesorios y toalla." },
+      { "pregunta": "¿Necesito experiencia previa?", "respuesta": "No. Las clases Reformer Esencial y Mat Serenidad están pensadas para todos los niveles, y te acompañamos desde el primer minuto." },
+      { "pregunta": "¿Con cuánta anticipación debo llegar?", "respuesta": "Te recomendamos llegar diez minutos antes para instalarte con calma y conocer el espacio." },
+      { "pregunta": "¿Cómo cancelo o cambio una reserva?", "respuesta": "Escríbenos por WhatsApp con al menos doce horas de anticipación y reprogramamos tu clase." }
+    ]
+  },
+
+  "cierre": {
+    "etiqueta": "Te esperamos",
+    "titulo": "Un respiro a la vez",
+    "texto": "Escríbenos cuando quieras: te respondemos con calma.",
+    "boton": { "texto": "Reservar por WhatsApp", "tipo": "reserva", "variante": "solido" }
+  }
+}
