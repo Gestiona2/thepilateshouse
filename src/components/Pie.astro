@@ -2,6 +2,7 @@
 import sitio from "../datos/sitio.json";
 import { ruta } from "../lib/ruta.js";
 import { enlaceWa } from "../lib/wa.js";
+import { tieneVisita, tieneConecta } from "../lib/visibilidad.js";
 const c = sitio.contacto;
 const wa = enlaceWa(c.whatsapp, c.mensajeReserva);
 const redes = (c.redes ?? []).filter((r) => r.href);
@@ -19,6 +20,7 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
       {sitio.menu.map((i) => <a href={ruta(i.href)}>{i.texto}</a>)}
     </nav>
 
+    {tieneVisita(c) && (
     <div class="pie__col">
       <h2 class="etiqueta">{sitio.pie.visitanos}</h2>
       {c.direccion?.linea && <p>{c.direccion.linea}<br />{c.direccion.ciudad}</p>}
@@ -26,18 +28,21 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
         <p>{c.horario.map((h) => <span class="pie__h">{h.dias}: {h.horas}</span>)}</p>
       )}
     </div>
+    )}
 
+    {tieneConecta(c) && (
     <div class="pie__col">
       <h2 class="etiqueta">{sitio.pie.conecta}</h2>
       {c.whatsappVisible && <a href={wa} target="_blank" rel="noopener">{c.whatsappVisible}<span class="sr-only"> ({sitio.ui.abreNuevaPestana})</span></a>}
       {c.correo && <a href={`mailto:${c.correo}`}>{c.correo}</a>}
       {redes.map((r) => <a href={r.href} target="_blank" rel="noopener">{r.nombre} {r.usuario}<span class="sr-only"> ({sitio.ui.abreNuevaPestana})</span></a>)}
     </div>
+    )}
   </div>
 
   <div class="contenedor pie__base">
     <p>&copy; {new Date().getFullYear()} {sitio.empresa.razonSocial}</p>
-    {legales.length > 0 && <nav aria-label="Legal">{legales.map((l) => <a href={ruta(l.href)}>{l.texto}</a>)}</nav>}
+    {legales.length > 0 && <nav aria-label={sitio.pie.legal}>{legales.map((l) => <a href={ruta(l.href)}>{l.texto}</a>)}</nav>}
   </div>
 </footer>
 

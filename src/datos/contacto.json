@@ -28,7 +28,8 @@
   },
   "mapa": {
     "embedUrl": "",
-    "titulo": "Cómo llegar"
+    "titulo": "Cómo llegar",
+    "alt": "Recepción de Aira con el logo en relieve sobre un muro curvo"
   },
   "faq": {
     "_demo": true,

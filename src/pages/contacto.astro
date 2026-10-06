@@ -7,6 +7,7 @@ import Foto from "../components/Foto.astro";
 import d from "../datos/contacto.json";
 import sitio from "../datos/sitio.json";
 import { enlaceWa } from "../lib/wa.js";
+import { tieneVisita, tieneConecta } from "../lib/visibilidad.js";
 
 const c = sitio.contacto;
 const reserva = enlaceWa(c.whatsapp, c.mensajeReserva);
@@ -26,6 +27,7 @@ const e = d.visita.etiquetas;
       {c.whatsappVisible && <p class="reserva__num etiqueta">{c.whatsappVisible}</p>}
     </div>
 
+    {(tieneVisita(c) || tieneConecta(c)) && (
     <div class="reserva__datos rev" style="--i:1">
       <h2 class="reserva__t">{d.visita.titulo}</h2>
       <dl>
@@ -35,11 +37,12 @@ const e = d.visita.etiquetas;
         {redes.length > 0 && (<><dt class="etiqueta">{e.redes}</dt><dd>{redes.map((r) => <a href={r.href} target="_blank" rel="noopener">{r.nombre} {r.usuario}<span class="sr-only"> ({sitio.ui.abreNuevaPestana})</span></a>)}</dd></>)}
       </dl>
     </div>
+    )}
 
     <div class="reserva__mapa rev" style="--i:2">
       {d.mapa.embedUrl
         ? <iframe src={d.mapa.embedUrl} title={d.mapa.titulo} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        : <Arco ratio="4 / 5"><Foto base="estudio-recepcion" alt="Recepción de Aira con el logo en relieve sobre un muro curvo" sizes="(min-width: 900px) 30vw, 80vw" /></Arco>}
+        : <Arco ratio="4 / 5"><Foto base="estudio-recepcion" alt={d.mapa.alt} sizes="(min-width: 900px) 30vw, 80vw" /></Arco>}
     </div>
   </section>
 

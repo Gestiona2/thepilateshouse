@@ -84,3 +84,9 @@ test("hay datos _demo marcados en los archivos con datos inventados", async () =
     assert.equal(n._demo, true, `${archivo} › ${ruta.join(".") || "(raíz)"} sin _demo`);
   }
 });
+
+test("contacto.mapa trae el alt de la foto de respaldo y sitio.pie el rótulo legal", async () => {
+  const c = await cargar("contacto.json");
+  assert.ok(c.mapa.alt && c.mapa.alt.length > 8, "falta mapa.alt");
+  assert.ok((await cargar("sitio.json")).pie.legal, "falta pie.legal");
+});
