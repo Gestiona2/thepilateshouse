@@ -1,0 +1,22 @@
+{
+  "name": "web-spaaira",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/",
+    "assets": "node scripts/preparar-assets.mjs",
+    "revisar-demo": "node scripts/revisar-demo.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "astro": "^7.0.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

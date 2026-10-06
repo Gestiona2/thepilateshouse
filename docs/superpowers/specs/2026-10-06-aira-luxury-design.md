@@ -57,10 +57,7 @@ Editorial claro con momentos espresso. Lujo por contención.
 - **Motivo:** arco (tarjeta VIP, mostrador del estudio). Las fotos se recortan en arco.
   El isotipo `. ‿ .` actúa como separador.
 - **Fotografía:** a sangre, grande, con aire alrededor. Sin filtros ni overlays pesados.
-- **Movimiento:** apariciones lentas, parallax entre 0.05 y 0.12 en una sola pieza por
-  vista. Respeta `prefers-reduced-motion`. Patrones de `conocimiento/animaciones.md`
-  adaptados; **no** se usa la técnica de cortina con `clip-path` (dejó una galería vacía
-  en `web-aira`).
+- **Movimiento:** apariciones lentas y parallax de ±28 px con `requestAnimationFrame` en una sola pieza por vista (sin GSAP). Respeta `prefers-reduced-motion`. **No** se usa la técnica de cortina con `clip-path` (dejó una galería vacía en `web-aira`).
 - **Evitar:** dorados, gradientes decorativos, sombras pesadas, iconos de relleno, y
   cualquier adorno que no venga del brand guide.
 
@@ -72,7 +69,7 @@ Editorial claro con momentos espresso. Lujo por contención.
 | `/la-casa` | Storytelling, propósito, atributos/valores, galería de espacios | `la-casa.json` |
 | `/clases` | Introducción de marca + lista de clases leída del JSON | `clases.json` |
 | `/membresia` | Tarjeta VIP (mockup) + introducción + planes leídos del JSON | `membresia.json` |
-| `/contacto` | Reserva por WhatsApp, dirección, horarios, mapa | `contacto.json` |
+| `/contacto` | Reserva por WhatsApp, dirección, horarios, mapa solo si hay `mapa.embedUrl` (si no, tarjeta con foto) | `contacto.json` |
 | `/404` | Mensaje breve con retorno al inicio | — |
 
 Datos compartidos (menú, WhatsApp, redes, legales): `sitio.json`.
@@ -91,9 +88,8 @@ razón social; entran en `PENDIENTES.md` hasta entonces.
 - **Fuentes:** `.otf` → `woff2`, en `public/fonts/`, con `font-display: swap`.
 - **Imágenes:** originales (3888×5184) a WebP en varios anchos con `srcset`; `alt`
   descriptivo; la de portada con prioridad de carga, el resto `loading="lazy"`.
-- **Animación:** GSAP + ScrollTrigger solo para portada y piezas protagonistas;
-  IntersectionObserver en CSS para el resto, con escalonado. Nunca los dos sobre un mismo
-  nodo.
+- **Animación:** IntersectionObserver + CSS con escalonado, y un parallax propio con `requestAnimationFrame`. Sin GSAP: el sitio solo necesita un efecto y la librería pesa ~50 KB.
+- **Tema:** solo claro; sin conmutador de tema oscuro (la marca es marfil y la fotografía es clara).
 - **Reserva:** enlaces `wa.me` generados desde `sitio.json`; sin carrito, sin formulario
   con backend, sin claves en el navegador.
 - **SEO:** `<title>` y `description` por página, Open Graph, `sitemap`, `lang="es"`.
