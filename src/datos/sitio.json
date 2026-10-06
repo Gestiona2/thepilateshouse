@@ -2,7 +2,7 @@
   "nombre": "Aira",
   "marca": "The Pilates House",
   "eslogan": "One breath at a time",
-  "descripcion": "Aira, The Pilates House. Un refugio de calma donde la serenidad y el movimiento se encuentran. Reserva tu primera experiencia.",
+  "descripcion": "Aira, The Pilates House en Medellín. Un refugio de calma donde la serenidad y el movimiento se encuentran. Reserva tu primera experiencia.",
   "indexar": false,
   "empresa": {
     "_demo": true,
@@ -17,7 +17,7 @@
     "mensajeReserva": "Hola Aira, me gustaría reservar mi primera experiencia.",
     "direccion": {
       "linea": "Calle 00 # 00-00, Local 000",
-      "ciudad": "Bogotá, Colombia",
+      "ciudad": "Medellín, Colombia",
       "referencia": "Entrada por el lobby principal del edificio"
     },
     "horario": [

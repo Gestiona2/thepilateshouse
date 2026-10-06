@@ -2,7 +2,7 @@
 
 ## El negocio
 
-**Aira, The Pilates House** es un estudio de pilates reformer y mat. Su propósito de marca:
+**Aira, The Pilates House** es un estudio de pilates reformer y mat ubicado en **Medellín, Colombia**. Su propósito de marca:
 *propiciar la serenidad mental, el balance físico y espiritual mediante una experiencia
 sensorial consciente.* Atributos: integral, minimalista, exclusivo. Valores: serenidad,
 conexión mente cuerpo, bienestar. Eslóganes de marca: **The Pilates House**, **One breath

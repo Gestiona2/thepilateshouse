@@ -11,7 +11,7 @@ mientras quede alguno.
 | `sitio.json › empresa` | Razón social "Aira Studio Pilates S.A.S." y NIT `000.000.000-0` | Razón social y NIT reales |
 | `sitio.json › contacto.whatsapp` / `whatsappVisible` | `573000000000` / `+57 300 000 0000` | WhatsApp real de Aira |
 | `sitio.json › contacto.correo` | `hola@aira.example` | Correo real |
-| `sitio.json › contacto.direccion` | `Calle 00 # 00-00, Local 000`, Bogotá, y la referencia de entrada | Dirección y ciudad reales |
+| `sitio.json › contacto.direccion` | `Calle 00 # 00-00, Local 000` y la referencia de entrada (la ciudad, **Medellín, Colombia**, ya está confirmada por el usuario) | Dirección real en Medellín (barrio y número) |
 | `sitio.json › contacto.horario` | Lunes a viernes 6:00 a 20:00, sábados 8:00 a 13:00, domingos cerrado | Horarios reales |
 | `sitio.json › contacto.redes` | Instagram `@aira.thepilateshouse` apuntando a instagram.com | Redes reales |
 | `sitio.json › contacto.mensajeReserva` | Texto del mensaje que llega a WhatsApp | Revisar con Aira |

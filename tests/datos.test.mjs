@@ -90,3 +90,14 @@ test("contacto.mapa trae el alt de la foto de respaldo y sitio.pie el rótulo le
   assert.ok(c.mapa.alt && c.mapa.alt.length > 8, "falta mapa.alt");
   assert.ok((await cargar("sitio.json")).pie.legal, "falta pie.legal");
 });
+
+test("el estudio queda en Medellín: ni en datos ni en la documentación aparece otra ciudad", async () => {
+  const s = await cargar("sitio.json");
+  assert.match(s.contacto.direccion.ciudad, /Medellín/);
+  assert.match(s.descripcion, /Medellín/);
+  const raiz = fileURLToPath(new URL("../", import.meta.url));
+  const revisar = [dir + "inicio.json", dir + "contacto.json", dir + "sitio.json", raiz + "PENDIENTES.md", raiz + "PRODUCT.md", raiz + "AGENTS.md", raiz + "TUTORIAL.md", raiz + "README.md"];
+  for (const d of await readdir(raiz + "conocimiento_generado")) revisar.push(raiz + "conocimiento_generado/" + d);
+  for (const f of revisar) assert.ok(!/Bogot/i.test(await readFile(f, "utf8")), `${f} menciona Bogotá`);
+  assert.match(await readFile(raiz + "conocimiento_generado/SITIO.md", "utf8"), /Medellín/);
+});

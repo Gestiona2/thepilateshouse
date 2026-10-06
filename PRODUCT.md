@@ -3,7 +3,7 @@
 register: brand
 
 ## Qué es
-Sitio informativo y de reserva (por WhatsApp) de un estudio de pilates reformer. Su trabajo es transmitir calma y exclusividad y llevar a la persona a reservar su primera clase.
+Sitio informativo y de reserva (por WhatsApp) de un estudio de pilates reformer en Medellín, Colombia. Su trabajo es transmitir calma y exclusividad y llevar a la persona a reservar su primera clase.
 
 ## Usuarias
 Mujeres y hombres urbanos que buscan bienestar de alta calidad y atención personalizada. Llegan desde el celular, casi siempre desde Instagram o una recomendación. Deciden por sensación: luz, aire, orden.
