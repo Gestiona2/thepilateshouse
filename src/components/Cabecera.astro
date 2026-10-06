@@ -39,15 +39,15 @@ const reservar = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva
 </header>
 
 <style>
-  .cab { position: sticky; top: 0; z-index: 50; background: rgba(246, 245, 227, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color 0.4s var(--ease); }
+  .cab { position: sticky; top: 0; z-index: 50; background: rgba(246, 245, 227, 0.97); border-bottom: 1px solid transparent; transition: border-color 0.4s var(--ease); }
   .cab.bajado { border-bottom-color: var(--linea); }
   .cab__in { height: var(--nav-h); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
   .cab__logo img { height: 44px; width: auto; }
   .cab__nav { display: none; align-items: center; gap: 2rem; }
   .cab__nav--der { justify-content: flex-end; }
   .cab__nav nav { display: flex; gap: 2rem; }
-  .cab a:not(.cab__logo):not(.cab__cta) { font-family: var(--font-etiqueta); font-weight: 400; font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding-block: 0.5rem; background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size 0.5s var(--ease); }
-  .cab a:not(.cab__logo):not(.cab__cta):hover, .cab a[aria-current="page"] { background-size: 100% 1px; }
+  .cab__nav a:not(.cab__cta) { font-family: var(--font-etiqueta); font-weight: 400; font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding-block: 0.5rem; background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size 0.5s var(--ease); }
+  .cab__nav a:not(.cab__cta):hover, .cab__nav a[aria-current="page"] { background-size: 100% 1px; }
   .cab__cta { font-family: var(--font-etiqueta); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--espresso); border-radius: 999px; padding: 0.7rem 1.4rem; transition: background 0.4s var(--ease), color 0.4s var(--ease); }
   .cab__cta:hover { background: var(--espresso); color: var(--marfil); }
 
