@@ -9,7 +9,7 @@ exclusividad y calma ("luxury") y llevar a la persona a reservar por WhatsApp. N
 nada de `web-aira`.
 
 Éxito = (a) fiel al brand guide de AM Studio 2024, (b) se siente editorial y de lujo en
-celular de 320 px y en escritorio, (c) no contiene un solo dato inventado, (d) cada texto
+celular de 320 px y en escritorio, (c) los datos inventados están todos marcados y no pueden publicarse por error, (d) cada texto
 se edita desde `src/datos/` sin tocar el diseño.
 
 ## 2. Insumos y qué aportan
@@ -29,7 +29,7 @@ Ruta: `MEGA/CLIENTES POSIBLES/AIRA STUDIO PILATES/insumos web/`
 contenido del sitio y no se usa.
 
 **Lo que no existe en los insumos:** WhatsApp, dirección, horarios, precios, listado de
-clases, equipo, testimonios, redes. Ninguno se inventa (ver §7).
+clases, equipo, testimonios, redes. Se inventan solo para la demo, marcados (ver §7).
 
 ## 3. Marca
 
@@ -99,19 +99,32 @@ razón social; entran en `PENDIENTES.md` hasta entonces.
 - **SEO:** `<title>` y `description` por página, Open Graph, `sitemap`, `lang="es"`.
 - **Módulos opcionales** (blog con IA, Telegram): apagados.
 
-## 7. Datos faltantes — regla de marcador
+## 7. Datos de demostración (decisión del usuario, 2026-10-06)
 
-Ningún valor ausente se inventa. Cada hueco se muestra con un marcador **visible y
-honesto** y se registra en `PENDIENTES.md`:
+Los insumos no traen WhatsApp, dirección, horarios, precios, clases, equipo ni redes. Para
+poder **mostrar el sitio completo**, el usuario autorizó inventar datos de ejemplo. Esto
+reemplaza la regla "no inventar" solo para esta etapa de demo, y se controla así:
 
-- WhatsApp: `573000000000` provisional, señalado como tal; los CTAs funcionan al
-  reemplazarlo.
-- Dirección, horarios, redes: campos vacíos en `sitio.json`; la interfaz oculta el bloque
-  o muestra "Escríbenos por WhatsApp" hasta que haya dato.
-- Clases y Membresía: introducción fiel a la marca + bloque "Consulta por WhatsApp" hasta
-  que haya listado y precios reales. Agregar una clase = agregar una entrada al JSON.
-- Testimonios y cifras: no se incluyen.
-- Imágenes que falten: SVG local o `placehold.co` con la medida correcta, anotado.
+- **Verosímiles y coherentes con la marca:** clases de pilates reformer/mat, planes de
+  membresía, horarios, dirección y redes de ejemplo. Tono de lujo y calma, sin cifras
+  médicas ni promesas de resultados.
+- **Etiquetados en el dato:** todo valor inventado vive en `src/datos/` con
+  `"_demo": true` en su bloque. Nada inventado queda escrito en un `.astro`.
+- **Registro único:** `PENDIENTES.md` lista cada dato inventado, a qué página afecta y
+  qué dato real lo reemplaza.
+- **Revisor antes de publicar:** `scripts/revisar-demo.mjs` recorre `src/datos/` y falla
+  si queda algún `_demo: true`. Se corre antes de cualquier publicación; el sitio no sale
+  a producción con datos de ejemplo.
+- **WhatsApp:** número falso reconocible (`573000000000`), para que ningún cliente real
+  escriba a un tercero por error.
+- **Precios y planes:** valores de ejemplo en COP, marcados como demo.
+- **Dirección y teléfono:** ficticios y reconocibles; no se usa ninguna dirección real.
+- **Sin testimonios, cifras de resultados ni premios.** Son afirmaciones sobre terceros o
+  sobre el negocio que no se pueden marcar como "ejemplo" sin que parezcan reales. Si los
+  quieres también en la demo, dímelo.
+- **`AGENTS.md` del sitio** advierte que los datos son de demostración y que no se deben
+  tratar como reales.
+- Imágenes que falten: SVG local o `placehold.co`, anotado.
 
 ## 8. Verificación (antes de decir "listo")
 
@@ -120,7 +133,7 @@ honesto** y se registra en `PENDIENTES.md`:
    `conocimiento/verificacion-responsive.md`).
 3. Contraste AA en todo texto; foco visible; navegación por teclado.
 4. `prefers-reduced-motion` probado: todo visible y sin movimiento.
-5. Ningún texto fuera de `src/datos/`; ningún `{{marcador}}` sin reemplazar.
+5. Ningún texto fuera de `src/datos/`; ningún `{{marcador}}` sin reemplazar; `revisar-demo` lista todos los datos de ejemplo.
 6. Lighthouse móvil: rendimiento y accesibilidad ≥ 95.
 
 ## 9. Documentación y entrega (se escribe mientras se construye)
