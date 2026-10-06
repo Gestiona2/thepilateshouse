@@ -81,3 +81,13 @@ test("inicio: portada con h1 de datos, 3 pilares y banda de cita", async () => {
   assert.equal((h.match(/fetchpriority="high"/g) || []).length, 1, "solo la foto de portada es prioritaria");
   assert.ok(h.includes("https://wa.me/573000000000?text="), "botón de reserva por WhatsApp");
 });
+
+test("la-casa: historia completa, esencia en 3 columnas y 6 fotos de galería", async () => {
+  const d = JSON.parse(await readFile(join(raiz, "src/datos/la-casa.json"), "utf8"));
+  const h = await readFile(join(dist, "la-casa/index.html"), "utf8");
+  for (const l of d.historia.lineas) assert.ok(h.includes(l), `falta línea: ${l}`);
+  assert.ok(h.includes(d.proposito.texto));
+  for (const c of d.esencia.columnas) { assert.ok(h.includes(c.etiqueta)); for (const i of c.items) assert.ok(h.includes(i)); }
+  for (const g of d.galeria.items) assert.ok(h.includes(g.alt), `falta foto: ${g.imagen}`);
+  assert.match(h, /aria-current="page"[^>]*>La casa/);
+});

@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Encabezado from "../components/Encabezado.astro";
+import Separador from "../components/Separador.astro";
+import Foto from "../components/Foto.astro";
+import Arco from "../components/Arco.astro";
+import Boton from "../components/Boton.astro";
+import d from "../datos/la-casa.json";
+import sitio from "../datos/sitio.json";
+import { enlaceWa } from "../lib/wa.js";
+import { ruta } from "../lib/ruta.js";
+
+const reserva = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva);
+---
+<Layout titulo={d.meta.titulo} descripcion={d.meta.descripcion} activa="la-casa">
+  <section class="seccion cabecera-pagina">
+    <div class="contenedor"><Encabezado nivel={1} etiqueta={d.encabezado.etiqueta} titulo={d.encabezado.titulo} texto={d.encabezado.texto} alinear="centro" /></div>
+  </section>
+
+  <section class="historia">
+    <div class="contenedor historia__in">
+      <Separador />
+      {d.historia.lineas.map((l, i) => <p class="historia__linea rev" style={`--i:${i % 2}`}>{l}</p>)}
+    </div>
+  </section>
+
+  <section class="seccion proposito">
+    <div class="contenedor proposito__in">
+      <p class="etiqueta rev">{d.proposito.etiqueta}</p>
+      <p class="proposito__texto rev" style="--i:1">{d.proposito.texto}</p>
+    </div>
+  </section>
+
+  <section class="seccion esencia banda">
+    <div class="contenedor esencia__grid" data-stagger>
+      {d.esencia.columnas.map((c) => (
+        <div class="col rev">
+          <p class="etiqueta">{c.etiqueta}</p>
+          <h2 class="col__titulo">{c.titulo}</h2>
+          <ul>{c.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="seccion galeria">
+    <div class="contenedor">
+      <Encabezado titulo={d.galeria.titulo} alinear="centro" />
+      <div class="galeria__grid">
+        {d.galeria.items.map((f, i) => (
+          <figure class={`gal gal--${i + 1} rev`}>
+            <Arco ratio="3 / 4"><Foto base={f.imagen} alt={f.alt} sizes="(min-width: 900px) 30vw, 45vw" /></Arco>
+            <figcaption class="etiqueta">{f.leyenda}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion cierre">
+    <div class="contenedor cierre__in">
+      <img class="rev" src={ruta("/brand/logo-eslogan-espresso.png")} alt={sitio.eslogan} width="320" height="108" loading="lazy" />
+      <Encabezado titulo={d.cierre.titulo} texto={d.cierre.texto} alinear="centro" />
+      <div class="rev"><Boton texto={d.cierre.boton.texto} href={reserva} variante="solido" externo /></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cabecera-pagina { padding-bottom: clamp(32px, 5vw, 64px); }
+  .historia__in { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); justify-items: center; text-align: center; padding-block: clamp(24px, 4vw, 48px) clamp(64px, 9vw, 120px); }
+  .historia__linea { margin: 0; max-width: 30ch; font-weight: 100; font-size: clamp(1.7rem, 1rem + 2.6vw, 2.75rem); line-height: 1.22; overflow-wrap: break-word; }
+  .proposito__in { display: grid; gap: 1.25rem; max-width: 880px; }
+  .proposito__texto { margin: 0; font-size: clamp(1.15rem, 1rem + 0.9vw, 1.6rem); line-height: 1.55; }
+
+  .esencia__grid { display: grid; gap: 3rem; }
+  .col { display: grid; gap: 0.9rem; align-content: start; padding-top: 1.5rem; border-top: 1px solid rgba(246, 245, 227, 0.32); }
+  .col__titulo { margin: 0; font-weight: 100; font-size: clamp(2.125rem, 1.6rem + 1.6vw, 2.75rem); line-height: 1.1; }
+  .col ul { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.6rem; font-size: 1.125rem; }
+
+  .galeria__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 36px); margin-top: clamp(40px, 6vw, 80px); align-items: start; }
+  .gal { margin: 0; display: grid; gap: 0.8rem; }
+  .gal:nth-child(even) { margin-top: clamp(24px, 7vw, 88px); }
+
+  .cierre__in { display: grid; gap: 2rem; justify-items: center; text-align: center; }
+  .cierre__in img { width: min(320px, 80%); height: auto; }
+
+  @media (min-width: 900px) {
+    .esencia__grid { grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+    .galeria__grid { grid-template-columns: repeat(3, 1fr); }
+    .gal:nth-child(even) { margin-top: 0; }
+    .gal:nth-child(3n + 2) { margin-top: clamp(40px, 6vw, 96px); }
+  }
+</style>
