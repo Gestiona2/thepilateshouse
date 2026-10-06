@@ -14,7 +14,7 @@ async function htmls(dir = dist) {
   for (const e of await readdir(dir, { withFileTypes: true })) {
     const p = join(dir, e.name);
     if (e.isDirectory()) salida.push(...(await htmls(p)));
-    else if (e.name.endsWith(".html")) salida.push(p);
+    else if (e.name.endsWith(".html") && !e.name.startsWith("_")) salida.push(p);
   }
   return salida;
 }
