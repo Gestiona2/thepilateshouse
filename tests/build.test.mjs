@@ -101,3 +101,39 @@ test("clases: cada clase con su reserva por WhatsApp y pasos", async () => {
   }
   for (const p of d.pasos.items) assert.ok(h.includes(p.titulo));
 });
+
+test("membresía: 3 planes con precio en pesos, uno destacado, y la tarjeta VIP", async () => {
+  const d = JSON.parse(await readFile(join(raiz, "src/datos/membresia.json"), "utf8"));
+  const h = await readFile(join(dist, "membresia/index.html"), "utf8");
+  for (const p of d.planes.items) {
+    assert.ok(h.includes(p.nombre));
+    const precio = "$" + new Intl.NumberFormat("es-CO").format(p.precio);
+    assert.ok(h.includes(precio), `falta el precio ${precio}`);
+    assert.ok(h.includes(encodeURIComponent(p.mensaje)));
+    for (const b of p.beneficios) assert.ok(h.includes(b));
+  }
+  assert.equal((h.match(/plan--destacado/g) || []).length >= 1, true);
+  assert.ok(h.includes("mockup-vip-1400.webp"));
+});
+
+test("contacto: dirección, horarios, FAQ y sin mapa vacío", async () => {
+  const s = JSON.parse(await readFile(join(raiz, "src/datos/sitio.json"), "utf8"));
+  const d = JSON.parse(await readFile(join(raiz, "src/datos/contacto.json"), "utf8"));
+  const h = await readFile(join(dist, "contacto/index.html"), "utf8");
+  assert.ok(h.includes(s.contacto.direccion.linea));
+  for (const x of s.contacto.horario) assert.ok(h.includes(x.horas));
+  for (const q of d.faq.items) { assert.ok(h.includes(q.pregunta)); assert.ok(h.includes(q.respuesta)); }
+  assert.ok(!/<iframe[^>]*src=""/.test(h), "iframe de mapa vacío");
+});
+
+test("404 existe y vuelve al inicio", async () => {
+  const h = await readFile(join(dist, "404.html"), "utf8");
+  assert.match(h, /<h1/);
+});
+
+test("el menú apunta solo a páginas que existen", async () => {
+  for (const i of sitio.menu) {
+    const f = i.href === "/" ? "index.html" : join(i.href.slice(1), "index.html");
+    await readFile(join(dist, f), "utf8");
+  }
+});

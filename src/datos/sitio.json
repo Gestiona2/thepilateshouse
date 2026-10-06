@@ -87,5 +87,10 @@
     "explorar": "Explorar",
     "visitanos": "Visítanos",
     "conecta": "Conecta"
+  },
+  "noEncontrada": {
+    "titulo": "Esta página\nse fue a respirar",
+    "texto": "No encontramos lo que buscas. Vuelve al inicio y sigue el recorrido.",
+    "boton": "Volver al inicio"
   }
 }

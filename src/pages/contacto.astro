@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Encabezado from "../components/Encabezado.astro";
+import Boton from "../components/Boton.astro";
+import Arco from "../components/Arco.astro";
+import Foto from "../components/Foto.astro";
+import d from "../datos/contacto.json";
+import sitio from "../datos/sitio.json";
+import { enlaceWa } from "../lib/wa.js";
+
+const c = sitio.contacto;
+const reserva = enlaceWa(c.whatsapp, c.mensajeReserva);
+const redes = (c.redes ?? []).filter((r) => r.href);
+const e = d.visita.etiquetas;
+---
+<Layout titulo={d.meta.titulo} descripcion={d.meta.descripcion} activa="contacto">
+  <section class="seccion cabecera-pagina">
+    <div class="contenedor"><Encabezado nivel={1} etiqueta={d.encabezado.etiqueta} titulo={d.encabezado.titulo} texto={d.encabezado.texto} alinear="centro" /></div>
+  </section>
+
+  <section class="contenedor reserva">
+    <div class="reserva__wa rev">
+      <h2 class="reserva__t">{d.reserva.titulo}</h2>
+      <p class="lead">{d.reserva.texto}</p>
+      <Boton texto={d.reserva.boton.texto} href={reserva} variante="solido" externo />
+      {c.whatsappVisible && <p class="reserva__num etiqueta">{c.whatsappVisible}</p>}
+    </div>
+
+    <div class="reserva__datos rev" style="--i:1">
+      <h2 class="reserva__t">{d.visita.titulo}</h2>
+      <dl>
+        {c.direccion?.linea && (<><dt class="etiqueta">{e.direccion}</dt><dd>{c.direccion.linea}<br />{c.direccion.ciudad}{c.direccion.referencia && <><br /><span class="suave">{c.direccion.referencia}</span></>}</dd></>)}
+        {c.horario?.length > 0 && (<><dt class="etiqueta">{e.horario}</dt><dd>{c.horario.map((h) => <span class="hora"><span>{h.dias}</span><span>{h.horas}</span></span>)}</dd></>)}
+        {c.correo && (<><dt class="etiqueta">{e.correo}</dt><dd><a href={`mailto:${c.correo}`}>{c.correo}</a></dd></>)}
+        {redes.length > 0 && (<><dt class="etiqueta">{e.redes}</dt><dd>{redes.map((r) => <a href={r.href} target="_blank" rel="noopener">{r.nombre} {r.usuario}<span class="sr-only"> ({sitio.ui.abreNuevaPestana})</span></a>)}</dd></>)}
+      </dl>
+    </div>
+
+    <div class="reserva__mapa rev" style="--i:2">
+      {d.mapa.embedUrl
+        ? <iframe src={d.mapa.embedUrl} title={d.mapa.titulo} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        : <Arco ratio="4 / 5"><Foto base="estudio-recepcion" alt="Recepción de Aira con el logo en relieve sobre un muro curvo" sizes="(min-width: 900px) 30vw, 80vw" /></Arco>}
+    </div>
+  </section>
+
+  <section class="seccion faq">
+    <div class="contenedor faq__in">
+      <Encabezado titulo={d.faq.titulo} />
+      <div class="faq__lista">
+        {d.faq.items.map((q) => (
+          <details class="rev">
+            <summary>{q.pregunta}</summary>
+            <p>{q.respuesta}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion cierre banda">
+    <div class="contenedor cierre__in">
+      <Encabezado titulo={d.cierre.titulo} texto={d.cierre.texto} alinear="centro" />
+      <div class="rev"><Boton texto={d.cierre.boton.texto} href={reserva} variante="marfil" externo /></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cabecera-pagina { padding-bottom: clamp(32px, 5vw, 64px); }
+  .reserva { display: grid; gap: 3rem; padding-bottom: clamp(64px, 9vw, 130px); }
+  .reserva__wa { display: grid; gap: 1.5rem; justify-items: start; align-content: start; }
+  .reserva__t { margin: 0; font-weight: 100; font-size: clamp(2.125rem, 1.5rem + 2vw, 3rem); line-height: 1.08; }
+  .reserva__num { margin: 0; }
+  dl { margin: 1.5rem 0 0; display: grid; gap: 0.4rem; }
+  dt { margin-top: 1.25rem; }
+  dd { margin: 0; }
+  dd a { display: block; width: fit-content; }
+  .suave { color: var(--texto-suave); }
+  .hora { display: flex; justify-content: space-between; gap: 1.5rem; max-width: 380px; border-bottom: 1px solid var(--linea); padding-block: 0.5rem; }
+  .reserva__mapa { max-width: 420px; width: 100%; justify-self: center; }
+  .reserva__mapa iframe { width: 100%; aspect-ratio: 4 / 5; border: 0; border-radius: 24px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .faq__in { display: grid; gap: 3rem; max-width: 900px; }
+  details { border-top: 1px solid var(--linea); padding-block: 1.1rem; }
+  details:last-child { border-bottom: 1px solid var(--linea); }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-weight: 100; font-size: 1.8rem; line-height: 1; transition: transform 0.4s var(--ease); }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 0.9rem 0 0; max-width: 60ch; color: var(--texto-suave); }
+
+  .cierre__in { display: grid; gap: 2.25rem; justify-items: center; text-align: center; }
+  @media (min-width: 900px) {
+    .reserva { grid-template-columns: 1fr 1fr 0.8fr; gap: 5vw; }
+    .faq__in { grid-template-columns: 0.8fr 1.2fr; max-width: var(--max); gap: 6vw; }
+  }
+</style>
