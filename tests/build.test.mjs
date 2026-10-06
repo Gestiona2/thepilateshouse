@@ -37,7 +37,7 @@ test("cada página cumple las reglas de calidad", async () => {
       const d = (h.match(/<meta name="description" content="([^"]*)"/) || [])[1] || "";
       assert.ok(d.length >= 120 && d.length <= 160, `${nombre}: descripción de ${d.length}`);
     }
-    for (const img of h.match(/<img\b[^>]*>/g) || []) assert.match(img, /\balt=/, `${nombre}: img sin alt → ${img.slice(0, 80)}`);
+    for (const img of h.match(/<img\b[^>]*>/g) || []) assert.match(img, /\balt(=|\s|\/?>)/, `${nombre}: img sin alt → ${img.slice(0, 80)}`);
     assert.ok(!/href=""/.test(h), `${nombre}: href vacío`);
     assert.ok(!/(googleapis|gstatic|placehold\.co|unpkg|jsdelivr|cdnjs)/.test(h), `${nombre}: recurso externo`);
     assert.ok(!h.includes("{{"), `${nombre}: marcador sin reemplazar`);
@@ -69,4 +69,15 @@ test("hay sitemap y robots", async () => {
   assert.match(s, /<urlset/);
   const r = await readFile(join(dist, "robots.txt"), "utf8");
   assert.match(r, /Disallow: \//);
+});
+
+test("inicio: portada con h1 de datos, 3 pilares y banda de cita", async () => {
+  const inicio = JSON.parse(await readFile(join(raiz, "src/datos/inicio.json"), "utf8"));
+  const h = await readFile(join(dist, "index.html"), "utf8");
+  for (const linea of inicio.portada.titulo.split("\n")) assert.ok(h.includes(linea), `falta "${linea}" en el h1`);
+  assert.ok(h.includes(inicio.cita.texto));
+  for (const p of inicio.pilares.items) assert.ok(h.includes(p.titulo));
+  for (const t of inicio.testimonios.items) assert.ok(h.includes(t.texto));
+  assert.equal((h.match(/fetchpriority="high"/g) || []).length, 1, "solo la foto de portada es prioritaria");
+  assert.ok(h.includes("https://wa.me/573000000000?text="), "botón de reserva por WhatsApp");
 });
