@@ -137,3 +137,25 @@ test("el menú apunta solo a páginas que existen", async () => {
     await readFile(join(dist, f), "utf8");
   }
 });
+
+test("todo enlace y recurso interno respeta la base de publicación", async () => {
+  const config = await readFile(join(raiz, "astro.config.mjs"), "utf8");
+  const base = ((config.match(/base:\s*"([^"]*)"/) || [])[1] || "").replace(/\/$/, "");
+  for (const f of await htmls()) {
+    const h = await readFile(f, "utf8");
+    const nombre = f.replace(dist, "");
+    for (const m of h.matchAll(/\b(?:href|src|srcset)="(\/[^"]*)"/g)) {
+      for (const u of m[1].split(",").map((x) => x.trim().split(" ")[0])) {
+        assert.ok(u.startsWith(base + "/") || u === base, `${nombre}: "${u}" no empieza con ${base}/`);
+      }
+    }
+  }
+  const s = await readFile(join(dist, "sitemap.xml"), "utf8");
+  for (const [, loc] of s.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    assert.ok(new URL(loc).pathname.startsWith(base + "/"), `sitemap: ${loc} sin la base ${base}`);
+  }
+  for (const f of (await readdir(join(dist, "_astro"))).filter((x) => x.endsWith(".css"))) {
+    const c = await readFile(join(dist, "_astro", f), "utf8");
+    for (const [, u] of c.matchAll(/url\(["']?(\/[^"')]+)/g)) assert.ok(u.startsWith(base + "/"), `${f}: url(${u}) sin base`);
+  }
+});
