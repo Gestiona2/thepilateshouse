@@ -1,0 +1,33 @@
+---
+import Foto from "./Foto.astro";
+import Arco from "./Arco.astro";
+import Boton from "./Boton.astro";
+import sitio from "../datos/sitio.json";
+import { enlaceWa } from "../lib/wa.js";
+const { clase, whatsapp, invertida = false } = Astro.props;
+---
+<article class:list={["clase", invertida && "clase--inv"]}>
+  <div class="clase__foto rev">
+    <Arco ratio="4 / 5"><Foto base={clase.imagen} alt={clase.alt} sizes="(min-width: 900px) 36vw, 88vw" /></Arco>
+  </div>
+  <div class="clase__texto">
+    <p class="etiqueta rev">{clase.duracion}, {clase.nivel}</p>
+    <h2 class="titulo-lg rev" style="--i:1">{clase.titulo}</h2>
+    <p class="lead rev" style="--i:2">{clase.texto}</p>
+    <div class="rev" style="--i:3">
+      <Boton texto={sitio.ui.reservar} href={enlaceWa(whatsapp, clase.mensaje)} variante="contorno" externo />
+    </div>
+  </div>
+</article>
+
+<style>
+  .clase { display: grid; gap: 2rem; align-items: center; }
+  .clase__foto { max-width: 520px; width: 100%; justify-self: center; }
+  .clase__texto { display: grid; gap: 1.25rem; justify-items: start; }
+  @media (min-width: 900px) {
+    .clase { grid-template-columns: 1fr 1fr; gap: 8vw; }
+    .clase--inv .clase__foto { order: 2; }
+    .clase__foto { justify-self: start; }
+    .clase--inv .clase__foto { justify-self: end; }
+  }
+</style>

@@ -91,3 +91,13 @@ test("la-casa: historia completa, esencia en 3 columnas y 6 fotos de galería", 
   for (const g of d.galeria.items) assert.ok(h.includes(g.alt), `falta foto: ${g.imagen}`);
   assert.match(h, /aria-current="page"[^>]*>La casa/);
 });
+
+test("clases: cada clase con su reserva por WhatsApp y pasos", async () => {
+  const d = JSON.parse(await readFile(join(raiz, "src/datos/clases.json"), "utf8"));
+  const h = await readFile(join(dist, "clases/index.html"), "utf8");
+  for (const c of d.lista.items) {
+    assert.ok(h.includes(c.titulo), c.titulo);
+    assert.ok(h.includes(encodeURIComponent(c.mensaje)), `falta enlace de reserva de ${c.titulo}`);
+  }
+  for (const p of d.pasos.items) assert.ok(h.includes(p.titulo));
+});
