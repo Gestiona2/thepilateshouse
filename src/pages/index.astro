@@ -1,3 +1,7 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import inicio from "../datos/inicio.json";
 ---
-<html lang="es"><head><meta charset="utf-8" /><title>Aira provisional</title></head><body><h1>Aira</h1></body></html>
+<Layout titulo={inicio.meta.titulo} descripcion={inicio.meta.descripcion} activa="inicio">
+  <section class="seccion contenedor"><h1 class="titulo-xl">{inicio.portada.titulo}</h1></section>
+</Layout>

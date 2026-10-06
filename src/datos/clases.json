@@ -1,16 +1,14 @@
 {
   "_demo": true,
   "meta": {
-    "titulo": "Clases · Aira, The Pilates House",
+    "titulo": "Clases de Aira, The Pilates House",
     "descripcion": "Clases de pilates reformer y mat de 50 minutos en Aira, para todos los niveles, con atención personalizada y grupos reducidos."
   },
-
   "encabezado": {
     "etiqueta": "Clases",
     "titulo": "Experiencia\ninmersiva",
     "texto": "Cada clase es una pausa: respiración, control y movimiento con atención personalizada."
   },
-
   "lista": {
     "items": [
       {
@@ -35,7 +33,7 @@
         "titulo": "Reformer Sculpt",
         "texto": "Mayor resistencia y control para trabajar el cuerpo con precisión, siempre desde el centro.",
         "duracion": "50 min",
-        "nivel": "Intermedio · Avanzado",
+        "nivel": "Intermedio a Avanzado",
         "imagen": "estudio-pelotas",
         "alt": "Esferas de pilates color crema apiladas junto a un reformer",
         "mensaje": "Hola Aira, quiero reservar una clase de Reformer Sculpt."
@@ -60,21 +58,35 @@
       }
     ]
   },
-
   "pasos": {
     "etiqueta": "Cómo reservar",
     "titulo": "Tres respiros",
     "items": [
-      { "numero": "01", "titulo": "Escríbenos", "texto": "Cuéntanos por WhatsApp qué clase te interesa." },
-      { "numero": "02", "titulo": "Elige tu horario", "texto": "Te proponemos los espacios disponibles y confirmas tu cupo." },
-      { "numero": "03", "titulo": "Llega y respira", "texto": "Ven diez minutos antes: nosotros nos encargamos del resto." }
+      {
+        "numero": "01",
+        "titulo": "Escríbenos",
+        "texto": "Cuéntanos por WhatsApp qué clase te interesa."
+      },
+      {
+        "numero": "02",
+        "titulo": "Elige tu horario",
+        "texto": "Te proponemos los espacios disponibles y confirmas tu cupo."
+      },
+      {
+        "numero": "03",
+        "titulo": "Llega y respira",
+        "texto": "Ven diez minutos antes: nosotros nos encargamos del resto."
+      }
     ]
   },
-
   "cierre": {
     "etiqueta": "Primera vez",
     "titulo": "Empieza con una clase",
     "texto": "Si es tu primera vez en Aira, te acompañamos desde el primer minuto.",
-    "boton": { "texto": "Reservar por WhatsApp", "tipo": "reserva", "variante": "solido" }
+    "boton": {
+      "texto": "Reservar por WhatsApp",
+      "tipo": "reserva",
+      "variante": "solido"
+    }
   }
 }

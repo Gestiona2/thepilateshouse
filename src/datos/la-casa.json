@@ -1,15 +1,13 @@
 {
   "meta": {
-    "titulo": "La casa · Aira, The Pilates House",
+    "titulo": "La casa de Aira, The Pilates House",
     "descripcion": "Conoce Aira: un espacio minimalista y exclusivo donde mente, cuerpo y espíritu se reencuentran a través del pilates reformer y la calma."
   },
-
   "encabezado": {
     "etiqueta": "La casa",
     "titulo": "Un refugio\nde calma",
     "texto": "Un espacio integral, minimalista y exclusivo, creado para respirar."
   },
-
   "historia": {
     "lineas": [
       "Redefinimos el bienestar, fusionamos serenidad y movimiento.",
@@ -18,37 +16,85 @@
       "En Aira cultivamos la calma mental, potenciamos el equilibrio corporal y celebramos la conciencia plena."
     ]
   },
-
   "proposito": {
     "etiqueta": "Propósito",
     "texto": "Propiciar la serenidad mental, el balance físico y espiritual mediante una experiencia sensorial consciente."
   },
-
   "esencia": {
     "columnas": [
-      { "etiqueta": "/ lo que tiene /", "titulo": "Atributos", "items": ["Integral", "Minimalista", "Exclusivo"] },
-      { "etiqueta": "/ lo que piensa el cliente /", "titulo": "Beneficios", "items": ["Experiencia inmersiva", "Personalización", "Calidad"] },
-      { "etiqueta": "/ lo que se genera /", "titulo": "Valores", "items": ["Serenidad", "Conexión mente cuerpo", "Bienestar"] }
+      {
+        "etiqueta": "/ lo que tiene /",
+        "titulo": "Atributos",
+        "items": [
+          "Integral",
+          "Minimalista",
+          "Exclusivo"
+        ]
+      },
+      {
+        "etiqueta": "/ lo que piensa el cliente /",
+        "titulo": "Beneficios",
+        "items": [
+          "Experiencia inmersiva",
+          "Personalización",
+          "Calidad"
+        ]
+      },
+      {
+        "etiqueta": "/ lo que se genera /",
+        "titulo": "Valores",
+        "items": [
+          "Serenidad",
+          "Conexión mente cuerpo",
+          "Bienestar"
+        ]
+      }
     ]
   },
-
   "galeria": {
     "etiqueta": "Los espacios",
     "titulo": "Cada rincón, en calma",
     "items": [
-      { "imagen": "estudio-recepcion", "alt": "Recepción de Aira: muro curvo blanco con el logo en relieve y mostrador color arena", "leyenda": "Recepción" },
-      { "imagen": "estudio-sala", "alt": "Sala principal con reformers alineados bajo una línea de luz cálida", "leyenda": "La sala" },
-      { "imagen": "estudio-pelotas", "alt": "Esferas de pilates color crema apiladas junto a un reformer", "leyenda": "Accesorios" },
-      { "imagen": "estudio-cortinas", "alt": "Hilera de reformers frente a cortinas translúcidas", "leyenda": "Luz natural" },
-      { "imagen": "estudio-nichos", "alt": "Nichos en arco iluminados junto a la recepción", "leyenda": "Los nichos" },
-      { "imagen": "estudio-toallas", "alt": "Vestier con casilleros y estación de devolución de toallas", "leyenda": "El vestier" }
+      {
+        "imagen": "estudio-recepcion",
+        "alt": "Recepción de Aira: muro curvo blanco con el logo en relieve y mostrador color arena",
+        "leyenda": "Recepción"
+      },
+      {
+        "imagen": "estudio-sala",
+        "alt": "Sala principal con reformers alineados bajo una línea de luz cálida",
+        "leyenda": "La sala"
+      },
+      {
+        "imagen": "estudio-pelotas",
+        "alt": "Esferas de pilates color crema apiladas junto a un reformer",
+        "leyenda": "Accesorios"
+      },
+      {
+        "imagen": "estudio-cortinas",
+        "alt": "Hilera de reformers frente a cortinas translúcidas",
+        "leyenda": "Luz natural"
+      },
+      {
+        "imagen": "estudio-nichos",
+        "alt": "Nichos en arco iluminados junto a la recepción",
+        "leyenda": "Los nichos"
+      },
+      {
+        "imagen": "estudio-toallas",
+        "alt": "Vestier con casilleros y estación de devolución de toallas",
+        "leyenda": "El vestier"
+      }
     ]
   },
-
   "cierre": {
     "etiqueta": "Te esperamos",
     "titulo": "Ven a conocer la casa",
     "texto": "Escríbenos y agenda tu visita o tu primera clase.",
-    "boton": { "texto": "Reservar por WhatsApp", "tipo": "reserva", "variante": "solido" }
+    "boton": {
+      "texto": "Reservar por WhatsApp",
+      "tipo": "reserva",
+      "variante": "solido"
+    }
   }
 }

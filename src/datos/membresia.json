@@ -1,16 +1,14 @@
 {
   "_demo": true,
   "meta": {
-    "titulo": "Membresía · Aira, The Pilates House",
+    "titulo": "Membresía de Aira, The Pilates House",
     "descripcion": "Planes de membresía de Aira con clases mensuales y beneficios exclusivos. Descubre la tarjeta VIP y elige el plan que acompaña tu práctica."
   },
-
   "encabezado": {
     "etiqueta": "Membresía",
     "titulo": "Hacer de Aira\ntu casa",
     "texto": "Planes pensados para sostener tu práctica, con beneficios para quienes la hacen un hábito."
   },
-
   "vip": {
     "etiqueta": "Aira VIP",
     "titulo": "Una tarjeta, una forma de pertenecer",
@@ -18,7 +16,6 @@
     "imagen": "mockup-vip",
     "alt": "Dos tarjetas de miembro de Aira: una con el logo en relieve y otra con el isotipo y la palabra Member"
   },
-
   "planes": {
     "etiqueta": "Planes",
     "titulo": "Elige tu ritmo",
@@ -31,7 +28,11 @@
         "resumen": "Para empezar a sostener la práctica.",
         "precio": 620000,
         "destacado": false,
-        "beneficios": ["8 clases al mes", "Reformer y mat", "Reserva desde el WhatsApp"],
+        "beneficios": [
+          "8 clases al mes",
+          "Reformer y mat",
+          "Reserva desde el WhatsApp"
+        ],
         "mensaje": "Hola Aira, me interesa el plan Esencial."
       },
       {
@@ -39,7 +40,12 @@
         "resumen": "El ritmo que mejor acompaña una vida activa.",
         "precio": 840000,
         "destacado": true,
-        "beneficios": ["12 clases al mes", "Reformer y mat", "Reserva prioritaria", "Una sesión de valoración"],
+        "beneficios": [
+          "12 clases al mes",
+          "Reformer y mat",
+          "Reserva prioritaria",
+          "Una sesión de valoración"
+        ],
         "mensaje": "Hola Aira, me interesa el plan Equilibrio."
       },
       {
@@ -47,16 +53,25 @@
         "resumen": "La experiencia completa, sin límites de calma.",
         "precio": 1290000,
         "destacado": false,
-        "beneficios": ["20 clases al mes", "Tarjeta VIP de miembro", "Reserva prioritaria", "Una sesión privada al mes", "Un invitado al mes"],
+        "beneficios": [
+          "20 clases al mes",
+          "Tarjeta VIP de miembro",
+          "Reserva prioritaria",
+          "Una sesión privada al mes",
+          "Un invitado al mes"
+        ],
         "mensaje": "Hola Aira, me interesa el plan Aira VIP."
       }
     ]
   },
-
   "cierre": {
     "etiqueta": "Hablemos",
     "titulo": "¿Cuál es tu plan?",
     "texto": "Escríbenos y te ayudamos a elegir el ritmo que mejor te acompaña.",
-    "boton": { "texto": "Hablar por WhatsApp", "tipo": "reserva", "variante": "solido" }
+    "boton": {
+      "texto": "Hablar por WhatsApp",
+      "tipo": "reserva",
+      "variante": "solido"
+    }
   }
 }

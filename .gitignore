@@ -4,3 +4,4 @@ dist/
 insumos/
 *.log
 .superpowers/
+public/_banco.html
