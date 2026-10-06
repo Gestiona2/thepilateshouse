@@ -1,6 +1,6 @@
 # Aira — The Pilates House · Sitio luxury (diseño)
 
-Fecha: 2026-10-06 · Estado: pendiente de revisión del usuario
+Fecha: 2026-10-06 · Estado: aprobado por el usuario (2026-10-06); sigue el plan de implementación
 
 ## 1. Objetivo
 
@@ -119,9 +119,9 @@ reemplaza la regla "no inventar" solo para esta etapa de demo, y se controla as�
   escriba a un tercero por error.
 - **Precios y planes:** valores de ejemplo en COP, marcados como demo.
 - **Dirección y teléfono:** ficticios y reconocibles; no se usa ninguna dirección real.
-- **Sin testimonios, cifras de resultados ni premios.** Son afirmaciones sobre terceros o
-  sobre el negocio que no se pueden marcar como "ejemplo" sin que parezcan reales. Si los
-  quieres también en la demo, dímelo.
+- **Testimonios de ejemplo (autorizados por el usuario):** 3 en `inicio.json`, solo con
+  nombre de pila ficticio, `"_demo": true`, sobre la sensación de calma y la atención,
+  nunca sobre resultados físicos o de salud. Sin cifras de resultados ni premios.
 - **`AGENTS.md` del sitio** advierte que los datos son de demostración y que no se deben
   tratar como reales.
 - Imágenes que falten: SVG local o `placehold.co`, anotado.
