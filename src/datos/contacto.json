@@ -1,67 +1,70 @@
 {
   "meta": {
     "titulo": "Contacto y reservas en Aira, The Pilates House",
-    "descripcion": "Reserva tu clase en Aira por WhatsApp. Encuentra la dirección, los horarios y las respuestas a las dudas más frecuentes antes de tu primera visita."
+    "descripcion": "Reserva tu clase en Aira a través de nuestra app o escríbenos. Encuentra la dirección en Envigado, el formulario de contacto y las preguntas frecuentes."
   },
   "encabezado": {
     "etiqueta": "Contacto",
-    "titulo": "Reserva\ntu primera clase",
-    "texto": "La forma más simple de reservar es escribirnos por WhatsApp."
+    "titulo": "Reservas\ny contacto",
+    "texto": "Reserva en la app y escríbenos si tienes dudas."
   },
-  "reserva": {
-    "titulo": "Reserva por WhatsApp",
-    "texto": "Cuéntanos qué clase te interesa y te proponemos los horarios disponibles.",
-    "boton": {
-      "texto": "Escribir por WhatsApp",
-      "tipo": "reserva",
-      "variante": "solido"
-    }
+  "formulario": {
+    "titulo": "Escríbenos",
+    "texto": "Déjanos tus datos y te respondemos por WhatsApp.",
+    "campos": {
+      "nombre": "Nombre",
+      "telefono": "Teléfono",
+      "correo": "Correo (opcional)",
+      "motivo": "¿Qué te interesa?",
+      "mensaje": "Mensaje (opcional)",
+      "elegir": "Elige una opción"
+    },
+    "motivos": [
+      "Clase de prueba",
+      "Planes y horarios",
+      "Cumpleaños y eventos",
+      "Otro"
+    ],
+    "consentimiento": "Acepto la política de tratamiento de datos",
+    "consentimientoEnlace": "Leer la política",
+    "boton": "Enviar por WhatsApp",
+    "error": "Revisa los campos marcados.",
+    "aviso": "Al enviar, se abre WhatsApp con tu mensaje listo para mandar.",
+    "sinJs": "Para usar el formulario activa JavaScript, o escríbenos directamente por WhatsApp.",
+    "plantilla": "Hola Aira, soy {nombre}.\nMotivo: {motivo}\nTeléfono: {telefono}\nCorreo: {correo}\n{mensaje}"
   },
   "visita": {
     "titulo": "Visítanos",
     "etiquetas": {
       "direccion": "Dirección",
-      "horario": "Horario",
+      "horario": "Horario del estudio",
       "correo": "Correo",
       "redes": "Redes"
     }
   },
   "mapa": {
-    "embedUrl": "",
     "titulo": "Cómo llegar",
     "alt": "Recepción de Aira con el logo en relieve sobre un muro curvo"
   },
   "faq": {
-    "_demo": true,
-    "etiqueta": "Antes de venir",
-    "titulo": "Preguntas frecuentes",
+    "titulo": "Antes de tu primera visita",
     "items": [
       {
-        "pregunta": "¿Qué debo llevar a mi primera clase?",
-        "respuesta": "Ropa cómoda y medias antideslizantes. Nosotros ponemos el resto: reformer, accesorios y toalla."
+        "pregunta": "¿Cómo agendo mi clase?",
+        "respuesta": "Siempre a través de nuestra app. Si tienes dudas, escríbenos por WhatsApp."
       },
       {
-        "pregunta": "¿Necesito experiencia previa?",
-        "respuesta": "No. Las clases Reformer Esencial y Mat Serenidad están pensadas para todos los niveles, y te acompañamos desde el primer minuto."
+        "pregunta": "¿Qué debo llevar?",
+        "respuesta": "Un termo con agua. Los accesorios y lo demás los pone Aira."
       },
       {
-        "pregunta": "¿Con cuánta anticipación debo llegar?",
-        "respuesta": "Te recomendamos llegar diez minutos antes para instalarte con calma y conocer el espacio."
+        "pregunta": "¿Cuántas personas hay por clase?",
+        "respuesta": "Hasta 6 personas por clase."
       },
       {
-        "pregunta": "¿Cómo cancelo o cambio una reserva?",
-        "respuesta": "Escríbenos por WhatsApp con al menos doce horas de anticipación y reprogramamos tu clase."
+        "pregunta": "¿Dónde están ubicados?",
+        "respuesta": "{direccion}"
       }
     ]
-  },
-  "cierre": {
-    "etiqueta": "Te esperamos",
-    "titulo": "Un respiro a la vez",
-    "texto": "Escríbenos cuando quieras: te respondemos con calma.",
-    "boton": {
-      "texto": "Reservar por WhatsApp",
-      "tipo": "reserva",
-      "variante": "solido"
-    }
   }
 }

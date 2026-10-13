@@ -11,6 +11,8 @@ datos.
 | `sharp` | 0.35.5 | Convierte fotos y logos (`npm run assets`) |
 | `fonttools` + `brotli` (Python) | 4.63.0 | Convierte las fuentes a woff2 (`scripts/preparar-fuentes.sh`) |
 
+El formulario y la ventana emergente son JavaScript propio (`src/lib/formulario.js`, `src/lib/popup.js`), sin librerías ni servidor.
+
 Sin GSAP ni Lucide: las apariciones son CSS + `IntersectionObserver` y el parallax es un
 `requestAnimationFrame` propio (unas 20 líneas en `Layout.astro`).
 
@@ -20,7 +22,7 @@ Sin GSAP ni Lucide: las apariciones son CSS + `IntersectionObserver` y el parall
 | `npm install` | Instala dependencias (una vez) |
 | `npm run dev` | Vista previa en `http://localhost:4321` |
 | `npm run build` | Compila a `dist/` |
-| `npm test` | Valida datos, activos, fuentes y las 6 páginas compiladas |
+| `npm test` | Valida datos, activos, fuentes, formulario, ventana emergente, estilo y las páginas compiladas |
 | `npm run assets "<insumos>"` | Regenera fotos, logos, favicon e imagen para redes |
 | `npm run revisar-demo` | Lista los datos de demostración que quedan |
 | `npm run revisar-demo -- --produccion` | Igual, y falla si queda alguno (úsalo antes de publicar) |

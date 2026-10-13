@@ -1,23 +1,21 @@
 {
   "_demo": true,
   "meta": {
-    "titulo": "Membresía de Aira, The Pilates House",
-    "descripcion": "Planes de membresía de Aira con clases mensuales y beneficios exclusivos. Descubre la tarjeta VIP y elige el plan que acompaña tu práctica."
+    "titulo": "Planes y horarios de Aira, The Pilates House",
+    "descripcion": "Consulta los horarios de clase y los planes de Aira: clases semipersonalizadas de hasta 6 personas con profesores fisioterapeutas. Reserva en la app."
   },
   "encabezado": {
-    "etiqueta": "Membresía",
-    "titulo": "Hacer de Aira\ntu casa",
-    "texto": "Planes pensados para sostener tu práctica, con beneficios para quienes la hacen un hábito."
+    "etiqueta": "Planes y horarios",
+    "titulo": "Elige tu ritmo",
+    "texto": "Horarios para todos los días y planes pensados para sostener tu práctica."
   },
   "vip": {
-    "etiqueta": "Aira VIP",
     "titulo": "Una tarjeta, una forma de pertenecer",
     "texto": "Quienes eligen Aira VIP reciben su tarjeta de miembro y acceso a beneficios exclusivos dentro de la casa.",
     "imagen": "mockup-vip",
     "alt": "Dos tarjetas de miembro de Aira: una con el logo en relieve y otra con el isotipo y la palabra Member"
   },
   "planes": {
-    "etiqueta": "Planes",
     "titulo": "Elige tu ritmo",
     "moneda": "COP",
     "periodo": "al mes",
@@ -30,8 +28,8 @@
         "destacado": false,
         "beneficios": [
           "8 clases al mes",
-          "Reformer y mat",
-          "Reserva desde el WhatsApp"
+          "Pilates reformer",
+          "Reserva desde la app"
         ],
         "mensaje": "Hola Aira, me interesa el plan Esencial."
       },
@@ -42,7 +40,7 @@
         "destacado": true,
         "beneficios": [
           "12 clases al mes",
-          "Reformer y mat",
+          "Pilates reformer",
           "Reserva prioritaria",
           "Una sesión de valoración"
         ],
@@ -64,14 +62,34 @@
       }
     ]
   },
-  "cierre": {
-    "etiqueta": "Hablemos",
-    "titulo": "¿Cuál es tu plan?",
-    "texto": "Escríbenos y te ayudamos a elegir el ritmo que mejor te acompaña.",
-    "boton": {
-      "texto": "Hablar por WhatsApp",
-      "tipo": "reserva",
-      "variante": "solido"
-    }
+  "horarios": {
+    "titulo": "Horarios de clase",
+    "texto": "Reserva tu cupo en la app. Cada clase es de hasta 6 personas.",
+    "cerrado": "Cerrado",
+    "dias": [
+      {
+        "dia": "Lunes a viernes",
+        "horas": [
+          "6:00 a. m.",
+          "7:00 a. m.",
+          "8:30 a. m.",
+          "12:00 m.",
+          "5:30 p. m.",
+          "6:30 p. m."
+        ]
+      },
+      {
+        "dia": "Sábados",
+        "horas": [
+          "8:00 a. m.",
+          "9:30 a. m.",
+          "11:00 a. m."
+        ]
+      },
+      {
+        "dia": "Domingos y festivos",
+        "horas": []
+      }
+    ]
   }
 }

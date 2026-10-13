@@ -10,13 +10,13 @@ const precio = "$" + new Intl.NumberFormat("es-CO").format(plan.precio);
   <p class="plan__resumen">{plan.resumen}</p>
   <p class="plan__precio"><span>{precio}</span> <small>{moneda} {periodo}</small></p>
   <ul>{plan.beneficios.map((b) => <li>{b}</li>)}</ul>
-  <Boton texto={sitio.ui.reservarWa} href={enlaceWa(whatsapp, plan.mensaje)} variante={plan.destacado ? "marfil" : "contorno"} externo />
+  <Boton texto={sitio.ui.consultarPlan} href={enlaceWa(whatsapp, plan.mensaje)} variante={plan.destacado ? "marfil" : "contorno"} externo />
 </article>
 
 <style>
-  .plan { display: grid; gap: 1.1rem; align-content: start; padding: clamp(28px, 4vw, 44px); border: 1px solid var(--linea); border-radius: 999px 999px 24px 24px / 220px 220px 24px 24px; background: transparent; }
+  .plan { display: grid; gap: 1.1rem; align-content: start; padding: clamp(28px, 4vw, 44px); border: 1px solid var(--linea); border-radius: 0; background: transparent; }
   .plan--destacado { background: var(--espresso); color: var(--marfil); border-color: var(--espresso); }
-  .plan__nombre { margin: 0; padding-top: clamp(32px, 6vw, 72px); text-align: center; font-weight: 100; font-size: clamp(2.125rem, 1.6rem + 1.6vw, 2.75rem); line-height: 1.05; }
+  .plan__nombre { margin: 0; text-align: center; font-weight: 100; font-size: clamp(2.125rem, 1.6rem + 1.6vw, 2.75rem); line-height: 1.05; }
   .plan__resumen { margin: 0; text-align: center; color: var(--texto-suave); }
   .plan--destacado .plan__resumen { color: var(--marfil); }
   .plan__precio { margin: 0.5rem 0; text-align: center; }

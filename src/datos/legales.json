@@ -1,0 +1,91 @@
+{
+  "politica-privacidad": {
+    "_demo": true,
+    "meta": {
+      "titulo": "Política de privacidad | Aira",
+      "descripcion": "Espacio reservado para la política de privacidad de Aira, The Pilates House. Texto oficial pendiente de revisión legal y de los datos de la empresa."
+    },
+    "titulo": "Política de privacidad",
+    "aviso": "Borrador pendiente de revisión legal. Este espacio queda reservado para el texto oficial de Aira.",
+    "secciones": [
+      {
+        "titulo": "Responsable",
+        "texto": "Aquí irán la razón social, el NIT, la dirección y el contacto del responsable."
+      },
+      {
+        "titulo": "Datos que se recogen",
+        "texto": "Aquí se detallarán los datos que se piden en el formulario de contacto y en la reserva."
+      },
+      {
+        "titulo": "Para qué se usan",
+        "texto": "Aquí irán las finalidades del tratamiento."
+      },
+      {
+        "titulo": "Derechos de las personas",
+        "texto": "Aquí se explicarán los derechos y cómo ejercerlos."
+      },
+      {
+        "titulo": "Vigencia",
+        "texto": "Aquí irán la fecha y las versiones de la política."
+      }
+    ]
+  },
+  "tratamiento-datos": {
+    "_demo": true,
+    "meta": {
+      "titulo": "Política de tratamiento de datos personales | Aira",
+      "descripcion": "Espacio reservado para la política de tratamiento de datos personales de Aira, The Pilates House, según la ley colombiana. Texto oficial pendiente."
+    },
+    "titulo": "Política de tratamiento de datos personales",
+    "aviso": "Borrador pendiente de revisión legal. Este espacio queda reservado para el texto oficial de Aira.",
+    "secciones": [
+      {
+        "titulo": "Responsable del tratamiento",
+        "texto": "Aquí irán la razón social, el NIT y los datos de contacto."
+      },
+      {
+        "titulo": "Finalidades",
+        "texto": "Aquí se listarán las finalidades autorizadas por el titular."
+      },
+      {
+        "titulo": "Derechos del titular",
+        "texto": "Aquí se explicarán los derechos del titular según la normativa vigente."
+      },
+      {
+        "titulo": "Consultas y reclamos",
+        "texto": "Aquí irán el canal y el procedimiento para consultas y reclamos."
+      },
+      {
+        "titulo": "Vigencia",
+        "texto": "Aquí irán la fecha y las versiones."
+      }
+    ]
+  },
+  "politica-cookies": {
+    "_demo": true,
+    "meta": {
+      "titulo": "Política de cookies | Aira",
+      "descripcion": "Espacio reservado para la política de cookies de Aira, The Pilates House. Texto oficial pendiente de revisión; hoy el sitio no usa cookies de seguimiento."
+    },
+    "titulo": "Política de cookies",
+    "aviso": "Borrador pendiente de revisión legal. Este espacio queda reservado para el texto oficial de Aira.",
+    "secciones": [
+      {
+        "titulo": "Qué son las cookies",
+        "texto": "Aquí irá la explicación general."
+      },
+      {
+        "titulo": "Qué usa este sitio",
+        "texto": "Hoy el sitio no usa cookies de seguimiento ni de publicidad. Para recordar que cerraste la ventana de promoción durante tu visita usa el almacenamiento temporal del navegador. Si se agregan analítica o terceros, este texto debe actualizarse."
+      },
+      {
+        "titulo": "Cómo desactivarlas",
+        "texto": "Aquí se explicará cómo gestionar las cookies desde el navegador."
+      },
+      {
+        "titulo": "Terceros",
+        "texto": "Aquí se listarán los servicios de terceros, si los hay (por ejemplo mapas o analítica)."
+      }
+    ]
+  }
+}

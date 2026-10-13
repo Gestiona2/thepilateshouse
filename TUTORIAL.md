@@ -36,7 +36,7 @@ Dile **qué quieres**, no cómo hacerlo. Ejemplos reales de tu sitio:
 
 > *Cambia el precio del plan Equilibrio a $890.000*
 
-> *En la página de clases, agrega una nueva que se llame "Mat Prenatal" de 50 minutos*
+> *En experiencias, agrega un evento nuevo que se llame "Baby shower"*
 
 > *La foto de la portada cámbiala por la que dejé en el escritorio*
 
@@ -80,7 +80,7 @@ Nada se pierde de verdad. Todo queda guardado.
 - Cambiar cualquier texto
 - Cambiar o agregar fotos
 - Agregar o quitar clases, planes de membresía, preguntas frecuentes, testimonios
-- Cambiar teléfonos, correos, horarios, dirección
+- Cambiar el enlace de la app, teléfonos, correos, horarios y dirección
 - Reacomodar secciones
 
 ## Lo que no

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "titulo": "La casa de Aira, The Pilates House",
-    "descripcion": "Conoce Aira: un espacio minimalista y exclusivo donde mente, cuerpo y espíritu se reencuentran a través del pilates reformer y la calma."
+    "titulo": "El estudio de Aira, The Pilates House",
+    "descripcion": "Conoce el estudio de Aira en Envigado: recepción, salas con lockers, reformers y zonas verdes, pensados para entrenar con calma y en grupos pequeños."
   },
   "encabezado": {
-    "etiqueta": "La casa",
+    "etiqueta": "El estudio",
     "titulo": "Un refugio\nde calma",
     "texto": "Un espacio integral, minimalista y exclusivo, creado para respirar."
   },
@@ -51,50 +51,34 @@
       }
     ]
   },
-  "galeria": {
-    "etiqueta": "Los espacios",
-    "titulo": "Cada rincón, en calma",
+  "espacios": {
+    "titulo": "Los espacios",
+    "texto": "Un recorrido por el estudio, en el orden en que lo vivirás.",
     "items": [
       {
+        "nombre": "Recepción",
+        "texto": "El primer saludo: un muro curvo, luz cálida y el logo en relieve.",
         "imagen": "estudio-recepcion",
-        "alt": "Recepción de Aira: muro curvo blanco con el logo en relieve y mostrador color arena",
-        "leyenda": "Recepción"
+        "alt": "Recepción de Aira: muro curvo blanco con el logo en relieve y mostrador color arena"
       },
       {
-        "imagen": "estudio-sala",
-        "alt": "Sala principal con reformers alineados bajo una línea de luz cálida",
-        "leyenda": "La sala"
-      },
-      {
-        "imagen": "estudio-pelotas",
-        "alt": "Esferas de pilates color crema apiladas junto a un reformer",
-        "leyenda": "Accesorios"
-      },
-      {
-        "imagen": "estudio-cortinas",
-        "alt": "Hilera de reformers frente a cortinas translúcidas",
-        "leyenda": "Luz natural"
-      },
-      {
-        "imagen": "estudio-nichos",
-        "alt": "Nichos en arco iluminados junto a la recepción",
-        "leyenda": "Los nichos"
-      },
-      {
+        "nombre": "Salas con lockers",
+        "texto": "Casilleros para guardar tus cosas antes de entrar a clase.",
         "imagen": "estudio-toallas",
-        "alt": "Vestier con casilleros y estación de devolución de toallas",
-        "leyenda": "El vestier"
+        "alt": "Sala con casilleros y estación de devolución de toallas"
+      },
+      {
+        "nombre": "Reformers",
+        "texto": "La sala de clase, con reformers alineados bajo una línea de luz cálida.",
+        "imagen": "estudio-sala",
+        "alt": "Sala principal con reformers alineados bajo una línea de luz cálida"
+      },
+      {
+        "nombre": "Zonas verdes",
+        "texto": "Plantas que acompañan la sala y traen la calma del exterior.",
+        "imagen": "estudio-cortinas",
+        "alt": "Hilera de reformers frente a cortinas translúcidas, con plantas a los lados"
       }
     ]
-  },
-  "cierre": {
-    "etiqueta": "Te esperamos",
-    "titulo": "Ven a conocer la casa",
-    "texto": "Escríbenos y agenda tu visita o tu primera clase.",
-    "boton": {
-      "texto": "Reservar por WhatsApp",
-      "tipo": "reserva",
-      "variante": "solido"
-    }
   }
 }

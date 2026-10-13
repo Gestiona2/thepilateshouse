@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const dir = fileURLToPath(new URL("../src/datos/", import.meta.url));
 const pub = fileURLToPath(new URL("../public/", import.meta.url));
+const raiz = fileURLToPath(new URL("../", import.meta.url));
 const cargar = async (n) => JSON.parse(await readFile(dir + n, "utf8"));
 const paginas = ["inicio", "la-casa", "clases", "membresia", "contacto"];
 
@@ -16,6 +17,14 @@ function recoger(valor, clave, salida) {
       else recoger(v, clave, salida);
     }
 }
+function objetosConImagen(v, salida = []) {
+  if (Array.isArray(v)) v.forEach((x) => objetosConImagen(x, salida));
+  else if (v && typeof v === "object") {
+    if (typeof v.imagen === "string") salida.push(v);
+    Object.values(v).forEach((x) => objetosConImagen(x, salida));
+  }
+  return salida;
+}
 
 test("todos los JSON parsean", async () => {
   for (const f of (await readdir(dir)).filter((x) => x.endsWith(".json"))) await cargar(f);
@@ -23,16 +32,28 @@ test("todos los JSON parsean", async () => {
 
 test("sitio.json trae lo que los componentes necesitan", async () => {
   const s = await cargar("sitio.json");
-  for (const k of ["nombre", "marca", "eslogan", "descripcion", "menu", "ui", "pie", "contacto"]) assert.ok(s[k], `falta ${k}`);
+  for (const k of ["nombre", "marca", "eslogan", "descripcion", "menu", "ui", "pie", "contacto", "ubicacion", "app", "cta", "reservas", "pruebaGratis", "popup", "legales"]) assert.ok(s[k], `falta ${k}`);
   assert.equal(s.menu.length, 5);
   assert.match(s.contacto.whatsapp, /^\d{10,15}$/);
-  assert.ok(s.contacto.mensajeReserva.length > 10);
-  for (const k of ["irAlContenido", "abrirMenu", "cerrarMenu", "menuPrincipal", "irInicio", "reservar", "reservarWa", "volverArriba", "menuMovil"]) assert.ok(s.ui[k], `ui.${k}`);
+  assert.match(s.app.url, /^https:\/\//);
+  assert.ok(s.cta.texto && s.cta.corto && s.reservas.botonApp && s.reservas.botonDudas && s.pruebaGratis.boton);
+  assert.ok(s.popup.segundos >= 5 && s.popup.titulo && s.popup.boton && s.popup.cerrar);
+  for (const k of ["irAlContenido", "abrirMenu", "cerrarMenu", "menuPrincipal", "irInicio", "reservar", "reservarWa", "volverArriba", "menuMovil", "consultarPlan", "cotizar", "comoLlegar"]) assert.ok(s.ui[k], `ui.${k}`);
   assert.equal(s.indexar, false, "mientras haya demo, indexar debe ser false");
 });
 
+test("la ubicación es la real del cliente (Envigado) y el enlace de mapa es un enlace, no un iframe", async () => {
+  const s = await cargar("sitio.json");
+  assert.match(s.ubicacion.completa, /Av\. Las Palmas Km 15 990/);
+  assert.match(s.ubicacion.completa, /Vda\. El Peñasco/);
+  assert.match(s.ubicacion.completa, /Envigado, Antioquia/);
+  assert.match(s.ubicacion.mapaEnlace, /^https:\/\/www\.google\.com\/maps\/search\//);
+  assert.equal(s.ubicacion._demo, undefined, "la dirección es real: no debe marcarse _demo");
+  assert.equal(s.contacto.direccion, undefined, "la dirección ya no vive en contacto");
+});
+
 for (const p of paginas) {
-  test(`${p}.json: meta con título y descripción de 120–160 caracteres`, async () => {
+  test(`${p}.json: meta con título y descripción de 120 a 160 caracteres`, async () => {
     const d = await cargar(p + ".json");
     assert.ok(d.meta.titulo.length >= 10 && d.meta.titulo.length <= 70, `título ${d.meta.titulo.length}`);
     const n = d.meta.descripcion.length;
@@ -40,64 +61,86 @@ for (const p of paginas) {
   });
 }
 
+test("legales.json: tres documentos con meta válida, esqueleto de secciones y marcados _demo", async () => {
+  const l = await cargar("legales.json");
+  assert.deepEqual(Object.keys(l).sort(), ["politica-cookies", "politica-privacidad", "tratamiento-datos"]);
+  for (const [k, d] of Object.entries(l)) {
+    assert.equal(d._demo, true, `${k} debe ir marcado _demo mientras sea borrador`);
+    assert.ok(d.titulo && d.aviso && d.secciones.length >= 4, k);
+    assert.ok(d.meta.descripcion.length >= 120 && d.meta.descripcion.length <= 160, `${k}: descripción ${d.meta.descripcion.length}`);
+    assert.ok(d.meta.titulo.length >= 10 && d.meta.titulo.length <= 70, `${k}: título ${d.meta.titulo.length}`);
+  }
+  const s = await cargar("sitio.json");
+  assert.deepEqual(s.legales.map((x) => x.href).sort(), ["/politica-cookies", "/politica-privacidad", "/tratamiento-datos"]);
+});
+
 test("toda foto referenciada existe y tiene alt", async () => {
   for (const p of ["sitio", ...paginas]) {
-    const d = await cargar(p + ".json");
     const imgs = [];
-    recoger(d, "imagen", imgs);
-    for (const base of imgs) {
-      await access(`${pub}img/${base}-800.webp`);
-    }
+    recoger(await cargar(p + ".json"), "imagen", imgs);
+    for (const base of imgs) await access(`${pub}img/${base}-800.webp`);
   }
-  // cada objeto con "imagen" debe tener "alt" no vacío
-  const conImagen = [];
-  (function buscar(v) {
-    if (Array.isArray(v)) v.forEach(buscar);
-    else if (v && typeof v === "object") {
-      if (typeof v.imagen === "string") conImagen.push(v);
-      Object.values(v).forEach(buscar);
-    }
-  })(await Promise.all(paginas.map((p) => cargar(p + ".json"))));
-  for (const o of conImagen) assert.ok(o.alt && o.alt.length > 8, `sin alt: ${o.imagen}`);
+  const todo = await Promise.all(paginas.map((p) => cargar(p + ".json")));
+  for (const o of objetosConImagen(todo)) assert.ok(o.alt && o.alt.length > 8, `sin alt: ${o.imagen}`);
 });
 
-test("precios de membresía son enteros positivos en COP", async () => {
-  const m = await cargar("membresia.json");
-  for (const plan of m.planes.items) {
-    assert.ok(Number.isInteger(plan.precio) && plan.precio > 0);
-  }
-  assert.equal(m.planes.moneda, "COP");
-});
-
-test("las clases tienen mensaje de reserva y foto", async () => {
+test("las cuatro claves reales del cliente aparecen en Experiencias", async () => {
   const c = await cargar("clases.json");
-  assert.ok(c.lista.items.length >= 4);
-  for (const it of c.lista.items) {
-    assert.ok(it.titulo && it.texto && it.duracion && it.nivel && it.mensaje && it.imagen);
-  }
+  const t = c.atributos.items.map((i) => i.titulo).join("|");
+  for (const k of ["Pilates reformer", "Hasta 6 personas por clase", "Profesores fisioterapeutas", "Técnica guiada"]) assert.match(t, new RegExp(k));
+  assert.deepEqual(c.eventos.items.map((e) => e.titulo), ["Cumpleaños", "Despedidas de soltera", "Grados", "Eventos empresariales"]);
+  for (const e of c.eventos.items) assert.ok(e.texto && e.imagen && e.alt && e.mensaje);
 });
 
-test("hay datos _demo marcados en los archivos con datos inventados", async () => {
-  for (const [archivo, ruta] of [["sitio.json", ["contacto"]], ["sitio.json", ["empresa"]], ["clases.json", []], ["membresia.json", []], ["inicio.json", ["testimonios"]], ["contacto.json", ["faq"]]]) {
+test("El estudio muestra los espacios en el orden pedido", async () => {
+  const c = await cargar("la-casa.json");
+  assert.deepEqual(c.espacios.items.map((e) => e.nombre), ["Recepción", "Salas con lockers", "Reformers", "Zonas verdes"]);
+});
+
+test("precios de membresía son enteros positivos en COP y hay horarios", async () => {
+  const m = await cargar("membresia.json");
+  for (const plan of m.planes.items) assert.ok(Number.isInteger(plan.precio) && plan.precio > 0);
+  assert.equal(m.planes.moneda, "COP");
+  assert.ok(m.horarios.dias.length >= 3);
+  assert.ok(m.horarios.dias.some((d) => d.horas.length > 0));
+});
+
+test("las preguntas frecuentes son las cuatro acordadas con el cliente", async () => {
+  const f = (await cargar("contacto.json")).faq.items;
+  assert.deepEqual(f.map((q) => q.pregunta), ["¿Cómo agendo mi clase?", "¿Qué debo llevar?", "¿Cuántas personas hay por clase?", "¿Dónde están ubicados?"]);
+  assert.match(f[0].respuesta, /app/);
+  assert.match(f[1].respuesta, /termo con agua/i);
+  assert.match(f[2].respuesta, /6 personas/);
+  assert.equal(f[3].respuesta, "{direccion}");
+});
+
+test("el formulario trae plantilla de WhatsApp y motivos", async () => {
+  const f = (await cargar("contacto.json")).formulario;
+  assert.ok(f.motivos.length >= 3 && f.plantilla.includes("{nombre}") && f.plantilla.includes("{telefono}"));
+  assert.ok(f.consentimiento && f.boton && f.campos.nombre);
+});
+
+test("los datos inventados o provisionales están marcados _demo", async () => {
+  for (const [archivo, ruta] of [["sitio.json", ["contacto"]], ["sitio.json", ["empresa"]], ["sitio.json", ["app"]], ["membresia.json", []], ["inicio.json", ["testimonios"]]]) {
     let n = await cargar(archivo);
     for (const k of ruta) n = n[k];
     assert.equal(n._demo, true, `${archivo} › ${ruta.join(".") || "(raíz)"} sin _demo`);
   }
+  const c = await cargar("clases.json");
+  assert.equal(c._demo, undefined, "Experiencias es contenido real del cliente");
 });
 
-test("contacto.mapa trae el alt de la foto de respaldo y sitio.pie el rótulo legal", async () => {
-  const c = await cargar("contacto.json");
-  assert.ok(c.mapa.alt && c.mapa.alt.length > 8, "falta mapa.alt");
-  assert.ok((await cargar("sitio.json")).pie.legal, "falta pie.legal");
+test("contacto.mapa trae el alt de la foto y sitio.pie el rótulo legal", async () => {
+  assert.ok((await cargar("contacto.json")).mapa.alt.length > 8);
+  assert.ok((await cargar("sitio.json")).pie.legal);
 });
 
-test("el estudio queda en Medellín: ni en datos ni en la documentación aparece otra ciudad", async () => {
+test("el estudio queda en Envigado: ni en datos ni en la documentación aparece otra ciudad", async () => {
   const s = await cargar("sitio.json");
-  assert.match(s.contacto.direccion.ciudad, /Medellín/);
-  assert.match(s.descripcion, /Medellín/);
-  const raiz = fileURLToPath(new URL("../", import.meta.url));
+  assert.match(s.ubicacion.ciudad, /Envigado/);
+  assert.match(s.descripcion, /Envigado/);
   const revisar = [dir + "inicio.json", dir + "contacto.json", dir + "sitio.json", raiz + "PENDIENTES.md", raiz + "PRODUCT.md", raiz + "AGENTS.md", raiz + "TUTORIAL.md", raiz + "README.md"];
   for (const d of await readdir(raiz + "conocimiento_generado")) revisar.push(raiz + "conocimiento_generado/" + d);
   for (const f of revisar) assert.ok(!/Bogot/i.test(await readFile(f, "utf8")), `${f} menciona Bogotá`);
-  assert.match(await readFile(raiz + "conocimiento_generado/SITIO.md", "utf8"), /Medellín/);
+  assert.match(await readFile(raiz + "conocimiento_generado/SITIO.md", "utf8"), /Envigado/);
 });

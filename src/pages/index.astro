@@ -5,17 +5,15 @@ import Cita from "../components/Cita.astro";
 import Encabezado from "../components/Encabezado.astro";
 import Separador from "../components/Separador.astro";
 import Foto from "../components/Foto.astro";
-import Arco from "../components/Arco.astro";
+import Recuadro from "../components/Recuadro.astro";
 import Boton from "../components/Boton.astro";
+import PruebaGratis from "../components/PruebaGratis.astro";
 import inicio from "../datos/inicio.json";
 import sitio from "../datos/sitio.json";
-import { enlaceWa } from "../lib/wa.js";
 import { ruta } from "../lib/ruta.js";
-
-const reserva = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva);
 ---
 <Layout titulo={inicio.meta.titulo} descripcion={inicio.meta.descripcion} activa="inicio">
-  <Portada datos={inicio.portada} reserva={reserva} />
+  <Portada datos={inicio.portada} appUrl={sitio.app.url} />
 
   <section class="seccion filosofia">
     <div class="contenedor filosofia__in">
@@ -24,38 +22,34 @@ const reserva = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva)
     </div>
   </section>
 
-  <section class="seccion pilares">
+  <section class="seccion experiencias">
     <div class="contenedor">
-      <Encabezado titulo={inicio.pilares.titulo} alinear="centro" />
-      <div class="pilares__grid" data-stagger>
-        {inicio.pilares.items.map((p) => (
-          <article class="pilar rev">
-            <a href={ruta(p.enlace.href)} class="pilar__foto" tabindex="-1" aria-hidden="true">
-              <Arco ratio="3 / 4"><Foto base={p.imagen} alt="" sizes="(min-width: 900px) 30vw, 90vw" /></Arco>
-            </a>
-            <p class="etiqueta">{p.etiqueta}</p>
-            <h3 class="pilar__titulo">{p.titulo}</h3>
-            <p class="pilar__texto">{p.texto}</p>
-            <a class="pilar__enlace" href={ruta(p.enlace.href)}>{p.enlace.texto}</a>
-          </article>
+      <Encabezado titulo={inicio.experiencias.titulo} texto={inicio.experiencias.texto} alinear="centro" />
+      <ul class="atributos" data-stagger>
+        {inicio.experiencias.items.map((i) => (
+          <li class="atributo rev">
+            <h3>{i.titulo}</h3>
+            <p>{i.texto}</p>
+          </li>
         ))}
-      </div>
+      </ul>
+      <p class="experiencias__enlace rev"><a href={ruta(inicio.experiencias.enlace.href)}>{inicio.experiencias.enlace.texto}</a></p>
     </div>
   </section>
 
-  <Cita texto={inicio.cita.texto} firma={inicio.cita.firma} />
-
-  <section class="seccion espacio">
-    <div class="contenedor espacio__in">
-      <div class="espacio__texto">
-        <Encabezado titulo={inicio.espacio.titulo} texto={inicio.espacio.texto} />
+  <section class="estudio banda">
+    <div class="contenedor estudio__in">
+      <div class="estudio__texto">
+        <Encabezado titulo={inicio.estudio.titulo} texto={inicio.estudio.texto} />
+        <ul class="puntos">
+          {inicio.estudio.puntos.map((p) => (
+            <li class="rev"><h3>{p.titulo}</h3><p>{p.texto}</p></li>
+          ))}
+        </ul>
+        <div class="rev"><Boton texto={inicio.estudio.enlace.texto} href={ruta(inicio.estudio.enlace.href)} variante="marfil-contorno" /></div>
       </div>
-      <div class="espacio__fotos">
-        {inicio.espacio.imagenes.map((f, i) => (
-          <div class:list={["rev", i === 1 && "espacio__baja"]} style={`--i:${i}`}>
-            <Arco ratio="3 / 4"><Foto base={f.imagen} alt={f.alt} sizes="(min-width: 900px) 24vw, 45vw" /></Arco>
-          </div>
-        ))}
+      <div class="estudio__foto rev">
+        <Recuadro ratio="1 / 1"><Foto base={inicio.estudio.imagen} alt={inicio.estudio.alt} sizes="(min-width: 900px) 40vw, 92vw" /></Recuadro>
       </div>
     </div>
   </section>
@@ -74,52 +68,37 @@ const reserva = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva)
     </div>
   </section>
 
-  <section class="cierre banda">
-    <div class="contenedor cierre__in">
-      <div class="cierre__texto">
-        <Encabezado titulo={inicio.cierre.titulo} texto={inicio.cierre.texto} />
-        <div class="rev" style="--i:3"><Boton texto={inicio.cierre.boton.texto} href={reserva} variante="marfil" externo /></div>
-      </div>
-      <div class="cierre__foto rev">
-        <Arco ratio="3 / 4"><Foto base={inicio.cierre.imagen} alt={inicio.cierre.alt} sizes="(min-width: 900px) 30vw, 70vw" /></Arco>
-      </div>
-    </div>
-  </section>
+  <Cita texto={inicio.cita.texto} />
+  <PruebaGratis />
 </Layout>
 
 <style>
   .filosofia__in { display: grid; gap: 1.5rem; justify-items: center; text-align: center; }
   .filosofia__texto { margin: 0; max-width: 26ch; font-weight: 100; font-size: clamp(1.9rem, 1rem + 3.6vw, 3.5rem); line-height: 1.18; overflow-wrap: break-word; }
 
-  .pilares__grid { display: grid; gap: clamp(40px, 6vw, 56px); margin-top: clamp(48px, 7vw, 88px); }
-  .pilar { display: grid; gap: 0.9rem; align-content: start; }
-  .pilar__foto { display: block; margin-bottom: 0.6rem; }
-  .pilar__foto :global(.arco) { transition: transform 1.2s var(--ease); }
-  .pilar:hover .pilar__foto :global(.arco) { transform: translateY(-6px); }
-  .pilar__titulo { margin: 0; font-weight: 100; font-size: clamp(1.9rem, 1.4rem + 1.4vw, 2.5rem); line-height: 1.1; }
-  .pilar__texto { margin: 0; color: var(--texto-suave); max-width: 34ch; }
-  .pilar__enlace { width: fit-content; font-family: var(--font-etiqueta); font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid var(--espresso); }
-  .pilar__enlace:hover { letter-spacing: 0.28em; }
-  .pilar__enlace { transition: letter-spacing 0.5s var(--ease); }
+  .atributos { list-style: none; margin: clamp(40px, 6vw, 80px) 0 0; padding: 0; display: grid; gap: 2rem; }
+  .atributo { display: grid; gap: 0.6rem; padding-top: 1.5rem; border-top: 1px solid var(--espresso); align-content: start; }
+  .atributo h3 { margin: 0; font-weight: 100; font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.25rem); line-height: 1.12; }
+  .atributo p { margin: 0; color: var(--texto-suave); max-width: 30ch; }
+  .experiencias__enlace { margin: clamp(32px, 5vw, 56px) 0 0; text-align: center; }
+  .experiencias__enlace a { font-family: var(--font-etiqueta); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid var(--espresso); }
 
-  .espacio__in { display: grid; gap: 3rem; align-items: center; }
-  .espacio__fotos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 3vw, 32px); }
-  .espacio__baja { margin-top: clamp(32px, 8vw, 96px); }
+  .estudio { padding-block: clamp(64px, 9vw, 140px); }
+  .estudio__in { display: grid; gap: 3rem; align-items: center; }
+  .estudio__texto { display: grid; gap: 2rem; justify-items: start; }
+  .puntos { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; width: 100%; }
+  .puntos li { display: grid; gap: 0.25rem; padding-block: 1.1rem; border-top: 1px solid rgba(246, 245, 227, 0.32); }
+  .puntos li:last-child { border-bottom: 1px solid rgba(246, 245, 227, 0.32); }
+  .puntos h3 { margin: 0; font-weight: 100; font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.875rem); line-height: 1.15; }
+  .puntos p { margin: 0; }
 
   .testimonios__grid { display: grid; gap: 2.5rem; margin-top: clamp(40px, 6vw, 72px); }
   .testimonio { margin: 0; display: grid; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--linea); align-content: start; }
   .testimonio blockquote { margin: 0; font-weight: 100; font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem); line-height: 1.3; }
 
-  .cierre { padding-block: clamp(72px, 10vw, 140px); }
-  .cierre__in { display: grid; gap: 3rem; align-items: center; }
-  .cierre__texto { display: grid; gap: 2.25rem; justify-items: start; }
-  .cierre__foto { max-width: 400px; width: 100%; justify-self: center; }
-
   @media (min-width: 900px) {
-    .pilares__grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
-    .pilares__grid .pilar:nth-child(2) { margin-top: clamp(40px, 6vw, 88px); }
-    .espacio__in { grid-template-columns: 0.9fr 1.1fr; gap: 6vw; }
+    .atributos { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+    .estudio__in { grid-template-columns: 1.05fr 0.95fr; gap: 7vw; }
     .testimonios__grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-    .cierre__in { grid-template-columns: 1.2fr 0.8fr; gap: 8vw; }
   }
 </style>

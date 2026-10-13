@@ -57,7 +57,7 @@ a { color: inherit; }
   font-family: var(--font-display); font-weight: 600; font-size: 0.9375rem;
   letter-spacing: 0.04em; text-transform: none; color: var(--texto-suave); margin: 0;
 }
-.titulo-xl, .titulo-lg { font-weight: 100; margin: 0; line-height: 1.04; letter-spacing: -0.01em; overflow-wrap: break-word; }
+.titulo-xl, .titulo-lg { font-weight: 100; margin: 0; line-height: 1.04; letter-spacing: -0.01em; overflow-wrap: anywhere; hyphens: auto; max-width: 100%; }
 .titulo-xl { font-size: clamp(2.5rem, 1rem + 4.6vw, 5rem); text-wrap: balance; }
 .titulo-lg { font-size: clamp(2.125rem, 1.2rem + 3.6vw, 4rem); text-wrap: balance; }
 .lead { font-size: clamp(1.0625rem, 1rem + 0.5vw, 1.3125rem); line-height: 1.65; max-width: 38ch; color: var(--texto-suave); margin: 0; }

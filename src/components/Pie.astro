@@ -5,6 +5,7 @@ import { enlaceWa } from "../lib/wa.js";
 import { tieneVisita, tieneConecta } from "../lib/visibilidad.js";
 const c = sitio.contacto;
 const wa = enlaceWa(c.whatsapp, c.mensajeReserva);
+const u = sitio.ubicacion;
 const redes = (c.redes ?? []).filter((r) => r.href);
 const legales = (sitio.legales ?? []).filter((l) => l.href);
 ---
@@ -20,10 +21,10 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
       {sitio.menu.map((i) => <a href={ruta(i.href)}>{i.texto}</a>)}
     </nav>
 
-    {tieneVisita(c) && (
+    {tieneVisita({ direccion: u, horario: c.horario }) && (
     <div class="pie__col">
       <h2 class="etiqueta">{sitio.pie.visitanos}</h2>
-      {c.direccion?.linea && <p>{c.direccion.linea}<br />{c.direccion.ciudad}</p>}
+      {u?.linea && <p>{u.linea}<br />{u.zona}<br />{u.ciudad}</p>}
       {c.horario?.length > 0 && (
         <p>{c.horario.map((h) => <span class="pie__h">{h.dias}: {h.horas}</span>)}</p>
       )}

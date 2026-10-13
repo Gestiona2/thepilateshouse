@@ -1,50 +1,57 @@
 # Inventario de secciones: Aira
 
-Qué hay en cada página y dónde vive su contenido. **Todo el texto está en
-`src/datos/<página>.json`**; los archivos `.astro` solo componen y no llevan texto.
+Todo el texto está en `src/datos/<página>.json`; los `.astro` solo componen. Las fotos se
+nombran por su base sin el ancho: `"imagen": "estudio-sala"` usa
+`public/img/estudio-sala-480|800|1200|1800.webp`. Toda foto lleva su `alt`.
 
-Las fotos se nombran por su base, sin el ancho: `"imagen": "estudio-sala"` usa
-`public/img/estudio-sala-480|800|1200|1800.webp`. Toda foto lleva su `alt` (descripción
-para quien no puede verla).
+**Las fotos van rectas, sin marco ni esquinas redondeadas, y las de una cuadrícula miden lo
+mismo** (`src/components/Recuadro.astro`, cuadradas por defecto).
 
----
-
-## Inicio (`inicio.json`, página `src/pages/index.astro`)
-
+## Inicio (`inicio.json`)
 | Sección | Clave | Notas |
 |---|---|---|
-| Portada | `portada` | Titular en dos líneas (`\n` separa). Dos botones: el de `"tipo": "reserva"` abre WhatsApp. Foto en arco. |
-| Propósito | `filosofia` | Una frase grande centrada. |
-| Tres puertas | `pilares.items` | **Exactamente 3.** La del medio baja en el diseño. Cada una enlaza a una página. |
-| Cita | `cita` | Banda espresso con una frase y una firma. Frase corta: hasta ~90 caracteres. |
-| El espacio | `espacio` | Dos fotos verticales. |
-| Voces | `testimonios.items` | 3 recomendados; frase de hasta ~110 caracteres. ⚠️ Demo. |
-| Cierre | `cierre` | Banda espresso con botón de reserva. |
+| Portada | `portada` | Titular en dos líneas (`\n`). Botón `"tipo": "app"` va a la app. |
+| Propósito | `filosofia` | Frase grande centrada. |
+| Experiencias | `experiencias` | 4 atributos (`items`) en columnas, sin tarjetas. |
+| El estudio | `estudio` | Banda espresso: texto, 3 `puntos` y una foto cuadrada. |
+| Voces | `testimonios.items` | 3 recomendados. ⚠️ Demo. |
+| Manifiesto | `cita.texto` | Solo el mensaje, **sin título ni firma**. |
+| Clase de prueba | `sitio.json › pruebaGratis` | Botón grande a la app. |
 
-## La casa (`la-casa.json`, `src/pages/la-casa.astro`)
-`encabezado`, `historia.lineas` (4 frases, casi textuales del manual de marca), `proposito`,
-`esencia.columnas` (**3**: atributos, beneficios, valores), `galeria.items` (6 fotos, con
-`leyenda`) y `cierre`.
+## El estudio (`la-casa.json`)
+`encabezado`, `historia.lineas` (4), `proposito`, `esencia.columnas` (**3**) y
+`espacios.items` (**4, en este orden**: Recepción, Salas con lockers, Reformers, Zonas verdes).
 
-## Clases (`clases.json`, `src/pages/clases.astro`) ⚠️ Demo
-`lista.items`: cada clase tiene `titulo`, `texto`, `duracion`, `nivel`, `imagen`, `alt` y
-`mensaje` (el texto que llega prellenado a WhatsApp). 4 a 6 caben bien; se alternan
-izquierda y derecha solas. `pasos.items` (3) explica cómo reservar.
+## Experiencias (`clases.json`)
+`atributos.items` (4: pilates reformer, hasta 6 personas, profesores fisioterapeutas, técnica
+guiada), `detalle` (el reformer) y `eventos.items` (**cumpleaños, despedidas de soltera, grados
+y eventos empresariales**; cada uno trae el `mensaje` que llega a WhatsApp).
 
-## Membresía (`membresia.json`, `src/pages/membresia.astro`) ⚠️ Demo
-`vip` (tarjeta de miembro), `planes.items` (**3**; el que tenga `"destacado": true` se pinta
-en espresso, solo uno), `planes.moneda`, `planes.periodo` y `planes.nota`. El precio es un
-**número entero** en pesos (`840000`), el sitio lo muestra como `$840.000`.
+## Planes y horarios (`membresia.json`) ⚠️ Demo
+`horarios.dias` (cada día con su lista de `horas`; una lista vacía muestra "Cerrado"),
+`planes.items` (**3**; `"destacado": true` pinta uno en espresso; precio entero en COP) y `vip`
+(tarjeta de miembro).
 
-## Contacto (`contacto.json` + `sitio.json`, `src/pages/contacto.astro`)
-Reserva, dirección, horarios, correo y redes salen de `sitio.json › contacto`. `faq.items`
-(preguntas frecuentes, 4 a 8) es demo. `mapa.embedUrl`: si está vacío se muestra una foto en
-arco; si se pega una URL de incrustación de mapa, aparece el mapa.
+## Contacto (`contacto.json` + `sitio.json`)
+`sitio.json › reservas` (bloque de reserva en la app + botón de dudas por WhatsApp),
+`formulario` (campos, motivos, plantilla del mensaje y consentimiento), la ubicación
+(`sitio.json › ubicacion`, real) con enlace **Cómo llegar** (Google Maps, sin incrustar), el
+horario y los datos de contacto (`sitio.json › contacto`, demo) y `faq.items` (**4 preguntas
+acordadas con el cliente**; el token `{direccion}` se reemplaza por la dirección real).
+
+## Páginas legales (`legales.json`) ⚠️ Borradores
+Tres documentos con esqueleto de secciones y un aviso de "pendiente de revisión legal".
 
 ## En todas las páginas
 | Elemento | Dónde |
 |---|---|
-| Menú superior | `src/components/Cabecera.astro` (lee `sitio.json › menu`; las 3 primeras a la izquierda, el resto a la derecha) |
-| Pie de página | `src/components/Pie.astro` (oculta solo lo que esté vacío: redes, legales) |
-| Botón flotante de WhatsApp | `src/layouts/Layout.astro` |
-| Apariciones al bajar y parallax | `Layout.astro` (clase `.rev`, atributo `data-parallax`) |
+| Menú y botón **Primera clase gratis** | `Cabecera.astro` (en celular el botón se acorta a `cta.corto`) |
+| Pie con ubicación, horario, contacto y enlaces legales | `Pie.astro` |
+| Ventana de **primera clase gratis** a los 30 s | `Popup.astro`, textos en `sitio.json › popup` |
+| Botón flotante de WhatsApp | `Layout.astro` |
+
+## Ventana emergente
+Aparece a los `popup.segundos` (30) de estar en la página, **una vez por visita** (se recuerda
+con el almacenamiento temporal del navegador), no interrumpe si la persona está escribiendo en
+un formulario y no aparece en las páginas legales ni en la 404. Se cierra con Esc, con el fondo
+o con "Ahora no".

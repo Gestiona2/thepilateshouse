@@ -2,7 +2,7 @@
   "nombre": "Aira",
   "marca": "The Pilates House",
   "eslogan": "One breath at a time",
-  "descripcion": "Aira, The Pilates House en Medellín. Un refugio de calma donde la serenidad y el movimiento se encuentran. Reserva tu primera experiencia.",
+  "descripcion": "Aira, The Pilates House en Envigado, Antioquia. Pilates reformer semipersonalizado con profesores fisioterapeutas. Agenda tu primera clase gratis.",
   "indexar": false,
   "empresa": {
     "_demo": true,
@@ -15,11 +15,6 @@
     "whatsappVisible": "+57 300 000 0000",
     "correo": "hola@aira.example",
     "mensajeReserva": "Hola Aira, me gustaría reservar mi primera experiencia.",
-    "direccion": {
-      "linea": "Calle 00 # 00-00, Local 000",
-      "ciudad": "Medellín, Colombia",
-      "referencia": "Entrada por el lobby principal del edificio"
-    },
     "horario": [
       {
         "dias": "Lunes a viernes",
@@ -50,17 +45,17 @@
     },
     {
       "id": "la-casa",
-      "texto": "La casa",
+      "texto": "El estudio",
       "href": "/la-casa"
     },
     {
       "id": "clases",
-      "texto": "Clases",
+      "texto": "Experiencias",
       "href": "/clases"
     },
     {
       "id": "membresia",
-      "texto": "Membresía",
+      "texto": "Planes y horarios",
       "href": "/membresia"
     },
     {
@@ -69,7 +64,20 @@
       "href": "/contacto"
     }
   ],
-  "legales": [],
+  "legales": [
+    {
+      "texto": "Política de privacidad",
+      "href": "/politica-privacidad"
+    },
+    {
+      "texto": "Tratamiento de datos",
+      "href": "/tratamiento-datos"
+    },
+    {
+      "texto": "Política de cookies",
+      "href": "/politica-cookies"
+    }
+  ],
   "ui": {
     "irAlContenido": "Ir al contenido",
     "abrirMenu": "Abrir menú",
@@ -81,7 +89,10 @@
     "reservarWa": "Reservar por WhatsApp",
     "escribirWa": "Escribir por WhatsApp",
     "volverArriba": "Volver arriba",
-    "abreNuevaPestana": "se abre en una pestaña nueva"
+    "abreNuevaPestana": "se abre en una pestaña nueva",
+    "consultarPlan": "Consultar este plan",
+    "cotizar": "Consultar por WhatsApp",
+    "comoLlegar": "Cómo llegar"
   },
   "pie": {
     "explorar": "Explorar",
@@ -93,5 +104,42 @@
     "titulo": "Esta página\nse fue a respirar",
     "texto": "No encontramos lo que buscas. Vuelve al inicio y sigue el recorrido.",
     "boton": "Volver al inicio"
+  },
+  "ubicacion": {
+    "linea": "Av. Las Palmas Km 15 990",
+    "zona": "Vda. El Peñasco",
+    "ciudad": "Envigado, Antioquia",
+    "completa": "Av. Las Palmas Km 15 990, Vda. El Peñasco, Envigado, Antioquia",
+    "mapaEnlace": "https://www.google.com/maps/search/?api=1&query=Av.+Las+Palmas+Km+15+990+Vda.+El+Pe%C3%B1asco+Envigado+Antioquia"
+  },
+  "app": {
+    "_demo": true,
+    "url": "https://emp2web.com"
+  },
+  "cta": {
+    "texto": "Primera clase gratis",
+    "corto": "Clase gratis"
+  },
+  "reservas": {
+    "titulo": "Reserva tu clase a través de nuestra app",
+    "texto": "Elige tu horario y confirma tu cupo en la app. Si tienes dudas, escríbenos por WhatsApp.",
+    "botonApp": "Reservar en la app",
+    "botonDudas": "¿Dudas? Escríbenos por WhatsApp",
+    "mensajeDudas": "Hola Aira, tengo una duda sobre las clases."
+  },
+  "pruebaGratis": {
+    "titulo": "Agenda tu clase de prueba a través de nuestra aplicación",
+    "texto": "Tu primera clase es gratis. Reserva en la app y ven a conocer Aira.",
+    "boton": "Agenda tu primera clase gratis",
+    "dudas": "¿Dudas? Escríbenos por WhatsApp"
+  },
+  "popup": {
+    "segundos": 30,
+    "titulo": "Agenda tu primera clase gratis",
+    "texto": "Ven a conocer Aira: clases semipersonalizadas de hasta 6 personas, con profesores fisioterapeutas.",
+    "boton": "Agendar en la app",
+    "cerrar": "Ahora no",
+    "cerrarAria": "Cerrar ventana",
+    "etiquetaAria": "Primera clase gratis"
   }
 }

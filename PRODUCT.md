@@ -3,7 +3,7 @@
 register: brand
 
 ## Qué es
-Sitio informativo y de reserva (por WhatsApp) de un estudio de pilates reformer en Medellín, Colombia. Su trabajo es transmitir calma y exclusividad y llevar a la persona a reservar su primera clase.
+Sitio informativo y de reserva (por WhatsApp) de un estudio de pilates reformer en Envigado (Antioquia), Colombia. Su trabajo es transmitir calma y exclusividad y llevar a la persona a reservar su primera clase.
 
 ## Usuarias
 Mujeres y hombres urbanos que buscan bienestar de alta calidad y atención personalizada. Llegan desde el celular, casi siempre desde Instagram o una recomendación. Deciden por sensación: luz, aire, orden.
@@ -19,6 +19,6 @@ Gimnasio ruidoso, descuentos y urgencia, estética de "wellness" genérica con t
 
 ## Principios
 1. Lujo por contención: aire, ritmo lento, una sola cosa memorable por pantalla.
-2. La fotografía real del estudio manda; el arco (mostrador, nichos, tarjeta VIP) es el motivo.
+2. La fotografía real del estudio manda: se muestra recta, sin marcos ni esquinas redondeadas, y las fotos de una misma cuadrícula miden lo mismo.
 3. Todo texto editable vive en `src/datos/`.
 4. Ningún dato de demostración sale a producción (`npm run revisar-demo -- --produccion`).

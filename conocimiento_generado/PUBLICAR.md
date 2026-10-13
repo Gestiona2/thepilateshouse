@@ -6,7 +6,7 @@
 
 1. `npm run revisar-demo -- --produccion` debe terminar **sin pendientes**. Mientras queden
    datos de demostración, no se publica. Ver `PENDIENTES.md`.
-2. En `src/datos/sitio.json` poner `"indexar": true`.
+2. En `src/datos/sitio.json` poner `"indexar": true`. Hoy el sitio se publica como demo en `demos.emp2web.com/thepilateshouse` (`base` en `astro.config.mjs`).
 3. En `public/robots.txt` reemplazar `Disallow: /` por `Allow: /` y agregar la línea
    `Sitemap: https://<dominio>/sitemap.xml`.
 4. En `astro.config.mjs` poner el dominio real en `site` (y `base` si va en subcarpeta).

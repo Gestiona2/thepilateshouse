@@ -19,6 +19,7 @@ roto.
 - **Almarose Thin solo desde 28 px.** Más pequeño es ilegible.
 - **Arena (`#E7DEB5`) y taupe (`#B49F84`) no son colores de texto:** no pasan el contraste.
 - **El sitio es solo de tema claro.** No se agrega modo oscuro.
+- **Las fotos no llevan arcos ni esquinas redondeadas.** Es un pedido del cliente.
 - **Una sola pieza con parallax por pantalla.** Más marea, sobre todo en celular.
 - **Sin dorados, gradientes decorativos ni sombras pesadas.** No son de la marca.
 - **Nunca ocultar contenido sin la clase `js` previa.** Si algo se oculta para animarlo, tiene
@@ -35,8 +36,11 @@ Respuesta: **"Eso lo hace tu proveedor, te paso el contacto."**
 - Conectar el sitio con otro sistema (CRM, facturación)
 - Cambiar el dominio o mudar el hosting
 - Actualizar Astro u otras librerías, o instalar algo nuevo
-- Publicar las páginas legales (privacidad, tratamiento de datos): necesitan la razón social
-  real y revisión del proveedor
+- Publicar las páginas legales (privacidad, tratamiento de datos, cookies): hoy son borradores;
+  necesitan la razón social real y revisión legal
+- Conectar el formulario de contacto a un correo o CRM: hoy arma un mensaje de WhatsApp en el
+  navegador de la persona, sin guardar nada
+- Agregar analítica, píxeles o mapas incrustados: cambian la política de cookies
 
 ## Lo que sí puede hacer
 

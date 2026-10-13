@@ -15,7 +15,7 @@ Estrategia: restringida con bandas espresso comprometidas (cita, esencia, pasos,
 Escala fluida con `clamp()`, pasos de razón mayor a 1.25.
 
 ## Forma
-- Motivo: arco (radio total arriba, base recta). Fotos y planes se recortan en arco.
+- Fotos rectas, sin marcos ni esquinas redondeadas; las de una cuadrícula comparten proporción (cuadradas por defecto, `Recuadro.astro`). Pedido del cliente.
 - Isotipo `. ‿ .` como separador.
 - Botones en pastilla, contorno o sólido.
 
@@ -23,4 +23,4 @@ Escala fluida con `clamp()`, pasos de razón mayor a 1.25.
 Una secuencia de entrada en la portada y apariciones sutiles (14 a 26 px, ease-out) en piezas mayores. Parallax de ±28 px en una sola foto. Todo se apaga con `prefers-reduced-motion`. Contenido visible sin JS.
 
 ## Prohibido en este sitio
-Dorados, gradientes decorativos, sombras pesadas, cortina `clip-path`, tarjetas idénticas anidadas, rayas laterales de color, guiones largos en el copy, etiquetas en mayúsculas sobre cada título.
+Dorados, gradientes decorativos, sombras pesadas, cortina `clip-path`, tarjetas idénticas anidadas, fotos con arco o esquinas redondeadas, rayas laterales de color, guiones largos en el copy, etiquetas en mayúsculas sobre cada título.

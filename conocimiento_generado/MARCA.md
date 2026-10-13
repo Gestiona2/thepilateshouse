@@ -35,8 +35,9 @@ Además se midió el contraste real de todo el texto renderizado en las 6 págin
 Archivos en `public/fonts/` (woff2, subset latino). Nunca enlazar a servidores externos.
 
 ## Forma y logo
-- **Arco** (base recta, cima redondeada): motivo tomado del mostrador, los nichos y la
-  tarjeta VIP. Fotos y planes se recortan en arco.
+- **Fotos rectas, sin marco ni esquinas redondeadas.** Las de una cuadrícula miden lo mismo
+  (cuadradas por defecto). Pedido del cliente el 13 de octubre de 2026; la versión con arcos
+  quedó en la etiqueta `demo-v1-editorial` de Git.
 - **Isotipo `. ‿ .`** como separador y favicon.
 - Logos en `public/brand/`, recoloreados a espresso y marfil: `logo` (solo "aira"),
   `logo-casa` (con The Pilates House), `logo-eslogan` (con One breath at a time), `isotipo`.
@@ -49,4 +50,4 @@ Archivos en `public/fonts/` (woff2, subset latino). Nunca enlazar a servidores e
 
 ## Estilo de imagen
 Fotografía real del estudio: luz cálida, líneas curvas, tonos arena y crema. Sin filtros ni
-superposiciones. Fotos verticales 3:4.
+superposiciones. Se recortan cuadradas (1:1) en cuadrículas y a 4:5 en la portada.

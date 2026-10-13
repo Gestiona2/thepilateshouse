@@ -1,54 +1,74 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Encabezado from "../components/Encabezado.astro";
-import TarjetaClase from "../components/TarjetaClase.astro";
+import Foto from "../components/Foto.astro";
+import Recuadro from "../components/Recuadro.astro";
 import Boton from "../components/Boton.astro";
+import BloqueReserva from "../components/BloqueReserva.astro";
 import d from "../datos/clases.json";
 import sitio from "../datos/sitio.json";
 import { enlaceWa } from "../lib/wa.js";
-
-const reserva = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva);
 ---
 <Layout titulo={d.meta.titulo} descripcion={d.meta.descripcion} activa="clases">
   <section class="seccion cabecera-pagina">
     <div class="contenedor"><Encabezado nivel={1} etiqueta={d.encabezado.etiqueta} titulo={d.encabezado.titulo} texto={d.encabezado.texto} alinear="centro" /></div>
   </section>
 
-  <section class="contenedor lista">
-    {d.lista.items.map((c, i) => <TarjetaClase clase={c} whatsapp={sitio.contacto.whatsapp} invertida={i % 2 === 1} />)}
+  <section class="contenedor atributos-wrap">
+    <ul class="atributos" data-stagger>
+      {d.atributos.items.map((a) => (
+        <li class="atributo rev"><h2>{a.titulo}</h2><p>{a.texto}</p></li>
+      ))}
+    </ul>
   </section>
 
-  <section class="seccion pasos banda">
+  <section class="seccion detalle">
+    <div class="contenedor detalle__in">
+      <div class="detalle__texto">
+        <Encabezado titulo={d.detalle.titulo} texto={d.detalle.texto} />
+      </div>
+      <div class="detalle__foto rev">
+        <Recuadro ratio="1 / 1"><Foto base={d.detalle.imagen} alt={d.detalle.alt} sizes="(min-width: 900px) 40vw, 92vw" /></Recuadro>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion eventos">
     <div class="contenedor">
-      <Encabezado titulo={d.pasos.titulo} alinear="centro" />
-      <ol class="pasos__lista" data-stagger>
-        {d.pasos.items.map((p) => (
-          <li class="paso rev">
-            <span class="paso__n">{p.numero}</span>
-            <h3 class="paso__t">{p.titulo}</h3>
-            <p>{p.texto}</p>
-          </li>
+      <Encabezado titulo={d.eventos.titulo} texto={d.eventos.texto} alinear="centro" />
+      <div class="eventos__grid">
+        {d.eventos.items.map((e) => (
+          <article class="evento rev">
+            <Recuadro ratio="1 / 1"><Foto base={e.imagen} alt={e.alt} sizes="(min-width: 1100px) 24vw, (min-width: 600px) 45vw, 92vw" /></Recuadro>
+            <h3>{e.titulo}</h3>
+            <p>{e.texto}</p>
+            <div><Boton texto={sitio.ui.cotizar} href={enlaceWa(sitio.contacto.whatsapp, e.mensaje)} variante="contorno" externo /></div>
+          </article>
         ))}
-      </ol>
+      </div>
     </div>
   </section>
 
-  <section class="seccion cierre">
-    <div class="contenedor cierre__in">
-      <Encabezado titulo={d.cierre.titulo} texto={d.cierre.texto} alinear="centro" />
-      <div class="rev"><Boton texto={d.cierre.boton.texto} href={reserva} variante="solido" externo /></div>
-    </div>
-  </section>
+  <BloqueReserva />
 </Layout>
 
 <style>
   .cabecera-pagina { padding-bottom: clamp(32px, 5vw, 64px); }
-  .lista { display: grid; gap: clamp(72px, 11vw, 150px); padding-bottom: clamp(72px, 11vw, 150px); }
-  .pasos__lista { list-style: none; margin: clamp(40px, 6vw, 80px) 0 0; padding: 0; display: grid; gap: 2.5rem; }
-  .paso { display: grid; gap: 0.7rem; padding-top: 1.5rem; border-top: 1px solid rgba(246, 245, 227, 0.32); }
-  .paso__n { font-family: var(--font-etiqueta); font-size: 0.8rem; letter-spacing: 0.24em; }
-  .paso__t { margin: 0; font-weight: 100; font-size: clamp(2rem, 1.5rem + 1.5vw, 2.5rem); line-height: 1.1; }
-  .paso p { margin: 0; max-width: 30ch; }
-  .cierre__in { display: grid; gap: 2.25rem; justify-items: center; text-align: center; }
-  @media (min-width: 900px) { .pasos__lista { grid-template-columns: repeat(3, 1fr); gap: 4rem; } }
+  .atributos { list-style: none; margin: 0; padding: 0; display: grid; gap: 2rem; }
+  .atributo { display: grid; gap: 0.6rem; padding-top: 1.5rem; border-top: 1px solid var(--espresso); align-content: start; }
+  .atributo h2 { margin: 0; font-weight: 100; font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.25rem); line-height: 1.12; }
+  .atributo p { margin: 0; color: var(--texto-suave); max-width: 30ch; }
+
+  .detalle__in { display: grid; gap: 3rem; align-items: center; }
+  .eventos__grid { display: grid; grid-template-columns: 1fr; gap: clamp(36px, 5vw, 56px) clamp(16px, 2.5vw, 32px); margin-top: clamp(40px, 6vw, 80px); }
+  .evento { display: grid; gap: 0.6rem; align-content: start; }
+  .evento h3 { margin: 0.6rem 0 0; font-weight: 100; font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.25rem); line-height: 1.1; }
+  .evento p { margin: 0 0 0.6rem; color: var(--texto-suave); }
+
+  @media (min-width: 600px) { .eventos__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) {
+    .atributos { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+    .detalle__in { grid-template-columns: 1fr 1fr; gap: 7vw; }
+  }
+  @media (min-width: 1100px) { .eventos__grid { grid-template-columns: repeat(4, 1fr); } }
 </style>

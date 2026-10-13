@@ -71,63 +71,118 @@ test("hay sitemap y robots", async () => {
   assert.match(r, /Disallow: \//);
 });
 
-test("inicio: portada con h1 de datos, 3 pilares y banda de cita", async () => {
-  const inicio = JSON.parse(await readFile(join(raiz, "src/datos/inicio.json"), "utf8"));
-  const h = await readFile(join(dist, "index.html"), "utf8");
-  for (const linea of inicio.portada.titulo.split("\n")) assert.ok(h.includes(linea), `falta "${linea}" en el h1`);
-  assert.ok(h.includes(inicio.cita.texto));
-  for (const p of inicio.pilares.items) assert.ok(h.includes(p.titulo));
-  for (const t of inicio.testimonios.items) assert.ok(h.includes(t.texto));
+const datosDe = async (n) => JSON.parse(await readFile(join(raiz, "src/datos", n + ".json"), "utf8"));
+const html = (ruta) => readFile(join(dist, ruta), "utf8");
+const enc = (t) => encodeURIComponent(t);
+
+test("inicio: portada, experiencias, estudio, manifiesto sin título, voces y clase de prueba", async () => {
+  const d = await datosDe("inicio"), s = await datosDe("sitio");
+  const h = await html("index.html");
+  for (const linea of d.portada.titulo.split("\n")) assert.ok(h.includes(linea), `falta "${linea}" en el h1`);
+  for (const i of d.experiencias.items) assert.ok(h.includes(i.titulo), i.titulo);
+  assert.ok(h.includes(d.estudio.titulo));
+  for (const p of d.estudio.puntos) assert.ok(h.includes(p.titulo), p.titulo);
+  assert.ok(h.includes(d.cita.texto), "falta el mensaje del manifiesto");
+  assert.ok(!/Manifiesto/i.test(h), "el manifiesto no lleva título");
+  for (const t of d.testimonios.items) assert.ok(h.includes(t.texto));
+  assert.ok(h.includes(s.pruebaGratis.titulo) && h.includes(s.pruebaGratis.boton));
   assert.equal((h.match(/fetchpriority="high"/g) || []).length, 1, "solo la foto de portada es prioritaria");
-  assert.ok(h.includes("https://wa.me/573000000000?text="), "botón de reserva por WhatsApp");
+  assert.ok(!h.includes("Una casa, tres formas de entrar"), "los tres bloques de la versión anterior ya no van");
 });
 
-test("la-casa: historia completa, esencia en 3 columnas y 6 fotos de galería", async () => {
-  const d = JSON.parse(await readFile(join(raiz, "src/datos/la-casa.json"), "utf8"));
-  const h = await readFile(join(dist, "la-casa/index.html"), "utf8");
+test("el estudio: historia, propósito, esencia y los espacios en el orden pedido", async () => {
+  const d = await datosDe("la-casa");
+  const h = await html("la-casa/index.html");
   for (const l of d.historia.lineas) assert.ok(h.includes(l), `falta línea: ${l}`);
   assert.ok(h.includes(d.proposito.texto));
   for (const c of d.esencia.columnas) { assert.ok(h.includes(c.etiqueta)); for (const i of c.items) assert.ok(h.includes(i)); }
-  for (const g of d.galeria.items) assert.ok(h.includes(g.alt), `falta foto: ${g.imagen}`);
-  assert.match(h, /aria-current="page"[^>]*>La casa/);
-});
-
-test("clases: cada clase con su reserva por WhatsApp y pasos", async () => {
-  const d = JSON.parse(await readFile(join(raiz, "src/datos/clases.json"), "utf8"));
-  const h = await readFile(join(dist, "clases/index.html"), "utf8");
-  for (const c of d.lista.items) {
-    assert.ok(h.includes(c.titulo), c.titulo);
-    assert.ok(h.includes(encodeURIComponent(c.mensaje)), `falta enlace de reserva de ${c.titulo}`);
+  let ultimo = -1;
+  for (const e of d.espacios.items) {
+    const pos = h.indexOf(`>${e.nombre}<`);
+    assert.ok(pos > ultimo, `${e.nombre} fuera de orden o ausente`);
+    ultimo = pos;
+    assert.ok(h.includes(e.alt), `falta foto: ${e.imagen}`);
   }
-  for (const p of d.pasos.items) assert.ok(h.includes(p.titulo));
+  assert.match(h, /aria-current="page"[^>]*>El estudio/);
 });
 
-test("membresía: 3 planes con precio en pesos, uno destacado, y la tarjeta VIP", async () => {
-  const d = JSON.parse(await readFile(join(raiz, "src/datos/membresia.json"), "utf8"));
-  const h = await readFile(join(dist, "membresia/index.html"), "utf8");
+test("experiencias: atributos, detalle, eventos con consulta por WhatsApp y reservas", async () => {
+  const d = await datosDe("clases"), s = await datosDe("sitio");
+  const h = await html("clases/index.html");
+  for (const a of d.atributos.items) assert.ok(h.includes(a.titulo), a.titulo);
+  assert.ok(h.includes(d.detalle.titulo));
+  for (const e of d.eventos.items) { assert.ok(h.includes(e.titulo)); assert.ok(h.includes(enc(e.mensaje)), `falta consulta de ${e.titulo}`); }
+  assert.ok(h.includes(s.reservas.titulo));
+});
+
+test("planes y horarios: tabla de horas, planes con precio y tarjeta VIP", async () => {
+  const d = await datosDe("membresia");
+  const h = await html("membresia/index.html");
+  for (const dia of d.horarios.dias) { assert.ok(h.includes(dia.dia)); for (const x of dia.horas) assert.ok(h.includes(x), x); }
   for (const p of d.planes.items) {
     assert.ok(h.includes(p.nombre));
-    const precio = "$" + new Intl.NumberFormat("es-CO").format(p.precio);
-    assert.ok(h.includes(precio), `falta el precio ${precio}`);
-    assert.ok(h.includes(encodeURIComponent(p.mensaje)));
+    assert.ok(h.includes("$" + new Intl.NumberFormat("es-CO").format(p.precio)));
+    assert.ok(h.includes(enc(p.mensaje)));
     for (const b of p.beneficios) assert.ok(h.includes(b));
   }
-  assert.equal((h.match(/plan--destacado/g) || []).length >= 1, true);
+  assert.ok(h.includes("plan--destacado"));
   assert.ok(h.includes("mockup-vip-1400.webp"));
 });
 
-test("contacto: dirección, horarios, FAQ y sin mapa vacío", async () => {
-  const s = JSON.parse(await readFile(join(raiz, "src/datos/sitio.json"), "utf8"));
-  const d = JSON.parse(await readFile(join(raiz, "src/datos/contacto.json"), "utf8"));
-  const h = await readFile(join(dist, "contacto/index.html"), "utf8");
-  assert.ok(h.includes(s.contacto.direccion.linea));
-  for (const x of s.contacto.horario) assert.ok(h.includes(x.horas));
-  for (const q of d.faq.items) { assert.ok(h.includes(q.pregunta)); assert.ok(h.includes(q.respuesta)); }
-  assert.ok(!/<iframe[^>]*src=""/.test(h), "iframe de mapa vacío");
+test("contacto: reservas en la app, formulario, ubicación real, mapa como enlace y preguntas", async () => {
+  const s = await datosDe("sitio"), d = await datosDe("contacto");
+  const h = await html("contacto/index.html");
+  assert.ok(h.includes(s.reservas.titulo) && h.includes(s.reservas.botonApp) && h.includes(s.reservas.botonDudas));
+  assert.ok(h.includes(enc(s.reservas.mensajeDudas)));
+  for (const campo of ["nombre", "telefono", "correo", "motivo", "mensaje", "consentimiento"]) assert.match(h, new RegExp(`name="${campo}"`), campo);
+  for (const m of d.formulario.motivos) assert.ok(h.includes(m), m);
+  assert.match(h, /<form[^>]*novalidate/, "el formulario valida con JS propio y mensajes");
+  assert.ok(h.includes("/tratamiento-datos"), "el consentimiento enlaza a la política");
+  assert.ok(h.includes(s.ubicacion.linea) && h.includes(s.ubicacion.ciudad));
+  assert.ok(h.includes(s.ubicacion.mapaEnlace.replace(/&/g, "&amp;")) || h.includes(s.ubicacion.mapaEnlace), "enlace a Google Maps");
+  assert.ok(!/<iframe/.test(h), "sin iframes de terceros");
+  for (const q of d.faq.items) assert.ok(h.includes(q.pregunta));
+  assert.ok(h.includes(s.ubicacion.completa), "la respuesta de ubicación lleva la dirección");
+  assert.ok(!h.includes("{direccion}"), "token sin reemplazar");
+  assert.ok(!h.includes("Calle 00"), "la dirección inventada ya no existe");
+});
+
+test("las tres páginas legales existen, avisan que son borrador y se enlazan desde el pie", async () => {
+  const l = await datosDe("legales"), s = await datosDe("sitio");
+  const inicio = await html("index.html");
+  for (const [k, d] of Object.entries(l)) {
+    const h = await html(`${k}/index.html`);
+    assert.ok(h.includes(d.titulo) && h.includes(d.aviso));
+    for (const sec of d.secciones) assert.ok(h.includes(sec.titulo));
+    assert.ok(inicio.includes(`/${k}`), `el pie no enlaza ${k}`);
+    assert.ok(!/<dialog/.test(h), "las páginas legales no muestran la ventana de promoción");
+  }
+  assert.equal(s.legales.length, 3);
+});
+
+test("en todas las páginas hay botón constante de primera clase gratis hacia la app", async () => {
+  const s = await datosDe("sitio");
+  for (const f of await htmls()) {
+    const nombre = f.replace(dist, "");
+    if (nombre.includes("404")) continue;
+    const h = await readFile(f, "utf8");
+    assert.ok(h.includes(s.cta.texto), `${nombre}: falta ${s.cta.texto}`);
+    assert.ok(h.includes(s.app.url), `${nombre}: falta el enlace a la app`);
+  }
+});
+
+test("la ventana de primera clase gratis está en las páginas principales con su texto", async () => {
+  const s = await datosDe("sitio");
+  for (const r of ["index.html", "la-casa/index.html", "clases/index.html", "membresia/index.html", "contacto/index.html"]) {
+    const h = await html(r);
+    assert.match(h, /<dialog[^>]*class="popup"/, r);
+    assert.ok(h.includes(s.popup.titulo) && h.includes(s.popup.boton) && h.includes(s.popup.cerrar), r);
+    assert.ok(h.includes(`data-segundos="${s.popup.segundos}"`), r);
+  }
 });
 
 test("404 existe y vuelve al inicio", async () => {
-  const h = await readFile(join(dist, "404.html"), "utf8");
+  const h = await html("404.html");
   assert.match(h, /<h1/);
 });
 
