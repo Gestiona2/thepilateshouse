@@ -39,3 +39,15 @@ test("los titulares pueden partir palabras largas (móvil de 320 px: «semiperso
   assert.match(regla, /overflow-wrap:\s*anywhere/);
   assert.match(regla, /hyphens:\s*auto/);
 });
+
+test("el botón flotante de WhatsApp es verde WhatsApp con contraste ≥ 3:1 para el icono blanco", async () => {
+  const l = await readFile(join(src, "layouts/Layout.astro"), "utf8");
+  const regla = l.match(/\.flota\s*\{[^}]*\}/)?.[0] ?? "";
+  const hex = (regla.match(/background:\s*(#[0-9a-fA-F]{6})/) || [])[1];
+  assert.ok(hex, "el botón flotante necesita un color de fondo");
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  assert.ok(g > r * 2 && g > b * 1.5, `${hex} no es un verde de WhatsApp`);
+  const lin = (c) => ((c /= 255) <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const L = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+  assert.ok(1.05 / (L + 0.05) >= 3, `contraste del icono blanco sobre ${hex}`);
+});

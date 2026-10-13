@@ -41,7 +41,7 @@ const wa = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva);
     {!sinPopup && <Popup />}
 
     <a class="flota" href={wa} target="_blank" rel="noopener" aria-label={`${sitio.ui.escribirWa} (${sitio.ui.abreNuevaPestana})`}>
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" /><path d="M9.2 8.2c-.4.9-.2 2.2 1.3 3.9s3 2.4 4 2.2l1-1.2-1.9-1-.9.7c-.7-.3-1.6-1.2-1.9-1.9l.7-.9-1-1.8z" fill="currentColor" stroke="none" /></svg>
     </a>
 
     <script is:inline>
@@ -103,6 +103,6 @@ const wa = enlaceWa(sitio.contacto.whatsapp, sitio.contacto.mensajeReserva);
 <style is:global>
   .saltar { position: absolute; left: 12px; top: -64px; z-index: 100; background: var(--espresso); color: var(--marfil); padding: 0.8rem 1.2rem; border-radius: 999px; text-decoration: none; transition: top 0.2s; }
   .saltar:focus { top: 12px; }
-  .flota { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 40; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--espresso); color: var(--marfil); box-shadow: 0 6px 24px rgba(96, 85, 74, 0.25); transition: transform 0.4s var(--ease); }
+  .flota { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 40; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: #1FA855; color: #fff; box-shadow: 0 6px 24px rgba(31, 168, 85, 0.35); transition: transform 0.4s var(--ease); }
   .flota:hover { transform: translateY(-3px); }
 </style>
