@@ -51,3 +51,9 @@ test("el botón flotante de WhatsApp es verde WhatsApp con contraste ≥ 3:1 par
   const L = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
   assert.ok(1.05 / (L + 0.05) >= 3, `contraste del icono blanco sobre ${hex}`);
 });
+
+test("la cabecera de escritorio mantiene el logo centrado: columnas iguales que pueden encogerse", async () => {
+  const c = await readFile(join(src, "components/Cabecera.astro"), "utf8");
+  assert.match(c, /grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto\s+minmax\(0,\s*1fr\)/);
+  assert.match(c, /column-gap:\s*clamp\(/);
+});
