@@ -52,9 +52,10 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
   .pie__in { display: grid; gap: 3rem; grid-template-columns: 1fr; }
   .pie__marca img { width: min(220px, 62%); height: auto; }
   .pie__marca .etiqueta { margin-top: 1rem; }
-  .pie__col { display: grid; gap: 0.6rem; align-content: start; }
+  .pie__col { display: grid; gap: 0; align-content: start; }
   .pie__col h2 { margin: 0 0 0.6rem; }
-  .pie__col a { text-decoration: none; width: fit-content; background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size 0.5s var(--ease); }
+  .pie__col p { margin: 0; padding-block: 0.4rem; }
+  .pie__col a { text-decoration: none; width: fit-content; display: flex; align-items: center; min-height: 44px; background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat; transition: background-size 0.5s var(--ease); }
   .pie__col a:hover { background-size: 100% 1px; }
   .pie__col p { margin: 0; }
   .pie__h { display: block; }

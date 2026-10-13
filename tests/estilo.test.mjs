@@ -57,3 +57,28 @@ test("la cabecera de escritorio mantiene el logo centrado: columnas iguales que 
   assert.match(c, /grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto\s+minmax\(0,\s*1fr\)/);
   assert.match(c, /column-gap:\s*clamp\(/);
 });
+
+test("los enlaces sueltos del pie, de Contacto y de la clase de prueba miden al menos 44 px de alto (tacto)", async () => {
+  for (const [f, regex] of [["components/Pie.astro", /\.pie__col a\s*\{[^}]*min-height:\s*44px/], ["components/PruebaGratis.astro", /\.prueba__dudas\s*\{[^}]*min-height:\s*44px/], ["pages/contacto.astro", /dd a\s*\{[^}]*min-height:\s*44px/]]) {
+    assert.match(await readFile(join(src, f), "utf8"), regex, f);
+  }
+});
+
+test("el botón de enviar del formulario tiene estilo propio de botón (los estilos de Boton son locales) y 44 px de alto", async () => {
+  const t = await readFile(join(src, "components/Formulario.astro"), "utf8");
+  const regla = t.match(/\.form__enviar\s*\{[^}]*\}/)?.[0] ?? "";
+  assert.match(regla, /min-height:\s*(4[4-9]|[5-9]\d)px/);
+  assert.match(regla, /background:\s*var\(--espresso\)/);
+  assert.match(regla, /border-radius:\s*999px/);
+});
+
+test("las preguntas frecuentes se pueden tocar cómodamente (summary de 44 px)", async () => {
+  const t = await readFile(join(src, "pages/contacto.astro"), "utf8");
+  assert.match(t.match(/\bsummary\s*\{[^}]*\}/)?.[0] ?? "", /min-height:\s*44px/);
+});
+
+test("la cabecera fija es opaca: el texto no se transparenta al desplazarse", async () => {
+  const c = await readFile(join(src, "components/Cabecera.astro"), "utf8");
+  const regla = c.match(/\.cab\s*\{[^}]*\}/)?.[0] ?? "";
+  assert.match(regla, /background:\s*var\(--marfil\)\s*;/);
+});

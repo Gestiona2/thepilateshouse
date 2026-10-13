@@ -65,7 +65,7 @@ const hayVisita = tieneVisita({ direccion: u, horario: c.horario }) || tieneCone
   dl { margin: 0.5rem 0 0; display: grid; gap: 0.4rem; }
   dt { margin-top: 1rem; }
   dd { margin: 0; }
-  dd a { display: block; width: fit-content; }
+  dd a { display: flex; align-items: center; min-height: 44px; width: fit-content; }
   .hora { display: flex; justify-content: space-between; gap: 1.5rem; max-width: 380px; border-bottom: 1px solid var(--linea); padding-block: 0.5rem; }
   .contacto__mapa { margin-top: 0.5rem; }
   .contacto__foto { max-width: 420px; margin-top: 1rem; }
@@ -74,7 +74,7 @@ const hayVisita = tieneVisita({ direccion: u, horario: c.horario }) || tieneCone
   .faq__in { display: grid; gap: 3rem; max-width: 900px; }
   details { border-top: 1px solid var(--linea); padding-block: 1.1rem; }
   details:last-child { border-bottom: 1px solid var(--linea); }
-  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem); }
+  summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem); }
   summary::-webkit-details-marker { display: none; }
   summary::after { content: "+"; font-weight: 100; font-size: 1.8rem; line-height: 1; transition: transform 0.4s var(--ease); }
   details[open] summary::after { transform: rotate(45deg); }
