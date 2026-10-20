@@ -38,6 +38,8 @@ casilleros, arco de luz). Los JPG originales no se guardan en el repo.
 - [ ] Quedan más fotos en el Drive (Inauguración 50, Despedida 2 37, Despedida de soltera 36, Febrero, Mayo).
 
 ## 4. Para publicar
+- [ ] **Cookies:** el pie incrusta Google Maps (iframe de terceros, carga diferida). Al redactar la política de
+      cookies oficial hay que mencionarlo; el aviso de cookies/consentimiento queda por decidir con el cliente.
 - [ ] Reemplazar los datos de la sección 1 y correr `npm run revisar-demo -- --produccion`.
 - [ ] `sitio.json`: `"indexar": true`; `public/robots.txt`: permitir buscadores y agregar el sitemap.
 - [ ] `astro.config.mjs`: `site` con el dominio real y `base: "/"` (hoy `/thepilateshouse`).

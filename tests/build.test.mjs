@@ -138,7 +138,8 @@ test("contacto: reservas en la app, formulario, ubicación real, mapa como enlac
   assert.ok(h.includes("/tratamiento-datos"), "el consentimiento enlaza a la política");
   assert.ok(h.includes(s.ubicacion.linea) && h.includes(s.ubicacion.ciudad));
   assert.ok(h.includes(s.ubicacion.mapaEnlace.replace(/&/g, "&amp;")) || h.includes(s.ubicacion.mapaEnlace), "enlace a Google Maps");
-  assert.ok(!/<iframe/.test(h), "sin iframes de terceros");
+  const marcos = h.match(/<iframe[^>]*>/g) ?? [];
+  assert.ok(marcos.every((m) => m.includes("maps.google.com/maps") && /title="/.test(m)), "el único iframe es el mapa del pie, con título");
   for (const q of d.faq.items) assert.ok(h.includes(q.pregunta));
   assert.ok(h.includes(s.ubicacion.completa), "la respuesta de ubicación lleva la dirección");
   assert.ok(!h.includes("{direccion}"), "token sin reemplazar");

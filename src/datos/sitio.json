@@ -87,7 +87,8 @@
     "consultarPlan": "Comprar en la app",
     "cotizar": "Consultar por WhatsApp",
     "comoLlegar": "Cómo llegar",
-    "verPlanes": "Ver todos los planes en la app"
+    "verPlanes": "Ver todos los planes en la app",
+    "mapaTitulo": "Mapa con la ubicación de Aira, The Pilates House en el Mall Le Mont"
   },
   "pie": {
     "explorar": "Explorar",
@@ -107,7 +108,8 @@
     "zona": "Vda. El Peñasco",
     "ciudad": "Envigado, Antioquia",
     "completa": "Mall Le Mont, Sótano 2, oficina 9855, Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado, Antioquia",
-    "mapaEnlace": "https://maps.app.goo.gl/wGL6qefMAmVo1nvF9"
+    "mapaEnlace": "https://maps.app.goo.gl/wGL6qefMAmVo1nvF9",
+    "mapaEmbed": "https://maps.google.com/maps?q=Mall+Le+Mont+Envigado+Antioquia&z=16&hl=es&output=embed"
   },
   "app": {
     "url": "https://aira.kalmiapp.com/booking",

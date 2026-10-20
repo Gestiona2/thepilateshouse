@@ -41,6 +41,12 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
     )}
   </div>
 
+  {u?.mapaEmbed && (
+  <div class="contenedor pie__mapa">
+    <iframe src={u.mapaEmbed} title={sitio.ui.mapaTitulo} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+  )}
+
   <div class="contenedor pie__base">
     <p>&copy; {new Date().getFullYear()} {sitio.empresa.razonSocial}</p>
     {legales.length > 0 && <nav aria-label={sitio.pie.legal}>{legales.map((l) => <a href={ruta(l.href)}>{l.texto}</a>)}</nav>}
@@ -59,6 +65,8 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
   .pie__col a:hover { background-size: 100% 1px; }
   .pie__col p { margin: 0; }
   .pie__h { display: block; }
+  .pie__mapa { margin-top: clamp(40px, 6vw, 72px); }
+  .pie__mapa iframe { display: block; width: 100%; height: clamp(240px, 32vw, 340px); border: 0; filter: grayscale(0.35) sepia(0.15); }
   .pie__base { margin-top: clamp(40px, 6vw, 80px); padding-top: 1.5rem; border-top: 1px solid rgba(246, 245, 227, 0.28); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: 0.875rem; }
   .pie__base p { margin: 0; }
   .pie__base nav { display: flex; gap: 1.5rem; }

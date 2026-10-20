@@ -42,12 +42,13 @@ test("sitio.json trae lo que los componentes necesitan", async () => {
   assert.equal(s.indexar, false, "mientras haya demo, indexar debe ser false");
 });
 
-test("la ubicación es la real del cliente (Envigado) y el enlace de mapa es un enlace, no un iframe", async () => {
+test("la ubicación es la real del cliente (Envigado) , enlace de mapa y mapa incrustado de Google", async () => {
   const s = await cargar("sitio.json");
   assert.match(s.ubicacion.completa, /Av\. Las Palmas #Km 15 990/);
   assert.match(s.ubicacion.completa, /Mall Le Mont, Sótano 2, oficina 9855/);
   assert.match(s.ubicacion.completa, /Vda\. El Peñasco/);
   assert.match(s.ubicacion.completa, /Envigado, Antioquia/);
+  assert.match(s.ubicacion.mapaEmbed, /^https:\/\/maps\.google\.com\/maps\?.*output=embed/);
   assert.match(s.ubicacion.mapaEnlace, /^https:\/\/(www\.google\.com\/maps\/|maps\.app\.goo\.gl\/)/);
   assert.equal(s.ubicacion._demo, undefined, "la dirección es real: no debe marcarse _demo");
   assert.equal(s.contacto.direccion, undefined, "la dirección ya no vive en contacto");
