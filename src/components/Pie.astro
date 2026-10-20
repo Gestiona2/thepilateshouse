@@ -48,7 +48,7 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
   )}
 
   <div class="contenedor pie__base">
-    <p>&copy; {new Date().getFullYear()} {sitio.empresa.razonSocial}</p>
+    <p>&copy; {new Date().getFullYear()} {sitio.nombre}, {sitio.marca}</p>
     {legales.length > 0 && <nav aria-label={sitio.pie.legal}>{legales.map((l) => <a href={ruta(l.href)}>{l.texto}</a>)}</nav>}
   </div>
 </footer>

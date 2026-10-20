@@ -6,8 +6,9 @@
   "indexar": false,
   "empresa": {
     "_demo": true,
-    "razonSocial": "Aira Studio Pilates S.A.S.",
-    "nit": "000.000.000-0"
+    "titular": "[nombre completo de la titular por confirmar]",
+    "documento": "[documento por confirmar]",
+    "tipo": "Persona natural"
   },
   "contacto": {
     "whatsapp": "573127410343",
@@ -21,6 +22,10 @@
       {
         "dias": "Sábados",
         "horas": "7:00 a. m. a 12:00 m."
+      },
+      {
+        "dias": "Domingos y festivos",
+        "horas": "Sin clases"
       }
     ],
     "redes": [
@@ -29,7 +34,8 @@
         "usuario": "@aira_thepilateshouse",
         "href": "https://www.instagram.com/aira_thepilateshouse/"
       }
-    ]
+    ],
+    "correo": "estudioaira222@gmail.com"
   },
   "menu": [
     {

@@ -20,6 +20,7 @@ import { enlaceWa } from "../lib/wa.js";
         <div class="dia rev">
           <dt>{dia.dia}</dt>
           <dd>
+            {dia.franjas.length === 0 && <span class="dia__cerrado">{d.horarios.cerrado}</span>}
             {dia.franjas.map((f) => (
               <div class="franja">
                 <span class="franja__et">{f.etiqueta}</span>
@@ -62,6 +63,7 @@ import { enlaceWa } from "../lib/wa.js";
   .dia dt { font-weight: 100; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.15; }
   .dia dd { margin: 0; }
   .dia dd { display: grid; gap: 1rem; }
+  .dia__cerrado { color: var(--texto-suave); }
   .franja { display: grid; gap: 0.6rem; }
   .franja__et { font-family: var(--font-etiqueta); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--texto-suave); }
   .dia ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 0.75rem; }

@@ -77,7 +77,7 @@
   "horarios": {
     "titulo": "Horarios de clase",
     "texto": "Reserva tu cupo en la app. Cada clase es de hasta 6 personas.",
-    "cerrado": "Cerrado",
+    "cerrado": "Sin clases",
     "dias": [
       {
         "dia": "Lunes a viernes",
@@ -119,13 +119,17 @@
             ]
           }
         ]
+      },
+      {
+        "dia": "Domingos y festivos",
+        "franjas": []
       }
     ]
   },
   "gift": {
-    "titulo": "Regala una experiencia",
-    "texto": "Una gift card de Aira es un regalo para quien quieres cuidar. Escríbenos y te ayudamos a armarla.",
+    "titulo": "Regala un paquete de clases",
+    "texto": "¿Quieres regalarle a alguien una experiencia en Aira? Elige un paquete, lo pagas y preparamos la gift card con ese paquete para quien lo recibe. Escríbenos y te ayudamos.",
     "boton": "Pedir una gift card",
-    "mensaje": "Hola Aira, quiero información sobre una gift card."
+    "mensaje": "Hola Aira, quiero regalar un paquete de clases con una gift card."
   }
 }

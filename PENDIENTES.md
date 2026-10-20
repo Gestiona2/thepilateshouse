@@ -10,17 +10,17 @@ Siguen provisionales (`"_demo": true`; `npm run revisar-demo -- --produccion` fa
 
 | Dónde | Qué es provisional | Dato real que lo reemplaza |
 |---|---|---|
-| `sitio.json › empresa` | Razón social "Aira Studio Pilates S.A.S." y NIT `000.000.000-0` | Razón social y NIT reales |
+| `sitio.json › empresa` | La titular es una persona natural; falta su nombre completo y documento | Nombre y documento reales (van también en las políticas) |
 | `inicio.json › testimonios` | 3 testimonios con nombre de pila ficticio | Testimonios reales con permiso, o quitar la sección |
 | `legales.json` | Borrador completo de privacidad, tratamiento de datos (Ley 1581 de 2012) y cookies, con aviso visible "debe ser validado por un abogado" | Validación legal, razón social, NIT y correo reales donde dice "[por confirmar]"; luego quitar `_demo` y el aviso |
 
-Sin correo público (se quitó el inventado). Sin inventar nunca: cifras de resultados, premios, nombres
+Correo provisional `estudioaira222@gmail.com` (Gmail de la clienta, `sitio.json › contacto.correo` y las tres políticas); se cambiará por el correo propio del dominio (servicio mail.cobrazotech.com) cuando exista. Sin inventar nunca: cifras de resultados, premios, nombres
 de profesores ni promesas de salud.
 
 ## 2. Confirmar con el cliente
 - [x] **Dirección:** confirmada por el cliente: Mall Le Mont, Sótano 2, oficina 9855, Av. Las Palmas #Km 15 990.
-- [ ] **Domingos y festivos:** la historia de Instagram no los menciona; se quitó la fila.
-- [ ] **Gift card:** hoy es un bloque de texto con botón a WhatsApp, sin montos ni imagen.
+- [x] **Domingos y festivos:** sin clases (confirmado por la clienta el 20/10/2026).
+- [x] **Gift card:** es un paquete regalado, no un monto: se paga y se hace la tarjeta. La clienta enviará un ejemplo visual; entonces se puede agregar la imagen.
 - [ ] Los precios del sitio se copiaron de la app (19/10/2026) y pueden cambiar.
 - [ ] Las "reglas" de las historias de Instagram (cancelar con 12 h, vigencia, silencio, etc.) podrían ir
       en una sección o en las FAQ si el cliente quiere.
@@ -31,7 +31,7 @@ config en `scripts/assets-config.mjs › FOTOS_DRIVE`): celebraciones (globos, d
 galería "Momentos en Aira" (despedidas y Día de la mujer) y tres fotos del estudio (zonas verdes,
 casilleros, arco de luz). Los JPG originales no se guardan en el repo.
 - [ ] **Grados:** sin foto propia; usa la recepción. Pedir foto de un grado.
-- [ ] **Cumpleaños:** usa la sala con globos; pedir foto de un cumpleaños.
+- [ ] **Cumpleaños:** la clienta tiene fotos; reemplazar la sala con globos cuando las envíe.
 - [ ] **Eventos empresariales:** usa la foto de la inauguración; confirmar que sirve.
 - [ ] Las fotos muestran personas reconocibles (despedidas, inauguración): confirmar con el cliente que
       tiene su permiso para publicarlas.

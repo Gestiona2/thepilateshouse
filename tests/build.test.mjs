@@ -122,6 +122,7 @@ test("planes y horarios: franjas de horas, planes reales con precio y gift card"
     assert.ok(h.includes("$" + new Intl.NumberFormat("es-CO").format(p.precio)));
     assert.ok(h.includes(p.vigencia));
   }
+  assert.ok(h.includes(d.horarios.cerrado), "domingos y festivos: sin clases");
   assert.ok(h.includes(s.app.precios), "los planes llevan a la compra en la app");
   assert.ok(h.includes(d.gift.titulo) && h.includes(enc(d.gift.mensaje)), "gift card con consulta por WhatsApp");
   assert.ok(!h.includes("mockup-vip") && !/tarjeta de miembro/i.test(h), "la tarjeta VIP ya no va");

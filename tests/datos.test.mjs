@@ -101,8 +101,10 @@ test("planes reales en COP con vigencia, y horarios por franja", async () => {
   const m = await cargar("membresia.json");
   for (const plan of m.planes.items) assert.ok(Number.isInteger(plan.precio) && plan.precio > 0 && plan.vigencia, plan.nombre);
   assert.equal(m.planes.moneda, "COP");
-  assert.ok(m.horarios.dias.length >= 2);
-  assert.ok(m.horarios.dias.every((d) => d.franjas.some((f) => f.horas.length > 0)));
+  assert.ok(m.horarios.dias.length >= 3);
+  assert.ok(m.horarios.dias.slice(0, 2).every((d) => d.franjas.some((f) => f.horas.length > 0)));
+  const dom = m.horarios.dias.find((d) => /Domingos/.test(d.dia));
+  assert.ok(dom && dom.franjas.length === 0, "domingos y festivos no hay clases");
 });
 
 test("las preguntas frecuentes son las cuatro acordadas con el cliente", async () => {
