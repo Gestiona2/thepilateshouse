@@ -31,7 +31,7 @@ const hayVisita = tieneVisita({ direccion: u, horario: c.horario }) || tieneCone
     <div class="contacto__datos rev" style="--i:1">
       <h2 class="contacto__t">{d.visita.titulo}</h2>
       <dl>
-        {u?.linea && (<><dt class="etiqueta">{e.direccion}</dt><dd>{u.linea}<br />{u.zona}<br />{u.ciudad}</dd></>)}
+        {u?.linea && (<><dt class="etiqueta">{e.direccion}</dt><dd>{u.nombre}<br />{u.detalle}<br />{u.linea}<br />{u.zona}<br />{u.ciudad}</dd></>)}
         {c.horario?.length > 0 && (<><dt class="etiqueta">{e.horario}</dt><dd>{c.horario.map((h) => <span class="hora"><span>{h.dias}</span><span>{h.horas}</span></span>)}</dd></>)}
         {c.correo && (<><dt class="etiqueta">{e.correo}</dt><dd><a href={`mailto:${c.correo}`}>{c.correo}</a></dd></>)}
         {redes.length > 0 && (<><dt class="etiqueta">{e.redes}</dt><dd>{redes.map((r) => <a href={r.href} target="_blank" rel="noopener">{r.nombre} {r.usuario}<span class="sr-only"> ({sitio.ui.abreNuevaPestana})</span></a>)}</dd></>)}

@@ -45,6 +45,7 @@ test("sitio.json trae lo que los componentes necesitan", async () => {
 test("la ubicación es la real del cliente (Envigado) y el enlace de mapa es un enlace, no un iframe", async () => {
   const s = await cargar("sitio.json");
   assert.match(s.ubicacion.completa, /Av\. Las Palmas #Km 15 990/);
+  assert.match(s.ubicacion.completa, /Mall Le Mont, Sótano 2, oficina 9855/);
   assert.match(s.ubicacion.completa, /Vda\. El Peñasco/);
   assert.match(s.ubicacion.completa, /Envigado, Antioquia/);
   assert.match(s.ubicacion.mapaEnlace, /^https:\/\/(www\.google\.com\/maps\/|maps\.app\.goo\.gl\/)/);

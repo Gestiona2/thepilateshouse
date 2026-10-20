@@ -24,7 +24,7 @@ const legales = (sitio.legales ?? []).filter((l) => l.href);
     {tieneVisita({ direccion: u, horario: c.horario }) && (
     <div class="pie__col">
       <h2 class="etiqueta">{sitio.pie.visitanos}</h2>
-      {u?.linea && <p>{u.linea}<br />{u.zona}<br />{u.ciudad}</p>}
+      {u?.linea && <p>{u.nombre}<br />{u.detalle}<br />{u.linea}<br />{u.zona}<br />{u.ciudad}</p>}
       {c.horario?.length > 0 && (
         <p>{c.horario.map((h) => <span class="pie__h">{h.dias}: {h.horas}</span>)}</p>
       )}

@@ -101,10 +101,12 @@
     "boton": "Volver al inicio"
   },
   "ubicacion": {
+    "nombre": "Mall Le Mont",
+    "detalle": "Sótano 2, oficina 9855",
     "linea": "Av. Las Palmas #Km 15 990",
     "zona": "Vda. El Peñasco",
     "ciudad": "Envigado, Antioquia",
-    "completa": "Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado, Antioquia",
+    "completa": "Mall Le Mont, Sótano 2, oficina 9855, Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado, Antioquia",
     "mapaEnlace": "https://maps.app.goo.gl/wGL6qefMAmVo1nvF9"
   },
   "app": {

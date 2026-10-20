@@ -18,8 +18,7 @@ Sin correo público (se quitó el inventado). Sin inventar nunca: cifras de resu
 de profesores ni promesas de salud.
 
 ## 2. Confirmar con el cliente
-- [ ] **Dirección:** el Instagram dice "Mall Le Mont, Alto de las Palmas, Sótano 2, oficina 9855"; el
-      cliente escribió "Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado". El sitio usa la segunda.
+- [x] **Dirección:** confirmada por el cliente: Mall Le Mont, Sótano 2, oficina 9855, Av. Las Palmas #Km 15 990.
 - [ ] **Domingos y festivos:** la historia de Instagram no los menciona; se quitó la fila.
 - [ ] **Gift card:** hoy es un bloque de texto con botón a WhatsApp, sin montos ni imagen.
 - [ ] Los precios del sitio se copiaron de la app (19/10/2026) y pueden cambiar.
