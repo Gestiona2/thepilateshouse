@@ -6,78 +6,40 @@
   "encabezado": {
     "etiqueta": "El estudio",
     "titulo": "Un refugio\nde calma",
-    "texto": "Un espacio integral, minimalista y exclusivo, creado para respirar."
-  },
-  "historia": {
-    "lineas": [
-      "Redefinimos el bienestar, fusionamos serenidad y movimiento.",
-      "Nuestro espacio, un refugio de calma que conecta mente, cuerpo y espíritu.",
-      "Creemos en la simplicidad que habla, en la experiencia sensorial que trasciende lo físico.",
-      "En Aira cultivamos la calma mental, potenciamos el equilibrio corporal y celebramos la conciencia plena."
-    ]
-  },
-  "proposito": {
-    "etiqueta": "Propósito",
-    "texto": "Propiciar la serenidad mental, el balance físico y espiritual mediante una experiencia sensorial consciente."
-  },
-  "esencia": {
-    "columnas": [
-      {
-        "etiqueta": "/ lo que tiene /",
-        "titulo": "Atributos",
-        "items": [
-          "Integral",
-          "Minimalista",
-          "Exclusivo"
-        ]
-      },
-      {
-        "etiqueta": "/ lo que piensa el cliente /",
-        "titulo": "Beneficios",
-        "items": [
-          "Experiencia inmersiva",
-          "Personalización",
-          "Calidad"
-        ]
-      },
-      {
-        "etiqueta": "/ lo que se genera /",
-        "titulo": "Valores",
-        "items": [
-          "Serenidad",
-          "Conexión mente cuerpo",
-          "Bienestar"
-        ]
-      }
-    ]
+    "texto": "Recepción, salas, reformers y zonas verdes, pensados para entrenar con calma."
   },
   "espacios": {
     "titulo": "Los espacios",
-    "texto": "Un recorrido por el estudio, en el orden en que lo vivirás.",
     "items": [
       {
         "nombre": "Recepción",
-        "texto": "El primer saludo: un muro curvo, luz cálida y el logo en relieve.",
         "imagen": "estudio-recepcion",
         "alt": "Recepción de Aira: muro curvo blanco con el logo en relieve y mostrador color arena"
       },
       {
         "nombre": "Salas con lockers",
-        "texto": "Casilleros para guardar tus cosas antes de entrar a clase.",
         "imagen": "estudio-toallas",
         "alt": "Sala con casilleros y estación de devolución de toallas"
       },
       {
         "nombre": "Reformers",
-        "texto": "La sala de clase, con reformers alineados bajo una línea de luz cálida.",
         "imagen": "estudio-sala",
         "alt": "Sala principal con reformers alineados bajo una línea de luz cálida"
       },
       {
         "nombre": "Zonas verdes",
-        "texto": "Plantas que acompañan la sala y traen la calma del exterior.",
         "imagen": "estudio-cortinas",
         "alt": "Hilera de reformers frente a cortinas translúcidas, con plantas a los lados"
+      },
+      {
+        "nombre": "Nichos",
+        "imagen": "estudio-nichos",
+        "alt": "Nichos en arco iluminados junto a la recepción"
+      },
+      {
+        "nombre": "Pelotas",
+        "imagen": "estudio-pelotas",
+        "alt": "Esferas de pilates color crema apiladas junto a un reformer"
       }
     ]
   }

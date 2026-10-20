@@ -1,64 +1,76 @@
 {
-  "_demo": true,
   "meta": {
     "titulo": "Planes y horarios de Aira, The Pilates House",
-    "descripcion": "Consulta los horarios de clase y los planes de Aira: clases semipersonalizadas de hasta 6 personas con profesores fisioterapeutas. Reserva en la app."
+    "descripcion": "Consulta los horarios de clase y los planes de Aira: clase de prueba, paquetes de 1 a 36 clases y planes compartidos. Reserva y compra en la app."
   },
   "encabezado": {
     "etiqueta": "Planes y horarios",
     "titulo": "Elige tu ritmo",
-    "texto": "Horarios para todos los días y planes pensados para sostener tu práctica."
-  },
-  "vip": {
-    "titulo": "Una tarjeta, una forma de pertenecer",
-    "texto": "Quienes eligen Aira VIP reciben su tarjeta de miembro y acceso a beneficios exclusivos dentro de la casa.",
-    "imagen": "mockup-vip",
-    "alt": "Dos tarjetas de miembro de Aira: una con el logo en relieve y otra con el isotipo y la palabra Member"
+    "texto": "Horarios de clase y planes para sostener tu práctica."
   },
   "planes": {
     "titulo": "Elige tu ritmo",
     "moneda": "COP",
-    "periodo": "al mes",
-    "nota": "Valores de referencia en pesos colombianos. Consulta por WhatsApp las condiciones vigentes.",
+    "nota": "Valores y vigencias tomados de la app; pueden cambiar. Aplican términos y condiciones.",
+    "compartidoEtiqueta": "Plan compartido · 2 personas",
+    "porClase": "por clase",
+    "vigencia": "Vigencia",
     "items": [
       {
-        "nombre": "Esencial",
-        "resumen": "Para empezar a sostener la práctica.",
-        "precio": 620000,
-        "destacado": false,
-        "beneficios": [
-          "8 clases al mes",
-          "Pilates reformer",
-          "Reserva desde la app"
-        ],
-        "mensaje": "Hola Aira, me interesa el plan Esencial."
+        "nombre": "Clase de prueba",
+        "precio": 45000,
+        "porClase": null,
+        "vigencia": "8 días",
+        "compartido": false
       },
       {
-        "nombre": "Equilibrio",
-        "resumen": "El ritmo que mejor acompaña una vida activa.",
-        "precio": 840000,
-        "destacado": true,
-        "beneficios": [
-          "12 clases al mes",
-          "Pilates reformer",
-          "Reserva prioritaria",
-          "Una sesión de valoración"
-        ],
-        "mensaje": "Hola Aira, me interesa el plan Equilibrio."
+        "nombre": "1 clase",
+        "precio": 85000,
+        "porClase": null,
+        "vigencia": "7 días",
+        "compartido": false
       },
       {
-        "nombre": "Aira VIP",
-        "resumen": "La experiencia completa, sin límites de calma.",
-        "precio": 1290000,
-        "destacado": false,
-        "beneficios": [
-          "20 clases al mes",
-          "Tarjeta VIP de miembro",
-          "Reserva prioritaria",
-          "Una sesión privada al mes",
-          "Un invitado al mes"
-        ],
-        "mensaje": "Hola Aira, me interesa el plan Aira VIP."
+        "nombre": "4 clases",
+        "precio": 320000,
+        "porClase": 80000,
+        "vigencia": "1 mes",
+        "compartido": false
+      },
+      {
+        "nombre": "8 clases",
+        "precio": 580000,
+        "porClase": 72500,
+        "vigencia": "1 mes",
+        "compartido": false
+      },
+      {
+        "nombre": "12 clases",
+        "precio": 770000,
+        "porClase": 64167,
+        "vigencia": "1 mes",
+        "compartido": false
+      },
+      {
+        "nombre": "16 clases",
+        "precio": 880000,
+        "porClase": 55000,
+        "vigencia": "60 días",
+        "compartido": false
+      },
+      {
+        "nombre": "20 clases",
+        "precio": 1020000,
+        "porClase": 51000,
+        "vigencia": "60 días",
+        "compartido": true
+      },
+      {
+        "nombre": "36 clases",
+        "precio": 1640000,
+        "porClase": 45556,
+        "vigencia": "3 meses",
+        "compartido": true
       }
     ]
   },
@@ -69,27 +81,51 @@
     "dias": [
       {
         "dia": "Lunes a viernes",
-        "horas": [
-          "6:00 a. m.",
-          "7:00 a. m.",
-          "8:30 a. m.",
-          "12:00 m.",
-          "5:30 p. m.",
-          "6:30 p. m."
+        "franjas": [
+          {
+            "etiqueta": "a. m.",
+            "horas": [
+              "6:30",
+              "7:30",
+              "8:30",
+              "9:30",
+              "10:30",
+              "11:30"
+            ]
+          },
+          {
+            "etiqueta": "p. m.",
+            "horas": [
+              "4:00",
+              "5:00",
+              "6:00",
+              "7:00"
+            ]
+          }
         ]
       },
       {
         "dia": "Sábados",
-        "horas": [
-          "8:00 a. m.",
-          "9:30 a. m.",
-          "11:00 a. m."
+        "franjas": [
+          {
+            "etiqueta": "a. m.",
+            "horas": [
+              "7:00",
+              "8:00",
+              "9:00",
+              "10:00",
+              "11:00",
+              "12:00"
+            ]
+          }
         ]
-      },
-      {
-        "dia": "Domingos y festivos",
-        "horas": []
       }
     ]
+  },
+  "gift": {
+    "titulo": "Regala una experiencia",
+    "texto": "Una gift card de Aira es un regalo para quien quieres cuidar. Escríbenos y te ayudamos a armarla.",
+    "boton": "Pedir una gift card",
+    "mensaje": "Hola Aira, quiero información sobre una gift card."
   }
 }

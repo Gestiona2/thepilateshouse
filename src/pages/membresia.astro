@@ -2,10 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Encabezado from "../components/Encabezado.astro";
 import PlanMembresia from "../components/PlanMembresia.astro";
-import Foto from "../components/Foto.astro";
+import Boton from "../components/Boton.astro";
 import BloqueReserva from "../components/BloqueReserva.astro";
 import d from "../datos/membresia.json";
 import sitio from "../datos/sitio.json";
+import { enlaceWa } from "../lib/wa.js";
 ---
 <Layout titulo={d.meta.titulo} descripcion={d.meta.descripcion} activa="membresia">
   <section class="seccion cabecera-pagina">
@@ -19,9 +20,12 @@ import sitio from "../datos/sitio.json";
         <div class="dia rev">
           <dt>{dia.dia}</dt>
           <dd>
-            {dia.horas.length > 0
-              ? <ul>{dia.horas.map((h) => <li>{h}</li>)}</ul>
-              : <span class="dia__cerrado">{d.horarios.cerrado}</span>}
+            {dia.franjas.map((f) => (
+              <div class="franja">
+                <span class="franja__et">{f.etiqueta}</span>
+                <ul>{f.horas.map((h) => <li>{h}</li>)}</ul>
+              </div>
+            ))}
           </dd>
         </div>
       ))}
@@ -32,18 +36,17 @@ import sitio from "../datos/sitio.json";
     <div class="contenedor">
       <Encabezado titulo={d.planes.titulo} alinear="centro" />
       <div class="planes__grid" data-stagger>
-        {d.planes.items.map((p) => <div class="rev"><PlanMembresia plan={p} moneda={d.planes.moneda} periodo={d.planes.periodo} whatsapp={sitio.contacto.whatsapp} /></div>)}
+        {d.planes.items.map((p) => <div class="rev"><PlanMembresia plan={p} moneda={d.planes.moneda} textos={d.planes} /></div>)}
       </div>
       <p class="nota rev">{d.planes.nota}</p>
+      <div class="rev planes__ver"><Boton texto={sitio.ui.verPlanes} href={sitio.app.precios} variante="contorno" externo /></div>
     </div>
   </section>
 
-  <section class="contenedor vip">
-    <div class="vip__foto rev">
-      <Foto base={d.vip.imagen} alt={d.vip.alt} anchos={[800, 1400]} natural="4 / 3" sizes="(min-width: 900px) 55vw, 92vw" clase="vip__img" />
-    </div>
-    <div class="vip__texto">
-      <Encabezado titulo={d.vip.titulo} texto={d.vip.texto} />
+  <section class="seccion gift">
+    <div class="contenedor gift__in">
+      <Encabezado titulo={d.gift.titulo} texto={d.gift.texto} alinear="centro" />
+      <div class="rev"><Boton texto={d.gift.boton} href={enlaceWa(sitio.contacto.whatsapp, d.gift.mensaje)} variante="contorno" externo /></div>
     </div>
   </section>
 
@@ -58,20 +61,23 @@ import sitio from "../datos/sitio.json";
   .dia:last-child { border-bottom: 1px solid var(--linea); }
   .dia dt { font-weight: 100; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.15; }
   .dia dd { margin: 0; }
+  .dia dd { display: grid; gap: 1rem; }
+  .franja { display: grid; gap: 0.6rem; }
+  .franja__et { font-family: var(--font-etiqueta); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--texto-suave); }
   .dia ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 0.75rem; }
   .dia li { border: 1px solid var(--espresso); padding: 0.5rem 1rem; }
-  .dia__cerrado { color: var(--texto-suave); }
 
-  .planes__grid { display: grid; gap: 2rem; margin-top: clamp(40px, 6vw, 80px); align-items: stretch; }
+  .planes__grid { display: grid; gap: 1.5rem; margin-top: clamp(40px, 6vw, 80px); align-items: stretch; }
+  .planes__ver { display: flex; justify-content: center; margin-top: 2rem; }
   .planes__grid > div { display: grid; }
   .nota { margin: 2.5rem auto 0; max-width: 60ch; text-align: center; color: var(--texto-suave); font-size: 0.9rem; }
 
-  .vip { display: grid; gap: 2.5rem; align-items: center; padding-bottom: clamp(56px, 9vw, 120px); }
-  .vip__img { width: 100%; height: auto; }
+  .gift { padding-block: clamp(56px, 9vw, 120px); }
+  .gift__in { display: grid; gap: 2rem; justify-items: center; text-align: center; }
 
+  @media (min-width: 1100px) { .planes__grid { grid-template-columns: repeat(4, 1fr); } }
   @media (min-width: 900px) {
     .dia { grid-template-columns: 0.4fr 1fr; align-items: center; gap: 2rem; }
-    .planes__grid { grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.5vw, 40px); }
-    .vip { grid-template-columns: 1.15fr 0.85fr; gap: 6vw; }
+    .planes__grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>

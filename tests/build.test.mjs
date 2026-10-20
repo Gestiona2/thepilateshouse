@@ -80,7 +80,7 @@ test("inicio: portada, experiencias, estudio, manifiesto sin título, voces y cl
   const h = await html("index.html");
   for (const linea of d.portada.titulo.split("\n")) assert.ok(h.includes(linea), `falta "${linea}" en el h1`);
   for (const i of d.experiencias.items) assert.ok(h.includes(i.titulo), i.titulo);
-  assert.ok(h.includes(d.estudio.titulo));
+  assert.ok(!h.includes("Diseñado para respirar"), "el título del estudio ya no va");
   for (const p of d.estudio.puntos) assert.ok(h.includes(p.titulo), p.titulo);
   assert.ok(h.includes(d.cita.texto), "falta el mensaje del manifiesto");
   assert.ok(!/Manifiesto/i.test(h), "el manifiesto no lleva título");
@@ -90,12 +90,11 @@ test("inicio: portada, experiencias, estudio, manifiesto sin título, voces y cl
   assert.ok(!h.includes("Una casa, tres formas de entrar"), "los tres bloques de la versión anterior ya no van");
 });
 
-test("el estudio: historia, propósito, esencia y los espacios en el orden pedido", async () => {
+test("el estudio: isotipo y galería de espacios sin texto largo", async () => {
   const d = await datosDe("la-casa");
   const h = await html("la-casa/index.html");
-  for (const l of d.historia.lineas) assert.ok(h.includes(l), `falta línea: ${l}`);
-  assert.ok(h.includes(d.proposito.texto));
-  for (const c of d.esencia.columnas) { assert.ok(h.includes(c.etiqueta)); for (const i of c.items) assert.ok(h.includes(i)); }
+  assert.ok(!d.historia && !d.proposito && !d.esencia, "se quitó el texto posterior al isotipo");
+  assert.ok(d.espacios.items.length >= 6, "varias fotos del estudio");
   let ultimo = -1;
   for (const e of d.espacios.items) {
     const pos = h.indexOf(`>${e.nombre}<`);
@@ -106,27 +105,26 @@ test("el estudio: historia, propósito, esencia y los espacios en el orden pedid
   assert.match(h, /aria-current="page"[^>]*>El estudio/);
 });
 
-test("experiencias: atributos, detalle, eventos con consulta por WhatsApp y reservas", async () => {
+test("experiencias: solo celebraciones con consulta por WhatsApp y reservas", async () => {
   const d = await datosDe("clases"), s = await datosDe("sitio");
   const h = await html("clases/index.html");
-  for (const a of d.atributos.items) assert.ok(h.includes(a.titulo), a.titulo);
-  assert.ok(h.includes(d.detalle.titulo));
+  assert.ok(!d.atributos && !d.detalle, "las clases semipersonalizadas ya se explican en el inicio");
   for (const e of d.eventos.items) { assert.ok(h.includes(e.titulo)); assert.ok(h.includes(enc(e.mensaje)), `falta consulta de ${e.titulo}`); }
   assert.ok(h.includes(s.reservas.titulo));
 });
 
-test("planes y horarios: tabla de horas, planes con precio y tarjeta VIP", async () => {
-  const d = await datosDe("membresia");
+test("planes y horarios: franjas de horas, planes reales con precio y gift card", async () => {
+  const d = await datosDe("membresia"), s = await datosDe("sitio");
   const h = await html("membresia/index.html");
-  for (const dia of d.horarios.dias) { assert.ok(h.includes(dia.dia)); for (const x of dia.horas) assert.ok(h.includes(x), x); }
+  for (const dia of d.horarios.dias) { assert.ok(h.includes(dia.dia)); for (const f of dia.franjas) for (const x of f.horas) assert.ok(h.includes(`>${x}<`), x); }
   for (const p of d.planes.items) {
-    assert.ok(h.includes(p.nombre));
+    assert.ok(h.includes(`>${p.nombre}<`));
     assert.ok(h.includes("$" + new Intl.NumberFormat("es-CO").format(p.precio)));
-    assert.ok(h.includes(enc(p.mensaje)));
-    for (const b of p.beneficios) assert.ok(h.includes(b));
+    assert.ok(h.includes(p.vigencia));
   }
-  assert.ok(h.includes("plan--destacado"));
-  assert.ok(h.includes("mockup-vip-1400.webp"));
+  assert.ok(h.includes(s.app.precios), "los planes llevan a la compra en la app");
+  assert.ok(h.includes(d.gift.titulo) && h.includes(enc(d.gift.mensaje)), "gift card con consulta por WhatsApp");
+  assert.ok(!h.includes("mockup-vip") && !/tarjeta de miembro/i.test(h), "la tarjeta VIP ya no va");
 });
 
 test("contacto: reservas en la app, formulario, ubicación real, mapa como enlace y preguntas", async () => {
@@ -160,7 +158,7 @@ test("las tres páginas legales existen, avisan que son borrador y se enlazan de
   assert.equal(s.legales.length, 3);
 });
 
-test("en todas las páginas hay botón constante de primera clase gratis hacia la app", async () => {
+test("en todas las páginas hay botón constante de clase de prueba hacia la app", async () => {
   const s = await datosDe("sitio");
   for (const f of await htmls()) {
     const nombre = f.replace(dist, "");
@@ -171,7 +169,7 @@ test("en todas las páginas hay botón constante de primera clase gratis hacia l
   }
 });
 
-test("la ventana de primera clase gratis está en las páginas principales con su texto", async () => {
+test("la ventana de primera clase de prueba está en las páginas principales con su texto", async () => {
   const s = await datosDe("sitio");
   for (const r of ["index.html", "la-casa/index.html", "clases/index.html", "membresia/index.html", "contacto/index.html"]) {
     const h = await html(r);

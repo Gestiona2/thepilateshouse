@@ -1,7 +1,7 @@
 {
   "meta": {
     "titulo": "Aira, The Pilates House: serenidad en movimiento",
-    "descripcion": "Pilates reformer semipersonalizado en Envigado, con grupos de hasta 6 personas y profesores fisioterapeutas. Agenda tu primera clase gratis en Aira."
+    "descripcion": "Pilates reformer semipersonalizado en Envigado, con grupos de hasta 6 personas y profesores fisioterapeutas. Agenda tu primera clase de prueba en Aira."
   },
   "portada": {
     "etiqueta": "The Pilates House",
@@ -9,7 +9,7 @@
     "texto": "Clases de pilates reformer semipersonalizadas, de hasta 6 personas y con profesores fisioterapeutas, en un refugio de calma.",
     "botones": [
       {
-        "texto": "Agenda tu primera clase gratis",
+        "texto": "Agenda tu clase de prueba",
         "tipo": "app",
         "variante": "solido"
       },
@@ -77,8 +77,6 @@
     }
   },
   "estudio": {
-    "titulo": "Diseñado para respirar",
-    "texto": "Cada rincón de Aira fue pensado para bajar el ruido: luz cálida, materiales nobles y equipos impecables. Aquí el lujo es la calma.",
     "puntos": [
       {
         "titulo": "Luz y silencio",
@@ -98,6 +96,7 @@
       "href": "/la-casa"
     },
     "imagen": "estudio-sala",
-    "alt": "Sala principal con reformers alineados bajo una línea de luz cálida"
+    "alt": "Sala principal con reformers alineados bajo una línea de luz cálida",
+    "etiquetaSeccion": "El estudio"
   }
 }

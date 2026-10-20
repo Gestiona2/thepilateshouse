@@ -12,41 +12,16 @@ import d from "../datos/la-casa.json";
     <div class="contenedor"><Encabezado nivel={1} etiqueta={d.encabezado.etiqueta} titulo={d.encabezado.titulo} texto={d.encabezado.texto} alinear="centro" /></div>
   </section>
 
-  <section class="historia">
-    <div class="contenedor historia__in">
-      <Separador />
-      {d.historia.lineas.map((l, i) => <p class="historia__linea rev" style={`--i:${i % 2}`}>{l}</p>)}
-    </div>
-  </section>
+  <section class="isotipo"><div class="contenedor isotipo__in"><Separador /></div></section>
 
-  <section class="seccion proposito">
-    <div class="contenedor proposito__in">
-      <p class="etiqueta rev">{d.proposito.etiqueta}</p>
-      <p class="proposito__texto rev" style="--i:1">{d.proposito.texto}</p>
-    </div>
-  </section>
-
-  <section class="seccion esencia banda">
-    <div class="contenedor esencia__grid" data-stagger>
-      {d.esencia.columnas.map((c) => (
-        <div class="col rev">
-          <p class="etiqueta">{c.etiqueta}</p>
-          <h2 class="col__titulo">{c.titulo}</h2>
-          <ul>{c.items.map((i) => <li>{i}</li>)}</ul>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="seccion espacios">
+  <section class="seccion espacios" style="padding-top:0">
     <div class="contenedor">
-      <Encabezado titulo={d.espacios.titulo} texto={d.espacios.texto} alinear="centro" />
+      <h2 class="sr-only">{d.espacios.titulo}</h2>
       <div class="espacios__grid">
         {d.espacios.items.map((e) => (
           <article class="espacio rev">
             <Recuadro ratio="1 / 1"><Foto base={e.imagen} alt={e.alt} sizes="(min-width: 1000px) 24vw, (min-width: 600px) 45vw, 92vw" /></Recuadro>
             <h3>{e.nombre}</h3>
-            <p>{e.texto}</p>
           </article>
         ))}
       </div>
@@ -58,22 +33,13 @@ import d from "../datos/la-casa.json";
 
 <style>
   .cabecera-pagina { padding-bottom: clamp(32px, 5vw, 64px); }
-  .historia__in { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); justify-items: center; text-align: center; padding-block: clamp(24px, 4vw, 48px) clamp(64px, 9vw, 120px); }
-  .historia__linea { margin: 0; max-width: 30ch; font-weight: 100; font-size: clamp(1.7rem, 1rem + 2.6vw, 2.75rem); line-height: 1.22; overflow-wrap: break-word; }
-  .proposito__in { display: grid; gap: 1.25rem; max-width: 880px; }
-  .proposito__texto { margin: 0; font-size: clamp(1.15rem, 1rem + 0.9vw, 1.6rem); line-height: 1.55; }
+  .isotipo__in { padding-block: clamp(8px, 2vw, 24px) clamp(40px, 6vw, 72px); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  .esencia__grid { display: grid; gap: 3rem; }
-  .col { display: grid; gap: 0.9rem; align-content: start; padding-top: 1.5rem; border-top: 1px solid rgba(246, 245, 227, 0.32); }
-  .col__titulo { margin: 0; font-weight: 100; font-size: clamp(2.125rem, 1.6rem + 1.6vw, 2.75rem); line-height: 1.1; }
-  .col ul { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.6rem; font-size: 1.125rem; }
-
-  .espacios__grid { display: grid; grid-template-columns: 1fr; gap: clamp(32px, 5vw, 48px) clamp(16px, 2.5vw, 32px); margin-top: clamp(40px, 6vw, 80px); }
+  .espacios__grid { display: grid; grid-template-columns: 1fr; gap: clamp(32px, 5vw, 48px) clamp(16px, 2.5vw, 32px); }
   .espacio { display: grid; gap: 0.6rem; align-content: start; }
   .espacio h3 { margin: 0.6rem 0 0; font-weight: 100; font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.25rem); line-height: 1.1; }
-  .espacio p { margin: 0; color: var(--texto-suave); }
 
   @media (min-width: 600px) { .espacios__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 900px) { .esencia__grid { grid-template-columns: repeat(3, 1fr); gap: 4rem; } }
-  @media (min-width: 1100px) { .espacios__grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 900px) { .espacios__grid { grid-template-columns: repeat(3, 1fr); } }
 </style>

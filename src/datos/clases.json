@@ -1,42 +1,14 @@
 {
   "meta": {
-    "titulo": "Experiencias de Aira, The Pilates House",
-    "descripcion": "Clases de pilates reformer semipersonalizadas en Aira: hasta 6 personas, profesores fisioterapeutas y técnica guiada. Celebra también tus eventos con nosotros."
+    "titulo": "Celebra en Aira, The Pilates House",
+    "descripcion": "Celebra cumpleaños, despedidas de soltera, grados y eventos empresariales en Aira, The Pilates House, un estudio de pilates reformer en Envigado."
   },
   "encabezado": {
     "etiqueta": "Experiencias",
-    "titulo": "Clases\nsemipersonalizadas",
-    "texto": "Pilates reformer en grupos de hasta 6 personas, guiados por profesores fisioterapeutas."
-  },
-  "atributos": {
-    "items": [
-      {
-        "titulo": "Pilates reformer",
-        "texto": "Trabajo en máquina con técnica precisa, para fuerza, postura y control."
-      },
-      {
-        "titulo": "Hasta 6 personas por clase",
-        "texto": "Grupos pequeños: clases semipersonalizadas con atención cercana."
-      },
-      {
-        "titulo": "Profesores fisioterapeutas",
-        "texto": "Te acompaña un equipo formado en el movimiento del cuerpo."
-      },
-      {
-        "titulo": "Técnica guiada",
-        "texto": "Te corregimos y acompañamos en cada ejercicio."
-      }
-    ]
-  },
-  "detalle": {
-    "titulo": "Pilates reformer",
-    "texto": "Trabajamos sobre el reformer con una técnica guiada: el profesor te acompaña y te corrige durante toda la clase. Al ser grupos de hasta 6 personas, cada quien recibe atención cercana.",
-    "imagen": "estudio-pelotas",
-    "alt": "Esferas de pilates color crema apiladas junto a un reformer"
+    "titulo": "Celebra\nen Aira",
+    "texto": "Haz de tu próxima celebración o encuentro una experiencia distinta, en movimiento y con calma."
   },
   "eventos": {
-    "titulo": "Celebra en Aira",
-    "texto": "Haz de tu próxima celebración o encuentro una experiencia distinta, en movimiento y con calma.",
     "items": [
       {
         "titulo": "Cumpleaños",

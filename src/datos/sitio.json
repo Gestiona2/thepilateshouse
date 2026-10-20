@@ -2,7 +2,7 @@
   "nombre": "Aira",
   "marca": "The Pilates House",
   "eslogan": "One breath at a time",
-  "descripcion": "Aira, The Pilates House en Envigado, Antioquia. Pilates reformer semipersonalizado con profesores fisioterapeutas. Agenda tu primera clase gratis.",
+  "descripcion": "Aira, The Pilates House en Envigado, Antioquia. Pilates reformer semipersonalizado con profesores fisioterapeutas. Agenda tu primera clase de prueba.",
   "indexar": false,
   "empresa": {
     "_demo": true,
@@ -10,30 +10,24 @@
     "nit": "000.000.000-0"
   },
   "contacto": {
-    "_demo": true,
-    "whatsapp": "573000000000",
-    "whatsappVisible": "+57 300 000 0000",
-    "correo": "hola@aira.example",
+    "whatsapp": "573127410343",
+    "whatsappVisible": "+57 312 741 0343",
     "mensajeReserva": "Hola Aira, me gustaría reservar mi primera experiencia.",
     "horario": [
       {
         "dias": "Lunes a viernes",
-        "horas": "6:00 a. m. a 8:00 p. m."
+        "horas": "6:30 a. m. a 11:30 a. m. y 4:00 p. m. a 7:00 p. m."
       },
       {
         "dias": "Sábados",
-        "horas": "8:00 a. m. a 1:00 p. m."
-      },
-      {
-        "dias": "Domingos y festivos",
-        "horas": "Cerrado"
+        "horas": "7:00 a. m. a 12:00 m."
       }
     ],
     "redes": [
       {
         "nombre": "Instagram",
-        "usuario": "@aira.thepilateshouse",
-        "href": "https://www.instagram.com/"
+        "usuario": "@aira_thepilateshouse",
+        "href": "https://www.instagram.com/aira_thepilateshouse/"
       }
     ]
   },
@@ -90,9 +84,10 @@
     "escribirWa": "Escribir por WhatsApp",
     "volverArriba": "Volver arriba",
     "abreNuevaPestana": "se abre en una pestaña nueva",
-    "consultarPlan": "Consultar este plan",
+    "consultarPlan": "Comprar en la app",
     "cotizar": "Consultar por WhatsApp",
-    "comoLlegar": "Cómo llegar"
+    "comoLlegar": "Cómo llegar",
+    "verPlanes": "Ver todos los planes en la app"
   },
   "pie": {
     "explorar": "Explorar",
@@ -106,19 +101,19 @@
     "boton": "Volver al inicio"
   },
   "ubicacion": {
-    "linea": "Av. Las Palmas Km 15 990",
+    "linea": "Av. Las Palmas #Km 15 990",
     "zona": "Vda. El Peñasco",
     "ciudad": "Envigado, Antioquia",
-    "completa": "Av. Las Palmas Km 15 990, Vda. El Peñasco, Envigado, Antioquia",
-    "mapaEnlace": "https://www.google.com/maps/search/?api=1&query=Av.+Las+Palmas+Km+15+990+Vda.+El+Pe%C3%B1asco+Envigado+Antioquia"
+    "completa": "Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado, Antioquia",
+    "mapaEnlace": "https://maps.app.goo.gl/wGL6qefMAmVo1nvF9"
   },
   "app": {
-    "_demo": true,
-    "url": "https://emp2web.com"
+    "url": "https://aira.kalmiapp.com/booking",
+    "precios": "https://aira.kalmiapp.com/precios"
   },
   "cta": {
-    "texto": "Primera clase gratis",
-    "corto": "Clase gratis"
+    "texto": "Clase de prueba",
+    "corto": "Clase de prueba"
   },
   "reservas": {
     "titulo": "Reserva tu clase a través de nuestra app",
@@ -128,18 +123,18 @@
     "mensajeDudas": "Hola Aira, tengo una duda sobre las clases."
   },
   "pruebaGratis": {
-    "titulo": "Agenda tu clase de prueba a través de nuestra aplicación",
-    "texto": "Tu primera clase es gratis. Reserva en la app y ven a conocer Aira.",
-    "boton": "Agenda tu primera clase gratis",
+    "titulo": "Agenda tu primera clase de prueba",
+    "texto": "Reserva en la app y ven a conocer Aira.",
+    "boton": "Agenda tu clase de prueba",
     "dudas": "¿Dudas? Escríbenos por WhatsApp"
   },
   "popup": {
     "segundos": 30,
-    "titulo": "Agenda tu primera clase gratis",
+    "titulo": "Agenda tu primera clase de prueba",
     "texto": "Ven a conocer Aira: clases semipersonalizadas de hasta 6 personas, con profesores fisioterapeutas.",
     "boton": "Agendar en la app",
     "cerrar": "Ahora no",
     "cerrarAria": "Cerrar ventana",
-    "etiquetaAria": "Primera clase gratis"
+    "etiquetaAria": "Primera clase de prueba"
   }
 }

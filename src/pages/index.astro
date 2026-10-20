@@ -40,7 +40,7 @@ import { ruta } from "../lib/ruta.js";
   <section class="estudio banda">
     <div class="contenedor estudio__in">
       <div class="estudio__texto">
-        <Encabezado titulo={inicio.estudio.titulo} texto={inicio.estudio.texto} />
+        <h2 class="sr-only">{inicio.estudio.etiquetaSeccion}</h2>
         <ul class="puntos">
           {inicio.estudio.puntos.map((p) => (
             <li class="rev"><h3>{p.titulo}</h3><p>{p.texto}</p></li>
@@ -73,6 +73,7 @@ import { ruta } from "../lib/ruta.js";
 </Layout>
 
 <style>
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .filosofia__in { display: grid; gap: 1.5rem; justify-items: center; text-align: center; }
   .filosofia__texto { margin: 0; max-width: 26ch; font-weight: 100; font-size: clamp(1.9rem, 1rem + 3.6vw, 3.5rem); line-height: 1.18; overflow-wrap: break-word; }
 

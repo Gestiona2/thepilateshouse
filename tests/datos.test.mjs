@@ -44,10 +44,10 @@ test("sitio.json trae lo que los componentes necesitan", async () => {
 
 test("la ubicación es la real del cliente (Envigado) y el enlace de mapa es un enlace, no un iframe", async () => {
   const s = await cargar("sitio.json");
-  assert.match(s.ubicacion.completa, /Av\. Las Palmas Km 15 990/);
+  assert.match(s.ubicacion.completa, /Av\. Las Palmas #Km 15 990/);
   assert.match(s.ubicacion.completa, /Vda\. El Peñasco/);
   assert.match(s.ubicacion.completa, /Envigado, Antioquia/);
-  assert.match(s.ubicacion.mapaEnlace, /^https:\/\/www\.google\.com\/maps\/search\//);
+  assert.match(s.ubicacion.mapaEnlace, /^https:\/\/(www\.google\.com\/maps\/|maps\.app\.goo\.gl\/)/);
   assert.equal(s.ubicacion._demo, undefined, "la dirección es real: no debe marcarse _demo");
   assert.equal(s.contacto.direccion, undefined, "la dirección ya no vive en contacto");
 });
@@ -84,25 +84,23 @@ test("toda foto referenciada existe y tiene alt", async () => {
   for (const o of objetosConImagen(todo)) assert.ok(o.alt && o.alt.length > 8, `sin alt: ${o.imagen}`);
 });
 
-test("las cuatro claves reales del cliente aparecen en Experiencias", async () => {
+test("Experiencias solo trae las celebraciones del cliente", async () => {
   const c = await cargar("clases.json");
-  const t = c.atributos.items.map((i) => i.titulo).join("|");
-  for (const k of ["Pilates reformer", "Hasta 6 personas por clase", "Profesores fisioterapeutas", "Técnica guiada"]) assert.match(t, new RegExp(k));
   assert.deepEqual(c.eventos.items.map((e) => e.titulo), ["Cumpleaños", "Despedidas de soltera", "Grados", "Eventos empresariales"]);
   for (const e of c.eventos.items) assert.ok(e.texto && e.imagen && e.alt && e.mensaje);
 });
 
-test("El estudio muestra los espacios en el orden pedido", async () => {
+test("El estudio muestra al menos los espacios originales en orden", async () => {
   const c = await cargar("la-casa.json");
-  assert.deepEqual(c.espacios.items.map((e) => e.nombre), ["Recepción", "Salas con lockers", "Reformers", "Zonas verdes"]);
+  assert.deepEqual(c.espacios.items.slice(0, 4).map((e) => e.nombre), ["Recepción", "Salas con lockers", "Reformers", "Zonas verdes"]);
 });
 
-test("precios de membresía son enteros positivos en COP y hay horarios", async () => {
+test("planes reales en COP con vigencia, y horarios por franja", async () => {
   const m = await cargar("membresia.json");
-  for (const plan of m.planes.items) assert.ok(Number.isInteger(plan.precio) && plan.precio > 0);
+  for (const plan of m.planes.items) assert.ok(Number.isInteger(plan.precio) && plan.precio > 0 && plan.vigencia, plan.nombre);
   assert.equal(m.planes.moneda, "COP");
-  assert.ok(m.horarios.dias.length >= 3);
-  assert.ok(m.horarios.dias.some((d) => d.horas.length > 0));
+  assert.ok(m.horarios.dias.length >= 2);
+  assert.ok(m.horarios.dias.every((d) => d.franjas.some((f) => f.horas.length > 0)));
 });
 
 test("las preguntas frecuentes son las cuatro acordadas con el cliente", async () => {
@@ -121,13 +119,18 @@ test("el formulario trae plantilla de WhatsApp y motivos", async () => {
 });
 
 test("los datos inventados o provisionales están marcados _demo", async () => {
-  for (const [archivo, ruta] of [["sitio.json", ["contacto"]], ["sitio.json", ["empresa"]], ["sitio.json", ["app"]], ["membresia.json", []], ["inicio.json", ["testimonios"]]]) {
+  for (const [archivo, ruta] of [["sitio.json", ["empresa"]], ["inicio.json", ["testimonios"]]]) {
     let n = await cargar(archivo);
     for (const k of ruta) n = n[k];
     assert.equal(n._demo, true, `${archivo} › ${ruta.join(".") || "(raíz)"} sin _demo`);
   }
   const c = await cargar("clases.json");
   assert.equal(c._demo, undefined, "Experiencias es contenido real del cliente");
+  for (const [archivo, ruta] of [["sitio.json", ["contacto"]], ["sitio.json", ["app"]], ["membresia.json", []]]) {
+    let n = await cargar(archivo);
+    for (const k of ruta) n = n[k];
+    assert.equal(n._demo, undefined, `${archivo} › ${ruta.join(".") || "(raíz)"} ya es real`);
+  }
 });
 
 test("contacto.mapa trae el alt de la foto y sitio.pie el rótulo legal", async () => {
