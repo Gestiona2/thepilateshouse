@@ -3,30 +3,34 @@
     "_demo": true,
     "meta": {
       "titulo": "Política de privacidad | Aira",
-      "descripcion": "Espacio reservado para la política de privacidad de Aira, The Pilates House. Texto oficial pendiente de revisión legal y de los datos de la empresa."
+      "descripcion": "Cómo cuida Aira, The Pilates House, tus datos cuando usas este sitio, el formulario de contacto y la reserva en la app. Borrador por validar."
     },
     "titulo": "Política de privacidad",
-    "aviso": "Borrador pendiente de revisión legal. Este espacio queda reservado para el texto oficial de Aira.",
+    "aviso": "Borrador: este texto debe ser validado por un abogado antes de publicarse como oficial. Faltan la razón social y el NIT reales y el correo de contacto.",
     "secciones": [
       {
         "titulo": "Responsable",
-        "texto": "Aquí irán la razón social, el NIT, la dirección y el contacto del responsable."
+        "texto": "Aira, The Pilates House. Razón social y NIT: [por confirmar con el cliente]. Dirección: Mall Le Mont, Sótano 2, oficina 9855, Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado, Antioquia. WhatsApp: +57 312 741 0343. Instagram: @aira_thepilateshouse. Correo: [por confirmar]."
       },
       {
         "titulo": "Datos que se recogen",
-        "texto": "Aquí se detallarán los datos que se piden en el formulario de contacto y en la reserva."
+        "texto": "En el formulario de contacto puedes escribir tu nombre, teléfono, correo (opcional), el motivo de tu consulta y un mensaje (opcional). Este sitio no guarda esos datos: con ellos arma un mensaje de WhatsApp en tu dispositivo, que tú decides enviar. Al reservar o comprar en la app de Aira (aira.kalmiapp.com), los datos que entregues los recibe esa plataforma, que tiene sus propias políticas. No te pedimos datos de salud en el sitio."
       },
       {
         "titulo": "Para qué se usan",
-        "texto": "Aquí irán las finalidades del tratamiento."
+        "texto": "Responder tus consultas y mensajes; agendar tu clase de prueba y orientarte sobre clases, planes, horarios y gift cards; darte información sobre eventos y celebraciones en el estudio; y contactarte por WhatsApp para dar seguimiento a lo que nos pediste."
       },
       {
-        "titulo": "Derechos de las personas",
-        "texto": "Aquí se explicarán los derechos y cómo ejercerlos."
+        "titulo": "Con quién se comparten",
+        "texto": "No vendemos tus datos. Al enviar el mensaje, WhatsApp (Meta) lo procesa según sus propias condiciones. La reserva y la compra de clases se hacen en la app de un tercero, que actúa con sus propias políticas. Este sitio incluye un mapa de Google Maps en el pie de página, que puede recibir datos técnicos de tu navegador, como tu dirección IP."
+      },
+      {
+        "titulo": "Tus derechos",
+        "texto": "Como titular de tus datos puedes conocerlos, actualizarlos y rectificarlos; pedir prueba de la autorización que diste; ser informado del uso que se les ha dado; revocar la autorización y solicitar la supresión de tus datos cuando no se respeten los principios y garantías de la ley; acceder gratuitamente a ellos; y presentar quejas ante la Superintendencia de Industria y Comercio. Cómo ejercerlos está explicado en la política de tratamiento de datos personales."
       },
       {
         "titulo": "Vigencia",
-        "texto": "Aquí irán la fecha y las versiones de la política."
+        "texto": "Borrador del 19 de octubre de 2026. Se publicará con fecha de entrada en vigor y número de versión cuando sea validado."
       }
     ]
   },
@@ -34,30 +38,50 @@
     "_demo": true,
     "meta": {
       "titulo": "Política de tratamiento de datos personales | Aira",
-      "descripcion": "Espacio reservado para la política de tratamiento de datos personales de Aira, The Pilates House, según la ley colombiana. Texto oficial pendiente."
+      "descripcion": "Política de tratamiento de datos personales de Aira, The Pilates House, según la Ley 1581 de 2012 de Colombia. Borrador por validar por un abogado."
     },
     "titulo": "Política de tratamiento de datos personales",
-    "aviso": "Borrador pendiente de revisión legal. Este espacio queda reservado para el texto oficial de Aira.",
+    "aviso": "Borrador: este texto debe ser validado por un abogado antes de publicarse como oficial. Faltan la razón social y el NIT reales y el correo de contacto.",
     "secciones": [
       {
         "titulo": "Responsable del tratamiento",
-        "texto": "Aquí irán la razón social, el NIT y los datos de contacto."
+        "texto": "Aira, The Pilates House. Razón social y NIT: [por confirmar con el cliente]. Dirección: Mall Le Mont, Sótano 2, oficina 9855, Av. Las Palmas #Km 15 990, Vda. El Peñasco, Envigado, Antioquia. WhatsApp: +57 312 741 0343. Instagram: @aira_thepilateshouse. Correo: [por confirmar]."
+      },
+      {
+        "titulo": "Marco legal",
+        "texto": "Esta política se rige por el artículo 15 de la Constitución Política de Colombia, la Ley 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto 1074 de 2015) y las demás normas que los modifiquen o complementen."
+      },
+      {
+        "titulo": "Datos que tratamos",
+        "texto": "Nombre, teléfono, correo electrónico (opcional), motivo de la consulta y el contenido del mensaje que nos envías. No solicitamos datos sensibles, como los de salud. Si decides compartirlos en tu mensaje, son voluntarios y no estás obligado a darlos. Este sitio no está dirigido a menores de edad; si un menor nos escribe, debe hacerlo con autorización de su representante legal."
       },
       {
         "titulo": "Finalidades",
-        "texto": "Aquí se listarán las finalidades autorizadas por el titular."
+        "texto": "Responder tus consultas y mensajes; agendar tu clase de prueba y orientarte sobre clases, planes, horarios y gift cards; darte información sobre eventos y celebraciones en el estudio; y contactarte por WhatsApp para dar seguimiento a lo que nos pediste."
+      },
+      {
+        "titulo": "Autorización",
+        "texto": "Antes de enviar el formulario te pedimos aceptar esta política. Con eso das tu autorización previa, expresa e informada para tratar tus datos con las finalidades descritas. Puedes revocarla en cualquier momento."
       },
       {
         "titulo": "Derechos del titular",
-        "texto": "Aquí se explicarán los derechos del titular según la normativa vigente."
+        "texto": "Como titular de tus datos puedes conocerlos, actualizarlos y rectificarlos; pedir prueba de la autorización que diste; ser informado del uso que se les ha dado; revocar la autorización y solicitar la supresión de tus datos cuando no se respeten los principios y garantías de la ley; acceder gratuitamente a ellos; y presentar quejas ante la Superintendencia de Industria y Comercio."
       },
       {
-        "titulo": "Consultas y reclamos",
-        "texto": "Aquí irán el canal y el procedimiento para consultas y reclamos."
+        "titulo": "Cómo hacer una consulta o un reclamo",
+        "texto": "Escríbenos por WhatsApp al +57 312 741 0343 o al correo [por confirmar], indicando tu nombre, el dato sobre el que preguntas y lo que solicitas. Las consultas se responden en máximo diez días hábiles, prorrogables cinco más. Los reclamos de corrección, actualización o supresión se responden en máximo quince días hábiles, prorrogables ocho más, e informando el motivo de la prórroga."
+      },
+      {
+        "titulo": "Transferencias y encargados",
+        "texto": "Tus datos pueden ser tratados por proveedores que nos prestan servicios, como WhatsApp (Meta) para la mensajería y la plataforma de reservas de la app de Aira. Estos terceros tratan los datos según sus propias políticas, y algunos pueden estar fuera de Colombia."
+      },
+      {
+        "titulo": "Seguridad y conservación",
+        "texto": "Este sitio no almacena los datos que escribes en el formulario. Los mensajes que recibimos por WhatsApp se conservan el tiempo necesario para atender tu solicitud y cumplir obligaciones legales, y luego se eliminan."
       },
       {
         "titulo": "Vigencia",
-        "texto": "Aquí irán la fecha y las versiones."
+        "texto": "Borrador del 19 de octubre de 2026. Se publicará con fecha de entrada en vigor y número de versión cuando sea validado."
       }
     ]
   },
@@ -65,26 +89,34 @@
     "_demo": true,
     "meta": {
       "titulo": "Política de cookies | Aira",
-      "descripcion": "Espacio reservado para la política de cookies de Aira, The Pilates House. Texto oficial pendiente de revisión; hoy el sitio no usa cookies de seguimiento."
+      "descripcion": "Qué cookies y tecnologías similares usa el sitio de Aira, The Pilates House: sin analítica ni publicidad, y un mapa de Google Maps. Borrador por validar."
     },
     "titulo": "Política de cookies",
-    "aviso": "Borrador pendiente de revisión legal. Este espacio queda reservado para el texto oficial de Aira.",
+    "aviso": "Borrador: este texto debe ser validado por un abogado antes de publicarse como oficial. Faltan la razón social y el NIT reales y el correo de contacto.",
     "secciones": [
       {
         "titulo": "Qué son las cookies",
-        "texto": "Aquí irá la explicación general."
+        "texto": "Son pequeños archivos o datos que un sitio guarda en tu navegador para recordar información o medir cómo se usa."
       },
       {
-        "titulo": "Qué usa este sitio",
-        "texto": "Hoy el sitio no usa cookies de seguimiento ni de publicidad. Para recordar que cerraste la ventana de promoción durante tu visita usa el almacenamiento temporal del navegador. Si se agregan analítica o terceros, este texto debe actualizarse."
+        "titulo": "Lo que usa este sitio",
+        "texto": "El sitio no usa cookies de analítica, publicidad ni seguimiento. Para recordar que cerraste la ventana de la clase de prueba durante tu visita, guarda un dato en el almacenamiento de sesión de tu navegador, que se borra al cerrar la pestaña. Las tipografías se sirven desde este mismo sitio."
       },
       {
-        "titulo": "Cómo desactivarlas",
-        "texto": "Aquí se explicará cómo gestionar las cookies desde el navegador."
+        "titulo": "Servicios de terceros",
+        "texto": "En el pie de página se muestra un mapa de Google Maps con la ubicación del estudio. Al cargarlo, Google puede guardar cookies y recibir datos técnicos de tu navegador, según su política de privacidad. Los enlaces a WhatsApp, Instagram y la app de reservas llevan a sitios de terceros con sus propias políticas."
       },
       {
-        "titulo": "Terceros",
-        "texto": "Aquí se listarán los servicios de terceros, si los hay (por ejemplo mapas o analítica)."
+        "titulo": "Cómo controlar las cookies",
+        "texto": "Puedes bloquear o borrar las cookies desde la configuración de tu navegador. Si bloqueas las de Google, el mapa del pie de página podría no mostrarse."
+      },
+      {
+        "titulo": "Cambios",
+        "texto": "Si el sitio agrega analítica, publicidad u otros servicios de terceros, esta política se actualizará y se pedirá tu consentimiento cuando corresponda."
+      },
+      {
+        "titulo": "Vigencia",
+        "texto": "Borrador del 19 de octubre de 2026. Se publicará con fecha de entrada en vigor y número de versión cuando sea validado."
       }
     ]
   }

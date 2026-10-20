@@ -12,7 +12,7 @@ Siguen provisionales (`"_demo": true`; `npm run revisar-demo -- --produccion` fa
 |---|---|---|
 | `sitio.json › empresa` | Razón social "Aira Studio Pilates S.A.S." y NIT `000.000.000-0` | Razón social y NIT reales |
 | `inicio.json › testimonios` | 3 testimonios con nombre de pila ficticio | Testimonios reales con permiso, o quitar la sección |
-| `legales.json` | Esqueleto de privacidad, tratamiento de datos y cookies | Texto oficial revisado |
+| `legales.json` | Borrador completo de privacidad, tratamiento de datos (Ley 1581 de 2012) y cookies, con aviso visible "debe ser validado por un abogado" | Validación legal, razón social, NIT y correo reales donde dice "[por confirmar]"; luego quitar `_demo` y el aviso |
 
 Sin correo público (se quitó el inventado). Sin inventar nunca: cifras de resultados, premios, nombres
 de profesores ni promesas de salud.
