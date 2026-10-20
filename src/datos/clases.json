@@ -13,15 +13,15 @@
       {
         "titulo": "Cumpleaños",
         "texto": "Un plan distinto para celebrar: movimiento, compañía y calma.",
-        "imagen": "estudio-sala",
-        "alt": "Sala principal con reformers alineados bajo una línea de luz cálida",
+        "imagen": "celebra-globos",
+        "alt": "Sala de reformers de Aira decorada con globos blancos para una celebración",
         "mensaje": "Hola Aira, quiero información para celebrar un cumpleaños."
       },
       {
         "titulo": "Despedidas de soltera",
         "texto": "Una despedida diferente, para compartir con tus personas más cercanas.",
-        "imagen": "estudio-cortinas",
-        "alt": "Hilera de reformers frente a cortinas translúcidas, con plantas a los lados",
+        "imagen": "celebra-despedida",
+        "alt": "Cinco amigas con ropa deportiva rosa y crema posan en la recepción de Aira durante una despedida de soltera",
         "mensaje": "Hola Aira, quiero información para una despedida de soltera."
       },
       {
@@ -34,9 +34,38 @@
       {
         "titulo": "Eventos empresariales",
         "texto": "Bienestar para tu equipo, en un espacio pensado para desconectarse.",
-        "imagen": "estudio-nichos",
-        "alt": "Nichos en arco iluminados junto a la recepción",
+        "imagen": "celebra-empresarial",
+        "alt": "Grupo reunido en la sala de reformers de Aira durante un encuentro de bienvenida",
         "mensaje": "Hola Aira, quiero información para un evento empresarial."
+      }
+    ]
+  },
+  "momentos": {
+    "titulo": "Momentos en Aira",
+    "items": [
+      {
+        "imagen": "momento-grupo",
+        "alt": "Grupo de amigas sentadas sobre un reformer con una torta, en una despedida de soltera"
+      },
+      {
+        "imagen": "momento-brindis",
+        "alt": "Mesa de brindis con copas, botellas y un cartel de bachelorette party junto a las pelotas de pilates"
+      },
+      {
+        "imagen": "momento-torta",
+        "alt": "Torta blanca con la frase Almost Married escrita en rojo"
+      },
+      {
+        "imagen": "momento-cartel",
+        "alt": "Cartel de bachelorette party con una botella de rosado y una torta sobre un pedestal blanco"
+      },
+      {
+        "imagen": "momento-flor",
+        "alt": "Una mano sostiene un clavel rosado envuelto en papel, detalle del Día de la mujer"
+      },
+      {
+        "imagen": "momento-regalo",
+        "alt": "Toalla con el logo de Aira y un clavel envuelto, detalle de regalo del Día de la mujer"
       }
     ]
   }

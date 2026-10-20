@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "test": "node --test tests/*.test.mjs",
     "assets": "node scripts/preparar-assets.mjs",
+    "assets:drive": "node scripts/preparar-fotos-drive.mjs",
     "revisar-demo": "node scripts/revisar-demo.mjs"
   },
   "dependencies": {

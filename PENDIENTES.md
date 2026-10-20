@@ -26,13 +26,17 @@ de profesores ni promesas de salud.
 - [ ] Las "reglas" de las historias de Instagram (cancelar con 12 h, vigencia, silencio, etc.) podrían ir
       en una sección o en las FAQ si el cliente quiere.
 
-## 3. Imágenes por reemplazar
-- [ ] **Eventos** (cumpleaños, despedidas, grados, empresariales): hoy usan fotos del estudio.
-      Conviene fotos propias de cada tipo de evento.
-- [ ] **Zonas verdes:** no hay una foto dedicada; se usa la de la sala con plantas
-      (`estudio-cortinas`). Pedir una foto de las zonas verdes.
-- [ ] Las 6 fotos del estudio son las únicas disponibles. `Marzo-7 (4)` es duplicado exacto de
-      `Marzo-7 (3)`.
+## 3. Imágenes
+Fotos nuevas (19/10/2026) del Drive del cliente, en `public/img/` (script `npm run assets:drive -- <carpeta>`,
+config en `scripts/assets-config.mjs › FOTOS_DRIVE`): celebraciones (globos, despedida, empresarial),
+galería "Momentos en Aira" (despedidas y Día de la mujer) y tres fotos del estudio (zonas verdes,
+casilleros, arco de luz). Los JPG originales no se guardan en el repo.
+- [ ] **Grados:** sin foto propia; usa la recepción. Pedir foto de un grado.
+- [ ] **Cumpleaños:** usa la sala con globos; pedir foto de un cumpleaños.
+- [ ] **Eventos empresariales:** usa la foto de la inauguración; confirmar que sirve.
+- [ ] Las fotos muestran personas reconocibles (despedidas, inauguración): confirmar con el cliente que
+      tiene su permiso para publicarlas.
+- [ ] Quedan más fotos en el Drive (Inauguración 50, Despedida 2 37, Despedida de soltera 36, Febrero, Mayo).
 
 ## 4. Para publicar
 - [ ] Reemplazar los datos de la sección 1 y correr `npm run revisar-demo -- --produccion`.

@@ -3,12 +3,22 @@ import assert from "node:assert/strict";
 import sharp from "sharp";
 import { stat, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { FOTOS, ANCHOS, LOGOS, COLORES } from "../scripts/assets-config.mjs";
+import { FOTOS, FOTOS_DRIVE, ANCHOS, LOGOS, COLORES } from "../scripts/assets-config.mjs";
 
 const pub = fileURLToPath(new URL("../public/", import.meta.url));
 
 for (const nombre of Object.keys(FOTOS)) {
   test(`foto ${nombre}: cuatro anchos, proporción 3:4`, async () => {
+    for (const w of ANCHOS) {
+      const m = await sharp(`${pub}img/${nombre}-${w}.webp`).metadata();
+      assert.equal(m.width, w);
+      assert.ok(Math.abs(m.width / m.height - 0.75) < 0.01, `${nombre}-${w} no es 3:4`);
+    }
+  });
+}
+
+for (const nombre of Object.keys(FOTOS_DRIVE)) {
+  test(`foto del Drive ${nombre}: cuatro anchos, proporción 3:4`, async () => {
     for (const w of ANCHOS) {
       const m = await sharp(`${pub}img/${nombre}-${w}.webp`).metadata();
       assert.equal(m.width, w);

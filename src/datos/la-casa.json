@@ -28,8 +28,8 @@
       },
       {
         "nombre": "Zonas verdes",
-        "imagen": "estudio-cortinas",
-        "alt": "Hilera de reformers frente a cortinas translúcidas, con plantas a los lados"
+        "imagen": "estudio-zonas-verdes",
+        "alt": "Clase al aire libre sobre el césped, con tapetes blancos y el bosque al fondo"
       },
       {
         "nombre": "Nichos",
@@ -40,6 +40,21 @@
         "nombre": "Pelotas",
         "imagen": "estudio-pelotas",
         "alt": "Esferas de pilates color crema apiladas junto a un reformer"
+      },
+      {
+        "nombre": "Sala con cortinas",
+        "imagen": "estudio-cortinas",
+        "alt": "Hilera de reformers frente a cortinas translúcidas, con plantas a los lados"
+      },
+      {
+        "nombre": "Casilleros",
+        "imagen": "estudio-lockers",
+        "alt": "Casilleros y repisas en madera clara con toallas dobladas"
+      },
+      {
+        "nombre": "Arco de luz",
+        "imagen": "estudio-reformers-logo",
+        "alt": "Reformer bajo un arco de luz con el logo de Aira dentro de un círculo iluminado"
       }
     ]
   }

@@ -21,3 +21,20 @@ export const LOGOS = {
 };
 export const COLORES = { espresso: [96, 85, 74], marfil: [246, 245, 227] };
 export const MOCKUP_VIP = { archivo: "ENTREGABLES AIRA/MOCKUPS/aira vip card.png", anchos: [800, 1400] };
+
+/** Fotos del Drive del cliente (Despedidas, Día de la mujer, Inauguración), para Experiencias y El estudio.
+ *  nombre de salida → { archivo en la carpeta de descarga, posición del recorte 3:4 }. */
+export const FOTOS_DRIVE = {
+  "celebra-globos": { archivo: "soltera-09.jpg", pos: "centre" },
+  "celebra-despedida": { archivo: "soltera-01.jpg", pos: "centre" },
+  "celebra-empresarial": { archivo: "inaug-29.jpg", pos: "centre" },
+  "momento-grupo": { archivo: "soltera-12.jpg", pos: "centre" },
+  "momento-brindis": { archivo: "soltera-05.jpg", pos: "centre" },
+  "momento-torta": { archivo: "despedida2-07.jpg", pos: "centre" },
+  "momento-cartel": { archivo: "despedida2-05.jpg", pos: "centre" },
+  "momento-flor": { archivo: "mujer-03.jpg", pos: "centre" },
+  "momento-regalo": { archivo: "mujer-05.jpg", pos: "centre" },
+  "estudio-zonas-verdes": { archivo: "inaug-36.jpg", pos: "centre" },
+  "estudio-lockers": { archivo: "inaug-23.jpg", pos: "centre" },
+  "estudio-reformers-logo": { archivo: "inaug-19.jpg", pos: "centre" },
+};
